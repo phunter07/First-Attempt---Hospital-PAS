@@ -91,6 +91,59 @@ public class SMSAlerts implements IAlert {
 		return managerPhoneNumber;
 
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getFirstDoctorOnCall(){
+		return firstDoctorOnCall;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getSecondDoctorOnCall(){
+		return secondDoctorOnCall;
+		
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getFirstNurseOnCall(){
+		return firstNurseOnCall;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getSecondNurseOnCall(){
+		return secondNurseOnCall;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getThirdNurseOnCall(){
+		return thirdNurseOnCall;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getManagerPhoneNumber(){
+		return managerPhoneNumber;
+	}
+	
+	
+	
+	
 
 	/**
 	 * method to set the telephone number to send the Alert to the first on call
@@ -99,7 +152,7 @@ public class SMSAlerts implements IAlert {
 	 * @param firstDoctorOnCall
 	 * @return
 	 */
-	public String setFirstDoctorOnCallPhoneNumber() {
+	public void setFirstDoctorOnCallPhoneNumber(String firstDoctorOnCall) {
 		String url = DatabaseENums.DATABASEURL.getDatabase();
 		Connection con;
 		Statement stmt;
@@ -135,7 +188,7 @@ public class SMSAlerts implements IAlert {
 			}
 
 		}
-		return firstDoctorOnCall;
+		
 	}
 
 	/**
@@ -144,7 +197,7 @@ public class SMSAlerts implements IAlert {
 	 * 
 	 * @return
 	 */
-	public String setSecondDoctorOnCallPhoneNumber() {
+	public void setSecondDoctorOnCallPhoneNumber(String secondDoctorOnCall) {
 		String url = DatabaseENums.DATABASEURL.getDatabase();
 		Connection con;
 		Statement stmt;
@@ -180,7 +233,7 @@ public class SMSAlerts implements IAlert {
 			}
 
 		}
-		return secondDoctorOnCall;
+		
 	}
 
 	/**
@@ -189,7 +242,7 @@ public class SMSAlerts implements IAlert {
 	 * 
 	 * @return
 	 */
-	public String setFirstNurseOnCallPhoneNumber() {
+	public void setFirstNurseOnCallPhoneNumber(String firstNurseOnCall) {
 		String url = DatabaseENums.DATABASEURL.getDatabase();
 		Connection con;
 		Statement stmt;
@@ -225,7 +278,7 @@ public class SMSAlerts implements IAlert {
 			}
 
 		}
-		return firstNurseOnCall;
+	
 	}
 
 	/**
@@ -234,7 +287,7 @@ public class SMSAlerts implements IAlert {
 	 * 
 	 * @return
 	 */
-	public String setSecondNurseOnCallPhoneNumber() {
+	public void setSecondNurseOnCallPhoneNumber(String secondNurseOnCall) {
 		String url = DatabaseENums.DATABASEURL.getDatabase();
 		Connection con;
 		Statement stmt;
@@ -270,7 +323,7 @@ public class SMSAlerts implements IAlert {
 			}
 
 		}
-		return secondNurseOnCall;
+		
 	}
 
 	/**
@@ -279,7 +332,7 @@ public class SMSAlerts implements IAlert {
 	 * 
 	 * @return
 	 */
-	public String setThirdNurseOnCallPhoneNumber() {
+	public void setThirdNurseOnCallPhoneNumber(String thirdNurseOnCall) {
 		String url = DatabaseENums.DATABASEURL.getDatabase();
 		Connection con;
 		Statement stmt;
@@ -315,7 +368,7 @@ public class SMSAlerts implements IAlert {
 			}
 
 		}
-		return thirdNurseOnCall;
+
 	}
 
 	/**
@@ -372,11 +425,11 @@ public class SMSAlerts implements IAlert {
 		String hash = "&hash=" + AlertsENums.SMSHASHKEY.getAlert();
 		String message = "&message=" + AlertsENums.SMSALERTONCALLTEAM;
 		String sender = "&sender=" + AlertsENums.SMS_SENDER.getAlert();
-		String number1 = "&numbers=" + firstDoctorOnCall;
-		String number2 = "&numbers=" + secondDoctorOnCall;
-		String number3 = "&numbers=" + firstNurseOnCall;
-		String number4 = "&numbers=" + secondNurseOnCall;
-		String number5 = "&numbers=" + thirdNurseOnCall;
+		String number1 = "&numbers=" + getFirstDoctorOnCall();
+		String number2 = "&numbers=" + getSecondDoctorOnCall();
+		String number3 = "&numbers=" + getFirstNurseOnCall();
+		String number4 = "&numbers=" + getSecondNurseOnCall();
+		String number5 = "&numbers=" + getThirdNurseOnCall();
 
 		// calling the method to send the data to all 5 on call staff
 		sendData(user, hash, message, sender, number1);
@@ -398,7 +451,7 @@ public class SMSAlerts implements IAlert {
 		String message = "&message="
 				+ AlertsENums.ALERTMANAGERONCALLFULLYENGAGED;
 		String sender = "&sender=" + AlertsENums.SMSSENDER.getAlert();
-		String number = "&numbers=" + managerPhoneNumber;
+		String number = "&numbers=" + getManagerPhoneNumber();
 
 		// calling the method to send the data
 		sendData(user, hash, message, sender, number);
@@ -416,7 +469,7 @@ public class SMSAlerts implements IAlert {
 		String hash = "&hash=" + AlertsENums.SMSHASHKEY.getAlert();
 		String message = "&message=" + AlertsENums.ALERTMANAGERWAITINGTIME;
 		String sender = "&sender=" + AlertsENums.SMSSENDER.getAlert();
-		String number = "&numbers=" + managerPhoneNumber;
+		String number = "&numbers=" + getManagerPhoneNumber();
 
 		// calling the method to send the data
 		sendData(user, hash, message, sender, number);
