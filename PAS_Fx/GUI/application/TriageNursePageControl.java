@@ -8,8 +8,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.application.Platform;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +24,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -30,7 +31,22 @@ import javafx.util.Callback;
 
 public class TriageNursePageControl implements Initializable {
 
+	/**
+	 * 
+	 */
 	
+	private SortPatientQueue sortPatientQueue;
+	
+	/**
+	 * 
+	 */
+	private Patient patient;
+	
+	/**
+	 * 
+	 */
+	
+	private TreatmentRoom treatmentRooms;
 	@FXML
 	private MenuItem setTriage;
 
@@ -189,7 +205,19 @@ public class TriageNursePageControl implements Initializable {
 							@Override
 							public void run() {
 								refresh();
-
+								try {
+									sortPatientQueue.thirtyMinuteManagerAlert(GUIMain.patientQueue, patient);
+									sortPatientQueue.movePatientToTopOfQueue(GUIMain.patientQueue, patient);
+									sortPatientQueue.calculateQueueSize(GUIMain.patientQueue, patient);
+									sortPatientQueue.sendToNearestHospital(GUIMain.patientQueue, patient);
+									
+								} catch (AddressException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								} catch (MessagingException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 							}
 						});
 

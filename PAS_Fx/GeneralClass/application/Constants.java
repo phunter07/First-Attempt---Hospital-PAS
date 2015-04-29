@@ -37,7 +37,7 @@ public class Constants {
 	 * Constant to determine the number of minutes a patient has been waiting in
 	 * the queue before they have to be moved to the front
 	 */
-	public static final int MOVE_TO_FRONT_MINUTES = 25;
+	public static final int MOVE_TO_FRONT_MINUTES = 5;
 
 	
 
@@ -45,7 +45,7 @@ public class Constants {
 	 * Constant to set the upper limit of the waiting time in the queue in
 	 * minutes
 	 */
-	public static final int UPPERMINUTES_QUEUE_LIMIT = 30;
+	public static final int UPPERMINUTES_QUEUE_LIMIT = 10;
 
 	/**
 	 * Constant to set the subject of the email to be sent to the hospital
