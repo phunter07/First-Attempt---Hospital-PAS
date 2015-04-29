@@ -93,7 +93,7 @@ public class SMSAlerts implements IAlert {
 	}
 	
 	/**
-	 * method to get the first doctor on call
+	 * 
 	 */
 	public String getFirstDoctorOnCall(){
 		return firstDoctorOnCall;
