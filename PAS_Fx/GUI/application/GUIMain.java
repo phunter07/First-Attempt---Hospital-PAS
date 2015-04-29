@@ -98,7 +98,7 @@ public class GUIMain extends Application {
 						try {
 							writeToFile.writeQueueToFile(GUIMain.patientQueue);
 						} catch (FileNotFoundException e) {
-							// TODO Auto-generated catch block
+							
 							e.printStackTrace();
 						}
 						// refresh();

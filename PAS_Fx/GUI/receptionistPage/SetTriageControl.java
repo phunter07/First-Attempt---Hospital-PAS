@@ -123,6 +123,7 @@ public class SetTriageControl implements Initializable {
 								GUIMain.patientQueue, patient,
 								GUIMain.treatmentRoomList)) {
 							warning.setText(ExceptionsEnums.QUEUELIMITEXCEEDED.getException());
+							System.out.println("Sending messages");
 							smsAlert.sendSMSToOnCallTeam();
 							System.out.println("Alert Message Sent");
 						}
