@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,12 +21,12 @@ public class SortPatientQueue {
 	/**
 	 * creating an instance of Manager Email alerts
 	 */
-	private ManagerEmailAlert managerEmailAlert;
+	private ManagerEmailAlert managerEmailAlert = new ManagerEmailAlert();
 
 	/**
 	 * creating an instance of the SMSAlerts Class to be called
 	 */
-	private SMSAlerts smsAlerts;
+	private SMSAlerts smsAlerts=new SMSAlerts();
 
 	/**
 	 * boolean to state if the on call team are engaged in situ
@@ -48,35 +50,9 @@ public class SortPatientQueue {
 	 * method to allow a patient who has been waiting 25 minutes to be moved to
 	 * top of queue
 	 */
-	public void movePatientToTopOfQueue(LinkedList<Patient> patientQueue,
-			Patient patient) {
+	public void movePatientToTopOfQueue(LinkedList<Patient> patientQueue) {
 
-		// initialising long to get the patient time in the queue
-		long patientTimeInQueue = 0;
-
-		// long to calculate the current date and time
-		long currentTime = new Date().getTime();
-
-		// long for the difference between the current date and time and the
-		// time the patient joined the queue
-		long minutes = 0;
-
-		for (int loop = 0; loop < patientQueue.size(); loop++) {
-			patientTimeInQueue = patientQueue.get(loop)
-					.getTimePatientJoinsQueue().getTime();
-			minutes = TimeUnit.MILLISECONDS.toMinutes(currentTime
-					- patientTimeInQueue);
-			if (minutes <= Constants.MOVE_TO_FRONT_MINUTES
-					* Constants.MULTIPLY_MINUTES_TO_SECONDS) {
-				patientQueue.sort(new SortPatientComparator());
-
-			} else {
-				patient = patientQueue.get(loop);
-				patientQueue.remove(loop);
-				patientQueue.addFirst(patient);
-			}
-
-		}
+		Collections.sort(patientQueue, new SortComparator());
 	}
 
 	/**
@@ -86,8 +62,7 @@ public class SortPatientQueue {
 	 * @throws MessagingException
 	 * @throws AddressException
 	 */
-	public void thirtyMinuteManagerAlert(LinkedList<Patient> patientQueue,
-			Patient patient) throws AddressException, MessagingException {
+	public void thirtyMinuteManagerAlert(LinkedList<Patient> patientQueue) throws AddressException, MessagingException {
 
 		// initialising long to get the patient time in the queue
 		long patientTimeInQueue = 0;
@@ -127,8 +102,8 @@ public class SortPatientQueue {
 	 * SMS to the onCall team should the queue capacity reach 10
 	 */
 
-	public boolean calculateQueueSize(LinkedList<Patient> patientQueue,
-			Patient patient) {
+	public boolean calculateQueueSize(LinkedList<Patient> patientQueue
+			) {
 
 		if (patientQueue.size() >= Constants.PATIENT_LIMIT_IN_QUEUE) {
 			// if the queue is >= 10 then calling method to send non-emergency
@@ -328,6 +303,32 @@ public class SortPatientQueue {
 			}
 		}
 		return null;
+	}
+
+	public class SortComparator implements Comparator<Patient> {
+
+		@Override
+		public int compare(Patient p1, Patient p2) {
+			if (p1.getWaitingTime() <= Constants.MOVE_TO_FRONT_MINUTES
+					* Constants.MULTIPLY_MINUTES_TO_SECONDS * 1000
+					&& p2.getWaitingTime() <= Constants.MOVE_TO_FRONT_MINUTES
+							* Constants.MULTIPLY_MINUTES_TO_SECONDS * 1000) {
+				if (Integer.compare(p1.getTriage(), p2.getTriage()) == 0) {
+					return p1.getTimePatientJoinsQueue().compareTo(
+							p2.getTimePatientJoinsQueue());
+				} else {
+					return Integer.compare(p1.getTriage(), p2.getTriage());
+				}
+			} else {
+				if (p1.getTimePatientJoinsQueue().compareTo(
+						p2.getTimePatientJoinsQueue()) == 0) {
+					return Integer.compare(p1.getTriage(), p2.getTriage());
+				} else {
+					return p1.getTimePatientJoinsQueue().compareTo(
+							p2.getTimePatientJoinsQueue());
+				}
+			}
+		}
 	}
 
 }
