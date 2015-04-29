@@ -21,15 +21,15 @@ public class SortPatientQueue {
 	/**
 	 * creating an instance of Manager Email alerts
 	 */
-	private ManagerEmailAlert managerEmailAlert;
+	private ManagerEmailAlert managerEmailAlert = new ManagerEmailAlert();
 
 	/**
 	 * creating an instance of the SMSAlerts Class to be called
 	 */
-	private SMSAlerts smsAlerts;
+	private SMSAlerts smsAlerts=new SMSAlerts();
 
 	/**
-	 * boolean to state if the on call team are engeged in situ
+	 * boolean to state if the on call team are engaged in situ
 	 */
 	public boolean OnCallEngaged = false;
 
@@ -104,13 +104,13 @@ public class SortPatientQueue {
 	 * SMS to the onCall team should the queue capacity reach 10
 	 */
 
-	public boolean calculateQueueSize(LinkedList<Patient> patientQueue,
-			Patient patient) {
+	public boolean calculateQueueSize(LinkedList<Patient> patientQueue
+			) {
 
 		if (patientQueue.size() >= Constants.PATIENT_LIMIT_IN_QUEUE) {
 			// if the queue is >= 10 then calling method to send non-emergency
 			// patients to the nearest hospital
-			sendToNearestHospital(patientQueue, patient);
+			//sendToNearestHospital(patientQueue, patient);
 			// if the queue is >= 10 calling method to send SMS to OnCall team
 			smsAlerts.sendSMSToOnCallTeam();
 			return true;

@@ -31,11 +31,7 @@ import javafx.util.Callback;
 
 public class TriageNursePageControl implements Initializable {
 
-	/**
-	 * 
-	 */
 
-	private SortPatientQueue sortPatientQueue;
 
 	/**
 	 * 
@@ -46,7 +42,6 @@ public class TriageNursePageControl implements Initializable {
 	 * 
 	 */
 
-	private TreatmentRoom treatmentRooms;
 	@FXML
 	private MenuItem setTriage;
 
@@ -216,12 +211,11 @@ public class TriageNursePageControl implements Initializable {
 														patient);
 										GUIMain.sortPatientQueue
 												.calculateQueueSize(
-														GUIMain.patientQueue,
-														patient);
-										GUIMain.sortPatientQueue
-												.sendToNearestHospital(
-														GUIMain.patientQueue,
-														patient);
+														GUIMain.patientQueue);
+										//GUIMain.sortPatientQueue
+												//.sendToNearestHospital(
+													//	GUIMain.patientQueue,
+														//patient);
 
 									} catch (AddressException e) {
 										// TODO Auto-generated catch block

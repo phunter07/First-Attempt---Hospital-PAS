@@ -25,7 +25,7 @@ public class Constants {
 	/**
 	 * Constant to control the upper limit of the patient queue
 	 */
-	public static final int PATIENT_LIMIT_IN_QUEUE = 10;
+	public static final int PATIENT_LIMIT_IN_QUEUE = 4;
 
 	/**
 	 * Constant in order to allow the patient waiting time to be converted to

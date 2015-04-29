@@ -31,10 +31,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class ReceptionistPageControl implements Initializable {
-	private final static long REFRESHTIME = 1000;
-	private TreatmentRoom treatmentRoom;
-	private Receptionist receptionist = new Receptionist();
-	private int count = 1;
+	
 
 	@FXML
 	private MenuItem alterTriage;
@@ -94,7 +91,7 @@ public class ReceptionistPageControl implements Initializable {
 	private TableView<Patient> patientTable;
 
 	@FXML
-	private TableColumn<Patient, Triage> triage_nextPatient;
+	private TableColumn<Patient, Integer> triage_nextPatient;
 
 	@FXML
 	private TableColumn<Patient, String> allergies_nextPatient;
@@ -269,7 +266,7 @@ public class ReceptionistPageControl implements Initializable {
 			public void run() {
 				while (true) {
 					try {
-						Thread.sleep(REFRESHTIME);
+						Thread.sleep(Constants.REFRESHTIME);
 						Platform.runLater(new Runnable() {
 
 							@Override
@@ -335,22 +332,28 @@ public class ReceptionistPageControl implements Initializable {
 					.setCellValueFactory(new PropertyValueFactory<Patient, String>(
 							"lastName"));
 			triage_nextPatient
-					.setCellValueFactory(new PropertyValueFactory<Patient, Triage>(
+					.setCellValueFactory(new PropertyValueFactory<Patient, Integer>(
 							"triage"));
 			triage_nextPatient
-					.setCellFactory(new Callback<TableColumn<Patient, Triage>, TableCell<Patient, Triage>>() {
+					.setCellFactory(new Callback<TableColumn<Patient, Integer>, TableCell<Patient, Integer>>() {
 
 						@Override
-						public TableCell<Patient, Triage> call(
-								TableColumn<Patient, Triage> param) {
+						public TableCell<Patient, Integer> call(
+								TableColumn<Patient, Integer> param) {
 
-							return new TableCell<Patient, Triage>() {
+							return new TableCell<Patient, Integer>() {
 								@Override
-								protected void updateItem(Triage item,
+								protected void updateItem(Integer item,
 										boolean empty) {
 									super.updateItem(item, empty);
 									if (item != null) {
-										setText(item.getTriage());
+										for (int loop = 0; loop < Triage.values().length; loop++) {
+											if (item == Triage.values()[loop]
+													.getLevel()) {
+												setText(Triage.values()[loop]
+														.getTriage());
+											}
+										}
 									}
 								}
 							};
