@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -78,7 +77,7 @@ public class HospitalManagerPageControl implements Initializable {
 			public void run() {
 				while (true) {
 					try {
-						Thread.sleep(REFRESHTIME);
+						Thread.sleep(Constants.REFRESHTIME);
 						Platform.runLater(new Runnable() {
 
 							@Override
