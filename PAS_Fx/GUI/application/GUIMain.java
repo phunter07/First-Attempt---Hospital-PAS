@@ -147,8 +147,8 @@ public class GUIMain extends Application {
 
 	}
 
-	private static List<Staff> getAllStaff() {
-		List<Staff> allStaff = new ArrayList<Staff>();
+	public static ArrayList<Staff> getAllStaff() {
+		ArrayList<Staff> allStaff=new ArrayList<Staff>();
 		String url = "jdbc:mysql://web2.eeecs.qub.ac.uk/40108307";
 		Connection con;
 		Statement stmt; // loading driver
@@ -164,9 +164,10 @@ public class GUIMain extends Application {
 			// create a statement object
 			stmt = con.createStatement();
 			// supply the statement object with a string to execute
-			Staff staff = new Staff();
+			
 			ResultSet rs = stmt.executeQuery("select * from STAFF");
 			while (rs.next()) {
+				Staff staff = new Staff();
 				staff.setStaffID(Integer.parseInt(rs.getString("STAFF_ID")));
 				staff.setTitle(rs.getString("TITLE"));
 				staff.setFirstName(rs.getString("FIRST_NAME"));
@@ -176,6 +177,7 @@ public class GUIMain extends Application {
 				staff.setTeam(rs.getString("STAFF_TEAM"));
 				staff.setEmail(rs.getString("EMAIL_ADDRESS"));
 				staff.setTelephone(rs.getString("TELEPHONE"));
+
 				allStaff.add(staff);
 			}
 			// close statement object
@@ -185,6 +187,7 @@ public class GUIMain extends Application {
 		} catch (SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
+		
 		return allStaff;
 	}
 
