@@ -1,0 +1,40 @@
+package application;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.Date;
+import java.util.LinkedList;
+
+public class WriteToFile {
+
+	
+	public WriteToFile(){
+		
+	}
+	
+	
+/**
+ * method to write queue to file and time-stamp the queue each time it is written to file	
+ * @param patientQueue
+ * @throws FileNotFoundException
+ */
+	public void writeQueueToFile(LinkedList<Patient> patientQueue) throws FileNotFoundException{
+		//try catch incase file not found or cannot be created
+		try {
+		// new FileOutputStream and ObjectOutputStream to create/update file and write queue to file
+		FileOutputStream fileOutputStream = new FileOutputStream("QueueStatus.txt", false);
+		ObjectOutputStream oos = new ObjectOutputStream(fileOutputStream);
+		//writing new date to file
+			oos.writeObject(new Date());
+			//writing patient queue to file
+			oos.writeObject(patientQueue);
+			//closing the object output stream
+			oos.close();
+			//catch block printing exception message
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
