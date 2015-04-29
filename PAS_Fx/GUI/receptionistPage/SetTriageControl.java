@@ -122,7 +122,7 @@ public class SetTriageControl implements Initializable {
 						if (GUIMain.sortPatientQueue.redirectEmergencyPatient(
 								GUIMain.patientQueue, patient,
 								GUIMain.treatmentRoomList)) {
-							warning.setText(ExceptionsEnums.QUEUELIMITEXCEEDED.getException());
+							warning.setText("Emergency patient is moved to the treatment room");
 							System.out.println("Sending messages");
 							smsAlert.sendSMSToOnCallTeam();
 							System.out.println("Alert Message Sent");

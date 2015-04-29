@@ -321,15 +321,19 @@ public class SortPatientQueue {
 		// alert on call team
 		if (!pushEmergencyPatientIntoTreatmentRoom(patientQueue, patient,
 				treatmentRooms)) {
-			smsAlerts.sendSMSToOnCallTeam();
+			
 			if (OnCallEngaged) {
 				throw new HospitalPASException(
 						"OnCallTeam is engaged,the emergency patient is redirected to another hospital");
+			}else{
+				OnCallEngaged=true;
+				smsAlerts.sendSMSToOnCallTeam();
+				throw new HospitalPASException(
+						"the emergency patient is sent to on call team");
 			}
 			// maybe
 			// InSitu.controlInSitu(patientQueue, patient);
-			throw new HospitalPASException(
-					"the emergency patient is sent to on call team");
+			
 		}
 		return true;
 	}
