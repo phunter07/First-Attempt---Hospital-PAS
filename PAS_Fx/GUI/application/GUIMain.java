@@ -12,27 +12,30 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class GUIMain extends Application{
+public class GUIMain extends Application {
 
-	private TreatmentRoom treatmentRoom ;
+	private TreatmentRoom treatmentRoom;
 
 	/**
 	 * all treatment room in PAS,it is global variable
 	 */
-	public static ArrayList<TreatmentRoom> treatmentRoomList ;
+	public static ArrayList<TreatmentRoom> treatmentRoomList;
 
 	/**
 	 * all patient in PAS,it is global variable
 	 */
-	public static LinkedList<Patient> allPatientList ;
+	public static LinkedList<Patient> allPatientList;
 
-	public static LinkedList<Patient> patientQueue ;
+	public static LinkedList<Patient> patientQueue;
 
 	public static WriteToFile writeToFile;
 
@@ -41,7 +44,7 @@ public class GUIMain extends Application{
 	public static CalculateQueueStatus calculateQueueStatus;
 
 	public static int status;
-	
+
 	public static Patient nextPatient;
 
 	public static void main(String[] args) {
@@ -83,23 +86,34 @@ public class GUIMain extends Application{
 
 				int i = 0;
 
-					try {
-						while(true){
-						Thread.sleep(5000);
-						nextPatient=patientQueue.peek();
+				try {
+					while (true) {
+						Thread.sleep(1000);
+						nextPatient = patientQueue.peek();
 						sortPatientQueue.allocatePatientToTreatmentRoom(
-								patientQueue, patientQueue.peek(), treatmentRoomList);
+								patientQueue, patientQueue.peek(),
+								treatmentRoomList);
+						sortPatientQueue.thirtyMinuteManagerAlert(
+								patientQueue);
+						sortPatientQueue.movePatientToTopOfQueue(
+								patientQueue);
+						sortPatientQueue
+								.calculateQueueSize(GUIMain.patientQueue);
 						// refresh();
 						// updateTreatmentRoomsStatus(patient);
 						// sortPatientQueue.movePatientToTopOfQueue(patientQueue,
 						// patient);
-						}
-					} catch (InterruptedException e) {
-						e.printStackTrace();
 					}
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} catch (AddressException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (MessagingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-
-			
+			}
 
 		};
 
@@ -123,12 +137,12 @@ public class GUIMain extends Application{
 	 * method to initialise variables
 	 */
 	public void initialise() {
-		patientQueue=new LinkedList<Patient>();
+		patientQueue = new LinkedList<Patient>();
 		allPatientList = new LinkedList<Patient>();
 		treatmentRoomList = new ArrayList<TreatmentRoom>();
-		status=1;
-		nextPatient=new Patient();
-		for(int loop=0;loop<Constants.NUMBERS_OF_ROOM;loop++){
+		status = 1;
+		nextPatient = new Patient();
+		for (int loop = 0; loop < Constants.NUMBERS_OF_ROOM; loop++) {
 			treatmentRoomList.add(new TreatmentRoom());
 		}
 		sortPatientQueue = new SortPatientQueue();

@@ -2,14 +2,11 @@ package application;
 
 /**
  * the class represents the triageNursePageControl
- * @author Jiang Zhe Heng
+ * @author 
  */
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -30,13 +27,6 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class TriageNursePageControl implements Initializable {
-
-
-
-	/**
-	 * 
-	 */
-	private Patient patient;
 
 	/**
 	 * 
@@ -183,7 +173,7 @@ public class TriageNursePageControl implements Initializable {
 	 * initialize this page and create a new thread to refresh this page every
 	 * second
 	 * 
-	 * @author Jiang Zhe Heng
+	 * @author
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -200,30 +190,7 @@ public class TriageNursePageControl implements Initializable {
 								@Override
 								public void run() {
 									refresh();
-									try {
-										GUIMain.sortPatientQueue
-												.thirtyMinuteManagerAlert(
-														GUIMain.patientQueue,
-														patient);
-										GUIMain.sortPatientQueue
-												.movePatientToTopOfQueue(
-														GUIMain.patientQueue,
-														patient);
-										GUIMain.sortPatientQueue
-												.calculateQueueSize(
-														GUIMain.patientQueue);
-										//GUIMain.sortPatientQueue
-												//.sendToNearestHospital(
-													//	GUIMain.patientQueue,
-														//patient);
-
-									} catch (AddressException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									} catch (MessagingException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
+									
 								}
 							});
 						}

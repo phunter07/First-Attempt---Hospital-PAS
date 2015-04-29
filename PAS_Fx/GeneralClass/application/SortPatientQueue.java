@@ -50,8 +50,7 @@ public class SortPatientQueue {
 	 * method to allow a patient who has been waiting 25 minutes to be moved to
 	 * top of queue
 	 */
-	public void movePatientToTopOfQueue(LinkedList<Patient> patientQueue,
-			Patient patient) {
+	public void movePatientToTopOfQueue(LinkedList<Patient> patientQueue) {
 
 		Collections.sort(patientQueue, new SortComparator());
 	}
@@ -63,8 +62,7 @@ public class SortPatientQueue {
 	 * @throws MessagingException
 	 * @throws AddressException
 	 */
-	public void thirtyMinuteManagerAlert(LinkedList<Patient> patientQueue,
-			Patient patient) throws AddressException, MessagingException {
+	public void thirtyMinuteManagerAlert(LinkedList<Patient> patientQueue) throws AddressException, MessagingException {
 
 		// initialising long to get the patient time in the queue
 		long patientTimeInQueue = 0;

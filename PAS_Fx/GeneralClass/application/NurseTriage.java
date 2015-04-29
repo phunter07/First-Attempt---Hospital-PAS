@@ -81,6 +81,8 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 				return true;
 			} else {
 				allPatients.remove(patient);
+				new SMSAlerts().sendSMSToOnCallTeam();
+				System.out.println("ewfewfewfe");
 				throw new HospitalPASException(
 						ExceptionsEnums.QUEUELIMITEXCEEDED);
 				
