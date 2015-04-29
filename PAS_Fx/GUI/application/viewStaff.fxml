@@ -42,5 +42,4 @@
       <Button fx:id="back" layoutX="859.0" layoutY="543.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="135.0" text="Back" />
 	</children>
 </AnchorPane>
->
-</AnchorPane>
+
