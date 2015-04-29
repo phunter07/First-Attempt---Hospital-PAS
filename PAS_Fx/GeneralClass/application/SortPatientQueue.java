@@ -258,22 +258,18 @@ public class SortPatientQueue {
 
 		// for loop to iterate through the list of treatment rooms and find an
 		// available treatment room
+		if(patient!=null){
 		for (int loop = 0; loop < treatmentRooms.size(); loop++) {
 			// if statement to see if the treatment room is empty
 			if (treatmentRooms.get(loop).isVacant() == true) {
 
-				// if treatment room is empty it will offer the first patient
-				// from the queue
-				patientQueue.offer(patient);
-				// the patient being offered from the queue is then set to the
-				// patient in the treatment room
-				patient = treatmentRooms.get(loop).patientInTreatmentRoom;
 				// removes the first patient from the queue
 				patientQueue.poll();
 				// setting the treatment room to occupied
 				treatmentRooms.get(loop).setVacant(false);
 				return true;
 			}
+		}
 		}
 		return false;
 
