@@ -24,12 +24,12 @@
                     </Label>
                     <Label font="$x1" layoutX="72.0" layoutY="146.0" text="Password" textFill="#150eda" />
                     <TextField fx:id="username" layoutX="73.0" layoutY="97.0" prefHeight="31.0" prefWidth="262.0" />
+                    <PasswordField fx:id="password" layoutX="73.0" layoutY="183.0" prefHeight="31.0" prefWidth="262.0" />
                     <Button fx:id="LoginButton" layoutX="72.0" layoutY="247.0" mnemonicParsing="false" onAction="#LoginButtonOnClick" text="Login" textFill="#120ee8">
                       <font>
                         <Font size="24.0" />
                       </font>
                     </Button>
-                    <PasswordField fx:id="password" layoutX="73.0" layoutY="183.0" prefHeight="31.0" prefWidth="262.0" />
                     <Hyperlink layoutX="215.0" layoutY="214.0" text="Forgot password?" textFill="#310bda">
                       <font>
                         <Font size="14.0" />
