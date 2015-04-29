@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Patient extends Person {
 
+	
 	/**
 	 * declaration of variable NHS number
 	 */
@@ -271,6 +272,20 @@ public class Patient extends Person {
 	public void setPulledOutOfRoom(boolean pulledOutOfRoom) {
 		this.pulledOutOfRoom = pulledOutOfRoom;
 	}
+	
+	/**
+	 * method to override the toString() method to display the Patient details
+	 */
+	@Override
+	public String toString() {
+		return "Patient [nhsNumber=" + nhsNumber + ", address=" + address
+				+ ", bloodGroup=" + bloodGroup + ", contactNum=" + contactNum
+				+ ", triage=" + triage + ", allergies=" + allergies
+				+ ", timePatientJoinsQueue=" + timePatientJoinsQueue
+				+ ", leaveTime=" + leaveTime + ", waitingTime=" + waitingTime
+				+ ", pulledOutOfRoom=" + pulledOutOfRoom + "]"+"\n";
+	}
+
 
 	
 

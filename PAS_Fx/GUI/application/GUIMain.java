@@ -37,7 +37,7 @@ public class GUIMain extends Application {
 
 	public static LinkedList<Patient> patientQueue;
 
-	public static WriteToFile writeToFile;
+	public static WriteToFile writeToFile = new WriteToFile();
 
 	public static SortPatientQueue sortPatientQueue;
 
@@ -91,12 +91,16 @@ public class GUIMain extends Application {
 						sortPatientQueue.allocatePatientToTreatmentRoom(
 								patientQueue, patientQueue.peek(),
 								treatmentRoomList);
-						sortPatientQueue.thirtyMinuteManagerAlert(
-								patientQueue);
-						sortPatientQueue.movePatientToTopOfQueue(
-								patientQueue);
+						sortPatientQueue.thirtyMinuteManagerAlert(patientQueue);
+						sortPatientQueue.movePatientToTopOfQueue(patientQueue);
 						sortPatientQueue
 								.calculateQueueSize(GUIMain.patientQueue);
+						try {
+							writeToFile.writeQueueToFile(GUIMain.patientQueue);
+						} catch (FileNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						// refresh();
 						// updateTreatmentRoomsStatus(patient);
 						// sortPatientQueue.movePatientToTopOfQueue(patientQueue,
@@ -148,7 +152,7 @@ public class GUIMain extends Application {
 	}
 
 	public static ArrayList<Staff> getAllStaff() {
-		ArrayList<Staff> allStaff=new ArrayList<Staff>();
+		ArrayList<Staff> allStaff = new ArrayList<Staff>();
 		String url = "jdbc:mysql://web2.eeecs.qub.ac.uk/40108307";
 		Connection con;
 		Statement stmt; // loading driver
@@ -164,7 +168,7 @@ public class GUIMain extends Application {
 			// create a statement object
 			stmt = con.createStatement();
 			// supply the statement object with a string to execute
-			
+
 			ResultSet rs = stmt.executeQuery("select * from STAFF");
 			while (rs.next()) {
 				Staff staff = new Staff();
@@ -187,7 +191,7 @@ public class GUIMain extends Application {
 		} catch (SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
-		
+
 		return allStaff;
 	}
 
