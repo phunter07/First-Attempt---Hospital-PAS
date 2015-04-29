@@ -131,15 +131,15 @@ public class Receptionist extends Staff implements IReceptionist {
 					patientList.add(newPatient);
 				} else {
 					// needs to be changed
-					throw new HospitalPASException(ExceptionsEnums.PATIENTALREADYREGISTERED);
+					throw new HospitalPASException(ExceptionsEnums.PATIENTALREADYREGISTERED.getException());
 				}
 			} else {
 				// new exceptions
-				throw new HospitalPASException(ExceptionsEnums.PATIENTNOTINDATABASE);
+				throw new HospitalPASException(ExceptionsEnums.PATIENTNOTINDATABASE.getException());
 			}
 		} else {
 			// new exceptions
-			throw new HospitalPASException(ExceptionsEnums.QUEUELIMITEXCEEDED);
+			throw new HospitalPASException(ExceptionsEnums.QUEUELIMITEXCEEDED.getException());
 		}
 	}
 

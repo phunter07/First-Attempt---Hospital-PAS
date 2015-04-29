@@ -9,8 +9,8 @@ public class HospitalPASException extends Exception {
 
 	
 
-	public HospitalPASException(Enum ExceptionsEnums) {
-		super();
+	public HospitalPASException(String message) {
+		super(message);
 
 	}
 

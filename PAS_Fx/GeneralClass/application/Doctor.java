@@ -55,12 +55,12 @@ public class Doctor extends Staff implements ILogin, ICategorise {
 					} else {
 						allPatients.remove(patient);
 						throw new HospitalPASException(
-								ExceptionsEnums.QUEUELIMITEXCEEDED);
+								ExceptionsEnums.QUEUELIMITEXCEEDED.getException());
 						
 					}
 				} else {
 					throw new HospitalPASException(
-							ExceptionsEnums.PATIENTALREADYTRIAGED);
+							ExceptionsEnums.PATIENTALREADYTRIAGED.getException());
 				}
 			}
 
@@ -74,7 +74,7 @@ public class Doctor extends Staff implements ILogin, ICategorise {
 						patientQueue.sort(new SortPatientComparator());
 			return true;
 		} else {
-			throw new HospitalPASException(ExceptionsEnums.CANTRECOGNISEPATIENT);
+			throw new HospitalPASException(ExceptionsEnums.CANTRECOGNISEPATIENT.getException());
 		}
 
 	}

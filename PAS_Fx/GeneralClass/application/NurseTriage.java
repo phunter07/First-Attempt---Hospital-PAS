@@ -55,7 +55,7 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 				}
 			}
 		} catch (NumberFormatException e) {
-			throw new HospitalPASException(ExceptionsEnums.NHSNUMBEREXCEPTION);
+			throw new HospitalPASException(ExceptionsEnums.NHSNUMBEREXCEPTION.getException());
 		}
 		return null;
 	}
@@ -82,14 +82,14 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 			} else {
 				allPatients.remove(patient);
 				new SMSAlerts().sendSMSToOnCallTeam();
-				System.out.println("ewfewfewfe");
+				
 				throw new HospitalPASException(
-						ExceptionsEnums.QUEUELIMITEXCEEDED);
+						ExceptionsEnums.QUEUELIMITEXCEEDED.getException());
 				
 			}
 		} else {
 			throw new HospitalPASException(
-					ExceptionsEnums.PATIENTALREADYTRIAGED);
+					ExceptionsEnums.PATIENTALREADYTRIAGED.getException());
 		}
 	}
 
@@ -106,7 +106,7 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 						patientQueue.sort(new SortPatientComparator());
 			return true;
 		} else {
-			throw new HospitalPASException(ExceptionsEnums.CANTRECOGNISEPATIENT);
+			throw new HospitalPASException(ExceptionsEnums.CANTRECOGNISEPATIENT.getException());
 		}
 
 	}
