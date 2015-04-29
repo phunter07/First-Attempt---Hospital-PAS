@@ -118,7 +118,6 @@ public class SetTriageControl implements Initializable {
 								GUIMain.treatmentRoomList)) {
 							warning.setText(ExceptionsEnums.QUEUELIMITEXCEEDED.getException());
 						}
-						// onCallTeam
 					}
 				} else {
 					warning.setText("Can not find this patient");

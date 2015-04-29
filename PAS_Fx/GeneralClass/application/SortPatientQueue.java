@@ -26,7 +26,7 @@ public class SortPatientQueue {
 	/**
 	 * creating an instance of the SMSAlerts Class to be called
 	 */
-	private SMSAlerts smsAlerts=new SMSAlerts();
+	private SMSAlerts smsAlerts = new SMSAlerts();
 
 	/**
 	 * boolean to state if the on call team are engaged in situ
@@ -62,7 +62,8 @@ public class SortPatientQueue {
 	 * @throws MessagingException
 	 * @throws AddressException
 	 */
-	public void thirtyMinuteManagerAlert(LinkedList<Patient> patientQueue) throws AddressException, MessagingException {
+	public void thirtyMinuteManagerAlert(LinkedList<Patient> patientQueue)
+			throws AddressException, MessagingException {
 
 		// initialising long to get the patient time in the queue
 		long patientTimeInQueue = 0;
@@ -102,13 +103,12 @@ public class SortPatientQueue {
 	 * SMS to the onCall team should the queue capacity reach 10
 	 */
 
-	public boolean calculateQueueSize(LinkedList<Patient> patientQueue
-			) {
+	public boolean calculateQueueSize(LinkedList<Patient> patientQueue) {
 
 		if (patientQueue.size() >= Constants.PATIENT_LIMIT_IN_QUEUE) {
 			// if the queue is >= 10 then calling method to send non-emergency
 			// patients to the nearest hospital
-			//sendToNearestHospital(patientQueue, patient);
+			// sendToNearestHospital(patientQueue, patient);
 			// if the queue is >= 10 calling method to send SMS to OnCall team
 			smsAlerts.sendSMSToOnCallTeam();
 			return true;
@@ -278,19 +278,24 @@ public class SortPatientQueue {
 	 * 
 	 * @param patient
 	 * @return
+	 * @throws HospitalPASException 
 	 */
 	public boolean redirectEmergencyPatient(LinkedList<Patient> patientQueue,
-			Patient patient, List<TreatmentRoom> treatmentRooms) {
+			Patient patient, List<TreatmentRoom> treatmentRooms) throws HospitalPASException {
 
 		// if you are unable to put emergency patient into a treatment room then
 		// alert on call team
 		if (!pushEmergencyPatientIntoTreatmentRoom(patientQueue, patient,
 				treatmentRooms)) {
 			smsAlerts.sendSMSToOnCallTeam();
-			OnCallEngaged = true;
+			if (OnCallEngaged) {
+				throw new HospitalPASException(
+						"OnCallTeam is engaged,the emergency patient is redirected to another hospital");
+			}
 			// maybe
-			InSitu.controlInSitu(patientQueue, patient);
-			return false;
+			// InSitu.controlInSitu(patientQueue, patient);
+			throw new HospitalPASException(
+					"the emergency patient is sent to on call team");
 		}
 		return true;
 	}
