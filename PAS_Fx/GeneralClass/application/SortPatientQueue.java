@@ -37,6 +37,39 @@ public class SortPatientQueue {
 	 * default constructor for SortPatientComparator Class
 	 */
 	public SortPatientQueue() {
+
+	}
+
+	/**
+	 * declaration of Integer to reflect the status of the queue
+	 */
+	public static Integer status;
+
+	/**
+	 * method to calculate the status of the queue
+	 */
+	public void calculateStatus(LinkedList<Patient> patientQueue) {
+
+		if (patientQueue.size() <= Constants.PATIENT_LIMIT_IN_QUEUE) {
+
+			// find the longest waiting time of the patients in the queue
+			long longestWaitingTime = 0;
+
+			for (Patient patient : GUIMain.patientQueue) {
+				if (patient.getWaitingTime() > longestWaitingTime) {
+					longestWaitingTime = patient.getWaitingTime() / 1000 / 60;
+				}
+			}
+			if (longestWaitingTime >= 0 && longestWaitingTime < 10) {
+				status = 1;
+			} else if (longestWaitingTime >= 10 && longestWaitingTime < 20) {
+				status = 2;
+			} else if (longestWaitingTime >= 20) {
+				status = 3;
+			} else if (GUIMain.patientQueue.size() == Constants.PATIENT_LIMIT_IN_QUEUE) {
+				status = 4;
+			}
+		}
 	}
 
 	/**
@@ -278,10 +311,11 @@ public class SortPatientQueue {
 	 * 
 	 * @param patient
 	 * @return
-	 * @throws HospitalPASException 
+	 * @throws HospitalPASException
 	 */
 	public boolean redirectEmergencyPatient(LinkedList<Patient> patientQueue,
-			Patient patient, List<TreatmentRoom> treatmentRooms) throws HospitalPASException {
+			Patient patient, List<TreatmentRoom> treatmentRooms)
+			throws HospitalPASException {
 
 		// if you are unable to put emergency patient into a treatment room then
 		// alert on call team

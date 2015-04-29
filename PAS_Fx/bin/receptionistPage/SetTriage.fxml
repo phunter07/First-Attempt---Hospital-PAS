@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import java.lang.*?>
@@ -11,6 +12,11 @@
 <AnchorPane prefHeight="488.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="receptionistPage.SetTriageControl">
   <!-- TODO Add Nodes -->
   <children>
+      <ImageView fitHeight="327.0" fitWidth="687.0" layoutX="1.0" layoutY="88.0" opacity="0.3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../application/hospitalimg.jpg" />
+         </image>
+      </ImageView>
     <TableView fx:id="patientTable" layoutX="14.0" layoutY="14.0" prefHeight="238.0" prefWidth="656.0">
       <columns>
         <TableColumn fx:id="nhs_number" prefWidth="83.0" text="NHS_number" />
