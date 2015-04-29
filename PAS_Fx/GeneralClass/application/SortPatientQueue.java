@@ -16,7 +16,6 @@ import javax.mail.internet.AddressException;
  */
 public class SortPatientQueue {
 
-
 	/**
 	 * creating an instance of Manager Email alerts
 	 */
@@ -67,7 +66,11 @@ public class SortPatientQueue {
 					.getTimePatientJoinsQueue().getTime();
 			minutes = TimeUnit.MILLISECONDS.toMinutes(currentTime
 					- patientTimeInQueue);
-			if (minutes >= Constants.MOVE_TO_FRONT_MINUTES*Constants.MULTIPLY_MINUTES_TO_SECONDS) {
+			if (minutes <= Constants.MOVE_TO_FRONT_MINUTES
+					* Constants.MULTIPLY_MINUTES_TO_SECONDS) {
+				patientQueue.sort(new SortPatientComparator());
+
+			} else {
 				patient = patientQueue.get(loop);
 				patientQueue.remove(loop);
 				patientQueue.addFirst(patient);
@@ -104,7 +107,8 @@ public class SortPatientQueue {
 					.getTimePatientJoinsQueue().getTime();
 			minutes = TimeUnit.MILLISECONDS.toMinutes(currentTime
 					- patientTimeInQueue);
-			if (minutes >= Constants.UPPERMINUTES_QUEUE_LIMIT*Constants.MULTIPLY_MINUTES_TO_SECONDS) {
+			if (minutes >= Constants.UPPERMINUTES_QUEUE_LIMIT
+					* Constants.MULTIPLY_MINUTES_TO_SECONDS) {
 				counter++;
 				if (counter == 2) {
 					managerEmailAlert
@@ -112,8 +116,8 @@ public class SortPatientQueue {
 					smsAlerts.sendSSMSManagerTwoPatientsWaitingThirtyMinutes();
 
 				}
-			}
 
+			}
 		}
 
 	}
@@ -172,7 +176,8 @@ public class SortPatientQueue {
 	 * @return
 	 */
 	public boolean pushEmergencyPatientIntoTreatmentRoom(
-			LinkedList<Patient> patientQueue, Patient patient,List<TreatmentRoom> treatmentRooms) {
+			LinkedList<Patient> patientQueue, Patient patient,
+			List<TreatmentRoom> treatmentRooms) {
 
 		// boolean to check if a free treatment room is available
 		boolean isRoomAvailable = false;
@@ -186,8 +191,8 @@ public class SortPatientQueue {
 
 		// date to get the current date and time
 		Date currentTime = new Date();
-		TreatmentRoom room=findEmptyTreatmentRoom(treatmentRooms);
-		if (room!=null) {
+		TreatmentRoom room = findEmptyTreatmentRoom(treatmentRooms);
+		if (room != null) {
 			room.setPatientInTreatmentRoom(patient);
 			room.setVacant(false);
 			return true;
@@ -205,16 +210,15 @@ public class SortPatientQueue {
 			// patient in the treatment room
 			// if greater than the current patient's triage category then set
 			// the reference of the treatmentRoom to the loop
-			if (!(treatmentRooms.get(loop)
-					.getPatientTriageCategory(patient) == Triage.EMERGENCY
+			if (!(treatmentRooms.get(loop).getPatientTriageCategory(patient) == Triage.EMERGENCY
 					.getLevel())) {
 				// if statement to find the highest category in the treatment
 				// room list and set the highest category of patient into the
 				// patient room
-				if (treatmentRooms.get(loop)
-						.getPatientInTreatmentRoom(patient).getTriageCategory() > currentPatientTriageCategory) {
+				if (treatmentRooms.get(loop).getPatientInTreatmentRoom(patient)
+						.getTriageCategory() > currentPatientTriageCategory) {
 					treatmentRoom = loop;
-					currentPatientTriageCategory =treatmentRooms.get(loop)
+					currentPatientTriageCategory = treatmentRooms.get(loop)
 							.getPatientTriageCategory(patient);
 
 					currentTime = treatmentRooms.get(loop)
@@ -241,7 +245,7 @@ public class SortPatientQueue {
 		if (treatmentRoom != 0) {
 			patientQueue.addFirst(treatmentRooms.get(treatmentRoom)
 					.getPatientInTreatmentRoom(patient));
-			patientBeingTreated(patient, treatmentRoom,treatmentRooms);
+			patientBeingTreated(patient, treatmentRoom, treatmentRooms);
 			isRoomAvailable = true;
 		}
 		return isRoomAvailable;
@@ -258,18 +262,18 @@ public class SortPatientQueue {
 
 		// for loop to iterate through the list of treatment rooms and find an
 		// available treatment room
-		if(patient!=null){
-		for (int loop = 0; loop < treatmentRooms.size(); loop++) {
-			// if statement to see if the treatment room is empty
-			if (treatmentRooms.get(loop).isVacant() == true) {
+		if (patient != null) {
+			for (int loop = 0; loop < treatmentRooms.size(); loop++) {
+				// if statement to see if the treatment room is empty
+				if (treatmentRooms.get(loop).isVacant() == true) {
 
-				// removes the first patient from the queue
-				patientQueue.poll();
-				// setting the treatment room to occupied
-				treatmentRooms.get(loop).setVacant(false);
-				return true;
+					// removes the first patient from the queue
+					patientQueue.poll();
+					// setting the treatment room to occupied
+					treatmentRooms.get(loop).setVacant(false);
+					return true;
+				}
 			}
-		}
 		}
 		return false;
 
@@ -281,7 +285,8 @@ public class SortPatientQueue {
 	 * @param patient
 	 * @param roomNumber
 	 */
-	public void patientBeingTreated(Patient patient, int roomNumber,List<TreatmentRoom> treatmentRooms) {
+	public void patientBeingTreated(Patient patient, int roomNumber,
+			List<TreatmentRoom> treatmentRooms) {
 
 		// gets the room number from the array list and the patient in the
 		// treatment room to display their details of who is in what room
@@ -297,14 +302,15 @@ public class SortPatientQueue {
 	 * ******* put 15 minute timer in here for on call team *******
 	 * 
 	 * @param patient
-	 * @return 
+	 * @return
 	 */
 	public boolean redirectEmergencyPatient(LinkedList<Patient> patientQueue,
-			Patient patient,List<TreatmentRoom> treatmentRooms) {
+			Patient patient, List<TreatmentRoom> treatmentRooms) {
 
 		// if you are unable to put emergency patient into a treatment room then
 		// alert on call team
-		if (!pushEmergencyPatientIntoTreatmentRoom(patientQueue, patient,treatmentRooms)) {
+		if (!pushEmergencyPatientIntoTreatmentRoom(patientQueue, patient,
+				treatmentRooms)) {
 			smsAlerts.sendSMSToOnCallTeam();
 			OnCallEngaged = true;
 			// maybe
@@ -313,7 +319,7 @@ public class SortPatientQueue {
 		}
 		return true;
 	}
-	
+
 	public TreatmentRoom findEmptyTreatmentRoom(List<TreatmentRoom> rooms) {
 		for (int loop = 0; loop < rooms.size(); loop++) {
 			if (rooms.get(loop).isVacant() == true) {
