@@ -11,6 +11,7 @@ import application.GUIMain;
 import application.HospitalPASException;
 import application.NurseTriage;
 import application.Patient;
+import application.SMSAlerts;
 import application.SortPatientQueue;
 import application.Triage;
 import javafx.collections.FXCollections;
@@ -33,7 +34,12 @@ public class SetTriageControl implements Initializable {
 	 * declaration of nurseTriage
 	 */
 	private NurseTriage nurseTriage = new NurseTriage();
-
+	
+	/**
+	 * 
+	 */
+	SMSAlerts smsAlert = new SMSAlerts();
+	
 	/**
 	 * declaration of the list of patient needed to be triaged
 	 */
@@ -117,6 +123,8 @@ public class SetTriageControl implements Initializable {
 								GUIMain.patientQueue, patient,
 								GUIMain.treatmentRoomList)) {
 							warning.setText(ExceptionsEnums.QUEUELIMITEXCEEDED.getException());
+							smsAlert.sendSMSToOnCallTeam();
+							System.out.println("Alert Message Sent");
 						}
 					}
 				} else {

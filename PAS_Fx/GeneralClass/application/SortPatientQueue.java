@@ -122,7 +122,7 @@ public class SortPatientQueue {
 				if (counter == 2) {
 					managerEmailAlert
 							.generateAndSendEmailPatientsWaitingThirtyMinutes();
-					smsAlerts.sendSSMSManagerTwoPatientsWaitingThirtyMinutes();
+					
 
 				}
 
