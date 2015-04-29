@@ -34,18 +34,18 @@ public class TriageNursePageControl implements Initializable {
 	/**
 	 * 
 	 */
-	
+
 	private SortPatientQueue sortPatientQueue;
-	
+
 	/**
 	 * 
 	 */
 	private Patient patient;
-	
+
 	/**
 	 * 
 	 */
-	
+
 	private TreatmentRoom treatmentRooms;
 	@FXML
 	private MenuItem setTriage;
@@ -79,7 +79,7 @@ public class TriageNursePageControl implements Initializable {
 
 	@FXML
 	private TableColumn<Patient, Integer> triage;
-	
+
 	@FXML
 	private TableColumn<Patient, Long> waitingTime;
 
@@ -143,7 +143,6 @@ public class TriageNursePageControl implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
 
 	@FXML
 	void setTriageOnClick(ActionEvent event) {
@@ -184,7 +183,7 @@ public class TriageNursePageControl implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * initialize this page and create a new thread to refresh this page every
 	 * second
@@ -199,28 +198,41 @@ public class TriageNursePageControl implements Initializable {
 			public void run() {
 				while (true) {
 					try {
-						Thread.sleep(Constants.REFRESHTIME);
-						Platform.runLater(new Runnable() {
+						while (true) {
+							Thread.sleep(Constants.REFRESHTIME);
+							Platform.runLater(new Runnable() {
 
-							@Override
-							public void run() {
-								refresh();
-								try {
-									sortPatientQueue.thirtyMinuteManagerAlert(GUIMain.patientQueue, patient);
-									sortPatientQueue.movePatientToTopOfQueue(GUIMain.patientQueue, patient);
-									sortPatientQueue.calculateQueueSize(GUIMain.patientQueue, patient);
-									sortPatientQueue.sendToNearestHospital(GUIMain.patientQueue, patient);
-									
-								} catch (AddressException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								} catch (MessagingException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+								@Override
+								public void run() {
+									refresh();
+									try {
+										GUIMain.sortPatientQueue
+												.thirtyMinuteManagerAlert(
+														GUIMain.patientQueue,
+														patient);
+										GUIMain.sortPatientQueue
+												.movePatientToTopOfQueue(
+														GUIMain.patientQueue,
+														patient);
+										GUIMain.sortPatientQueue
+												.calculateQueueSize(
+														GUIMain.patientQueue,
+														patient);
+										GUIMain.sortPatientQueue
+												.sendToNearestHospital(
+														GUIMain.patientQueue,
+														patient);
+
+									} catch (AddressException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									} catch (MessagingException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 								}
-							}
-						});
-
+							});
+						}
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -235,7 +247,9 @@ public class TriageNursePageControl implements Initializable {
 
 	/**
 	 * the method is used to refresh table, update waiting time of every patient
-	 * in queue and show the receptionist the next patient and the available treatment room
+	 * in queue and show the receptionist the next patient and the available
+	 * treatment room
+	 * 
 	 * @author Jiang Zhe Heng
 	 */
 	private void refresh() {
@@ -285,12 +299,14 @@ public class TriageNursePageControl implements Initializable {
 						@Override
 						protected void updateItem(Integer item, boolean empty) {
 							super.updateItem(item, empty);
-							
-							if (item!=null) {
-								for(int loop=0;loop<Triage.values().length;loop++){
-								if(item==Triage.values()[loop].getLevel()){
-									setText(Triage.values()[loop].getTriage());
-								}
+
+							if (item != null) {
+								for (int loop = 0; loop < Triage.values().length; loop++) {
+									if (item == Triage.values()[loop]
+											.getLevel()) {
+										setText(Triage.values()[loop]
+												.getTriage());
+									}
 								}
 							}
 						}
@@ -298,7 +314,9 @@ public class TriageNursePageControl implements Initializable {
 				}
 			});
 
-			waitingTime.setCellValueFactory(new PropertyValueFactory<Patient,Long>("waitingTime"));
+			waitingTime
+					.setCellValueFactory(new PropertyValueFactory<Patient, Long>(
+							"waitingTime"));
 			waitingTime
 					.setCellFactory(new Callback<TableColumn<Patient, Long>, TableCell<Patient, Long>>() {
 

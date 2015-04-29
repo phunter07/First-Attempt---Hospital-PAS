@@ -37,7 +37,7 @@ public class Constants {
 	 * Constant to determine the number of minutes a patient has been waiting in
 	 * the queue before they have to be moved to the front
 	 */
-	public static final int MOVE_TO_FRONT_MINUTES = 5;
+	public static final int MOVE_TO_FRONT_MINUTES = 2;
 
 	
 
@@ -56,7 +56,7 @@ public class Constants {
 	/**
 	 * Constant for the Number of Treatment rooms within the Hospital
 	 */
-	public final static int NUMBERS_OF_ROOM = 5;
+	public final static int NUMBERS_OF_ROOM = 1;
 	
 	/**
 	 * Constant to set the time in the treatment room
