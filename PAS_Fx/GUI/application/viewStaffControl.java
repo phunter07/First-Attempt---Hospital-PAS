@@ -1,4 +1,4 @@
-package PAS_Fx;
+package application;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 
 import com.mysql.jdbc.Connection;
 
-import pasCode.Staff;
+
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -63,7 +63,7 @@ public class viewStaffControl extends Application {
 
 	
 	public void populateTable() {
-		if (!GUI_Main.allStaff.isEmpty()) {
+		if (!GUIMain.allStaff.isEmpty()) {
 			staffTableManager.setItems(null);
 			staffIDColumn
 					.setCellValueFactory(new PropertyValueFactory<Staff, String>(
@@ -88,7 +88,7 @@ public class viewStaffControl extends Application {
 					.setCellValueFactory(new PropertyValueFactory<Staff, String>(
 							"telephone"));
 
-			staffTableManager.setItems(GUI_Main.allStaff);
+			staffTableManager.setItems(GUIMain.allStaff);
 
 		} else {
 			staffTableManager.setItems(null);
