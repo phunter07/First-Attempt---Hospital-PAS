@@ -66,6 +66,12 @@ public class HospitalManagerPageControl implements Initializable {
 
 	    @FXML
 	    private TableColumn<Patient, Integer> triage;
+	    
+	    @FXML
+	    private Button staff;
+	    
+	    @FXML
+	    private Button treatmentRooms;
 
 	
 	
@@ -141,8 +147,66 @@ public class HospitalManagerPageControl implements Initializable {
 	}
 	
 	
+	/**
+	 * Log out of system
+	 * 
+	 * @param event
+	 */
+	@FXML
+	public void onClickTreatmentsRooms(ActionEvent event) {
+
+		Stage newStage = new Stage();
+
+		Parent root;
+		try {
+			root = FXMLLoader.load(getClass().getResource(
+					"/application/viewTreatmentRooms.fxml"));
+			Scene scene = new Scene(root, 1000, 600);
+			newStage.setTitle("Hospital Manager");
+			newStage.setScene(scene);
+			newStage.setResizable(false);
+			newStage.show();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		Stage stage = (Stage) treatmentRooms.getScene().getWindow();
+
+		stage.close();
+	}
 	
 	
+	
+	
+	/**
+	 * Log out of system
+	 * 
+	 * @param event
+	 */
+	@FXML
+	public void onClickStaff(ActionEvent event) {
+
+		Stage newStage = new Stage();
+
+		Parent root;
+		try {
+			root = FXMLLoader.load(getClass().getResource(
+					"/application/viewStaff.fxml"));
+			Scene scene = new Scene(root, 1000, 600);
+			newStage.setTitle("Hospital Manager");
+			newStage.setScene(scene);
+			newStage.setResizable(false);
+			newStage.show();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		Stage stage = (Stage) staff.getScene().getWindow();
+
+		stage.close();
+	}
 	
 	private void refreshTable() {
 		if (!GUIMain.patientQueue.isEmpty()) {
@@ -236,4 +300,3 @@ public class HospitalManagerPageControl implements Initializable {
 		}
 	}
 }
-

@@ -27,7 +27,7 @@
 				</Menu>
 			</menus>
 		</MenuBar>
-      <TableView layoutX="50.0" layoutY="91.0" prefHeight="441.0" prefWidth="944.0">
+      <TableView fx:id="staffTableManager" layoutX="50.0" layoutY="91.0" prefHeight="441.0" prefWidth="944.0">
         <columns>
           <TableColumn fx:id="staffIDColumn" prefWidth="75.0" text="Staff ID" />
           <TableColumn fx:id="staffTitleColumn" prefWidth="75.0" text="Title" />
@@ -41,4 +41,6 @@
       </TableView>
       <Button fx:id="back" layoutX="859.0" layoutY="543.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="135.0" text="Back" />
 	</children>
+</AnchorPane>
+>
 </AnchorPane>
