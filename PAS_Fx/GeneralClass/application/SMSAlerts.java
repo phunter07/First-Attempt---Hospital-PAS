@@ -423,7 +423,7 @@ public class SMSAlerts implements IAlert {
 		// Construct data from TxtLocal
 		String user = "username=" + AlertsENums.SMSUSERNAME.getAlert();
 		String hash = "&hash=" + AlertsENums.SMSHASHKEY.getAlert();
-		String message = "&message=" + AlertsENums.SMSALERTONCALLTEAM;
+		String message = "&message=" + AlertsENums.SMSALERTONCALLTEAM.getAlert();
 		String sender = "&sender=" + AlertsENums.SMSSENDER.getAlert();
 		String number1 = "&numbers=" + getFirstDoctorOnCall();
 		String number2 = "&numbers=" + getSecondDoctorOnCall();
