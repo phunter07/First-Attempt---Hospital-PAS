@@ -30,7 +30,7 @@ import javafx.util.Callback;
 
 public class TriageNursePageControl implements Initializable {
 
-	private final long REFRESHTIME=1000;
+	
 	@FXML
 	private MenuItem setTriage;
 
