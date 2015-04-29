@@ -15,13 +15,26 @@ public class SortPatientComparator implements Comparator<Patient> {
 	 * compare the patient objects
 	 */
 	@Override
-	public int compare(Patient patient2, Patient patient1) {
-
-		// return statement to compare the patient triage categories in the
-		// queue - to be called in the add to queue method
-		return Integer.compare(patient2.getTriageCategory(),
-				patient1.getTriageCategory());
-
+	public int compare(Patient p1, Patient p2) {
+		if (p1.getWaitingTime() <= Constants.MOVE_TO_FRONT_MINUTES
+				* Constants.MULTIPLY_MINUTES_TO_SECONDS * 1000
+				&& p2.getWaitingTime() <= Constants.MOVE_TO_FRONT_MINUTES
+						* Constants.MULTIPLY_MINUTES_TO_SECONDS * 1000) {
+			if (Integer.compare(p1.getTriage(), p2.getTriage()) == 0) {
+				return p1.getTimePatientJoinsQueue().compareTo(
+						p2.getTimePatientJoinsQueue());
+			} else {
+				return Integer.compare(p1.getTriage(), p2.getTriage());
+			}
+		} else {
+			if (p1.getTimePatientJoinsQueue().compareTo(
+					p2.getTimePatientJoinsQueue()) == 0) {
+				return Integer.compare(p1.getTriage(), p2.getTriage());
+			} else {
+				return p1.getTimePatientJoinsQueue().compareTo(
+						p2.getTimePatientJoinsQueue());
+			}
+		}
 	}
 
 }

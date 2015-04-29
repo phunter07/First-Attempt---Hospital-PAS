@@ -49,11 +49,11 @@
       </items>
     </ChoiceBox>
     <Button fx:id="cancelButton" layoutX="362.0" layoutY="383.0" mnemonicParsing="false" onAction="#cancelOnClick" prefHeight="34.0" prefWidth="56.0" text="Back" />
-      <Label fx:id="warning" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="366.0" prefHeight="67.0" prefWidth="664.0" textAlignment="CENTER" textFill="RED" wrapText="true">
+      <ChoiceBox fx:id="nhsNumber" layoutX="315.0" layoutY="287.0" prefWidth="150.0" />
+      <Label fx:id="warning" alignment="CENTER" layoutX="6.0" layoutY="424.0" prefHeight="63.0" prefWidth="671.0" textAlignment="CENTER" textFill="#f80101">
          <font>
-            <Font size="20.0" />
+            <Font size="28.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="nhsNumber" layoutX="315.0" layoutY="287.0" prefWidth="150.0" />
   </children>
 </AnchorPane>

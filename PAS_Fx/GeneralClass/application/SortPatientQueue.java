@@ -85,7 +85,7 @@ public class SortPatientQueue {
 	 */
 	public void movePatientToTopOfQueue(LinkedList<Patient> patientQueue) {
 
-		Collections.sort(patientQueue, new SortComparator());
+		Collections.sort(patientQueue, new SortPatientComparator());
 	}
 
 	/**
@@ -346,32 +346,6 @@ public class SortPatientQueue {
 			}
 		}
 		return null;
-	}
-
-	public class SortComparator implements Comparator<Patient> {
-
-		@Override
-		public int compare(Patient p1, Patient p2) {
-			if (p1.getWaitingTime() <= Constants.MOVE_TO_FRONT_MINUTES
-					* Constants.MULTIPLY_MINUTES_TO_SECONDS * 1000
-					&& p2.getWaitingTime() <= Constants.MOVE_TO_FRONT_MINUTES
-							* Constants.MULTIPLY_MINUTES_TO_SECONDS * 1000) {
-				if (Integer.compare(p1.getTriage(), p2.getTriage()) == 0) {
-					return p1.getTimePatientJoinsQueue().compareTo(
-							p2.getTimePatientJoinsQueue());
-				} else {
-					return Integer.compare(p1.getTriage(), p2.getTriage());
-				}
-			} else {
-				if (p1.getTimePatientJoinsQueue().compareTo(
-						p2.getTimePatientJoinsQueue()) == 0) {
-					return Integer.compare(p1.getTriage(), p2.getTriage());
-				} else {
-					return p1.getTimePatientJoinsQueue().compareTo(
-							p2.getTimePatientJoinsQueue());
-				}
-			}
-		}
 	}
 
 }

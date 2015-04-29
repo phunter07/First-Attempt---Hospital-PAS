@@ -12,6 +12,7 @@ import application.ICategorise;
 import application.INurseTriage;
 import application.NurseTriage;
 import application.Patient;
+import application.SMSAlerts;
 import application.SortPatientQueue;
 import application.Triage;
 import javafx.collections.FXCollections;
@@ -32,6 +33,7 @@ import javafx.util.Callback;
 
 public class AlterTriageControl implements Initializable {
 
+	private SMSAlerts smsAlert=new SMSAlerts();
 	/**
 	 * declaration of nurseTriage
 	 */
@@ -113,15 +115,20 @@ public class AlterTriageControl implements Initializable {
 				if (patient != null) {
 					if (Triage
 							.valueOf(triageChoiceBox.getValue().toUpperCase()) != Triage.EMERGENCY) {
-						nurseTriage.recategorisePatient(GUIMain.patientQueue, patient, Triage
-								.valueOf(triageChoiceBox.getValue()
-										.toUpperCase()));
+						nurseTriage.recategorisePatient(GUIMain.patientQueue,
+								patient, Triage.valueOf(triageChoiceBox
+										.getValue().toUpperCase()));
+						warning.setText(patient.getFirstName()+" has been recategorised");
 					} else {
-						GUIMain.sortPatientQueue
-								.pushEmergencyPatientIntoTreatmentRoom(
-										GUIMain.patientQueue, patient,
-										GUIMain.treatmentRoomList);
-						// onCallTeam
+						patient.setTriageCategory(Triage.EMERGENCY);
+						if (GUIMain.sortPatientQueue.redirectEmergencyPatient(
+								GUIMain.patientQueue, patient,
+								GUIMain.treatmentRoomList)) {
+							warning.setText("Emergency patient is moving to the treatment room");
+							System.out.println("Sending messages");
+							smsAlert.sendSMSToOnCallTeam();
+							System.out.println("Alert Message Sent");
+						}
 					}
 
 				} else {
@@ -191,7 +198,7 @@ public class AlterTriageControl implements Initializable {
 			patientTable.setItems(null);
 			nhs_number
 					.setCellValueFactory(new PropertyValueFactory<Patient, Integer>(
-							"nhsNumer"));
+							"nhsNumber"));
 			title.setCellValueFactory(new PropertyValueFactory<Patient, String>(
 					"title"));
 			first_name

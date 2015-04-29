@@ -117,12 +117,13 @@ public class SetTriageControl implements Initializable {
 								GUIMain.patientQueue, patient, Triage
 										.valueOf(triageChoiceBox.getValue()
 												.toUpperCase()));
+						warning.setText(patient.getFirstName()+" is moving to the queue");
 					} else {
 						patient.setTriageCategory(Triage.EMERGENCY);
 						if (GUIMain.sortPatientQueue.redirectEmergencyPatient(
 								GUIMain.patientQueue, patient,
 								GUIMain.treatmentRoomList)) {
-							warning.setText("Emergency patient is moved to the treatment room");
+							warning.setText("Emergency patient is moving to the treatment room");
 							System.out.println("Sending messages");
 							smsAlert.sendSMSToOnCallTeam();
 							System.out.println("Alert Message Sent");
