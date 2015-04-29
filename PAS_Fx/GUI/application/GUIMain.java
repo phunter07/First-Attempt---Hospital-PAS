@@ -84,6 +84,7 @@ public class GUIMain extends Application{
 				int i = 0;
 
 					try {
+						while(true){
 						Thread.sleep(5000);
 						nextPatient=patientQueue.peek();
 						sortPatientQueue.allocatePatientToTreatmentRoom(
@@ -92,6 +93,7 @@ public class GUIMain extends Application{
 						// updateTreatmentRoomsStatus(patient);
 						// sortPatientQueue.movePatientToTopOfQueue(patientQueue,
 						// patient);
+						}
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
