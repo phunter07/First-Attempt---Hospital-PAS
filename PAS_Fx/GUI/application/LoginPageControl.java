@@ -82,7 +82,7 @@ public class LoginPageControl implements Initializable {
 							openPage("/application/TriageNursePage.fxml");
 							break;
 						case "Hospital Manager":
-							System.out.println(staff.getRole());
+							//System.out.println(staff.getRole());
 							openPage("/application/HospitalManagerPage.fxml");
 							break;
 						default:
