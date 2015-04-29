@@ -1,5 +1,7 @@
 package application;
 
+import java.util.LinkedList;
+
 /**
  * Class to contain the details of the Doctor
  *
@@ -36,22 +38,62 @@ public class Doctor extends Staff implements ILogin, ICategorise {
 	 * unimplemented method - to be used only in the NurseTriage Class
 	 */
 	@Override
-	public boolean categorisePatient(Patient patient, Triage category)
+	public boolean categorisePatient(LinkedList<Patient> allPatients,LinkedList<Patient> patientQueue,  Patient patient, Triage triage)
 			throws HospitalPASException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		// creating an integer wrapper to all to check if the getTraigeCategory
+				// is a null value
+				Integer patientTriage = patient.getTriageCategory();
+
+				// if statement to check if the triage category has not been set - and
+				// if so sets triage category
+				if (patientTriage == 0) {
+					patient.setTriageCategory(triage);
+					// method to automatically add patient to queue once they are
+					// categorised by the triage nurse
+					if (putPatientIntoQueue(patientQueue, patient)) {
+						return true;
+					} else {
+						allPatients.remove(patient);
+						throw new HospitalPASException(
+								ExceptionsEnums.QUEUELIMITEXCEEDED);
+						
+					}
+				} else {
+					throw new HospitalPASException(
+							ExceptionsEnums.PATIENTALREADYTRIAGED);
+				}
+			}
 
 
 	@Override
-	public boolean recategorisePatient(Patient patient, Triage triage)
+	public boolean recategorisePatient(LinkedList<Patient> patientQueue, Patient patient, Triage triage)
 			throws HospitalPASException {
 		if (patient != null) {
 			patient.setTriageCategory(triage);
+			// sorts the patient queue by triage category
+						patientQueue.sort(new SortPatientComparator());
 			return true;
 		} else {
 			throw new HospitalPASException(ExceptionsEnums.CANTRECOGNISEPATIENT);
 		}
+
+	}
+
+
+	@Override
+	public boolean putPatientIntoQueue(LinkedList<Patient> patientQueue,
+			Patient patient) {
+		boolean inQueue = false;
+
+		if (patientQueue.size() < Constants.PATIENT_LIMIT_IN_QUEUE) {
+			// adds patient to queue
+			patientQueue.add(patient);
+			// sorts the patient queue by triage category
+			patientQueue.sort(new SortPatientComparator());
+			inQueue = true;
+		}
+
+		return inQueue;
 	}
 
 }

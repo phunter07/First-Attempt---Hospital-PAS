@@ -10,7 +10,7 @@ import java.util.Queue;
  *
  */
 
-public class NurseTriage extends Staff implements INurseTriage, IJDoe {
+public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategorise {
 
 	/**
 	 * default constructor
@@ -96,11 +96,12 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe {
 	 * triageCategory
 	 */
 	@Override
-	public boolean recategorisePatient(Patient patient, Triage triage)
-			throws HospitalPASException {
+	public boolean recategorisePatient(LinkedList<Patient> patientQueue, Patient patient,Triage triage) throws HospitalPASException {
 
 		if (patient != null) {
 			patient.setTriageCategory(triage);
+			// sorts the patient queue by triage category
+						patientQueue.sort(new SortPatientComparator());
 			return true;
 		} else {
 			throw new HospitalPASException(ExceptionsEnums.CANTRECOGNISEPATIENT);
@@ -184,5 +185,11 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe {
 			}
 		}
 	}
+
+
+
+
+
+	
 
 }

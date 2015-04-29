@@ -8,6 +8,8 @@ import java.util.ResourceBundle;
 
 import application.GUIMain;
 import application.HospitalPASException;
+import application.ICategorise;
+import application.INurseTriage;
 import application.NurseTriage;
 import application.Patient;
 import application.SortPatientQueue;
@@ -111,7 +113,7 @@ public class AlterTriageControl implements Initializable {
 				if (patient != null) {
 					if (Triage
 							.valueOf(triageChoiceBox.getValue().toUpperCase()) != Triage.EMERGENCY) {
-						nurseTriage.recategorisePatient(patient, Triage
+						nurseTriage.recategorisePatient(GUIMain.patientQueue, patient, Triage
 								.valueOf(triageChoiceBox.getValue()
 										.toUpperCase()));
 					} else {

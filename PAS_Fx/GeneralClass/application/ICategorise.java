@@ -1,5 +1,6 @@
 package application;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 /**
@@ -19,7 +20,9 @@ public interface ICategorise {
 	 * 
 	 * @return
 	 */
-	public boolean categorisePatient(Patient patient,Triage category) throws HospitalPASException;
+	public boolean categorisePatient(LinkedList<Patient> allPatients,
+			LinkedList<Patient> patientQueue, Patient patient, Triage triage)
+			throws HospitalPASException;
 
 	/**
 	 * method to change the category of the patient and automatically change
@@ -27,6 +30,18 @@ public interface ICategorise {
 	 * 
 	 * @return
 	 */
-	public boolean recategorisePatient(Patient patient,Triage triage) throws HospitalPASException;
+	public boolean recategorisePatient(LinkedList<Patient> patientQueue,
+			Patient patient, Triage triage) throws HospitalPASException;
+
+	/**
+	 * method to add the patient to the a and e queue once they have been
+	 * triaged
+	 * 
+	 * @param patientQueue
+	 * @param patient
+	 * @return
+	 */
+	public boolean putPatientIntoQueue(LinkedList<Patient> patientQueue,
+			Patient patient);
 
 }
