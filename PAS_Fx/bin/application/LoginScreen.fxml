@@ -40,7 +40,7 @@
                 </AnchorPane>
               </children>
             </VBox>
-            <ImageView fitHeight="70.0" fitWidth="300.0" layoutX="28.0" layoutY="28.0" pickOnBounds="false" preserveRatio="false">
+            <ImageView fitHeight="57.0" fitWidth="284.0" layoutX="93.0" layoutY="58.0" pickOnBounds="false" preserveRatio="false">
               <image>
                 <Image url="@hscportallogo.gif" />
               </image>
