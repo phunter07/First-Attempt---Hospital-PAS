@@ -41,8 +41,6 @@ public class GUIMain extends Application {
 
 	public static SortPatientQueue sortPatientQueue;
 
-	public static CalculateQueueStatus calculateQueueStatus;
-
 	public static int status;
 
 	public static Patient nextPatient;
@@ -130,7 +128,7 @@ public class GUIMain extends Application {
 		} catch (FileNotFoundException ex) {
 			ex.printStackTrace();
 		}
-		calculateQueueStatus.calculateStatus();
+		sortPatientQueue.calculateStatus(patientQueue);
 	}
 
 	/**
