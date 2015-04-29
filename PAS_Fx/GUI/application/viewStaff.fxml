@@ -39,7 +39,6 @@
             <TableColumn fx:id="staffTelephoneNumColumn" minWidth="0.0" prefWidth="174.0" text="Telephone Number" />
         </columns>
       </TableView>
-      <Button fx:id="back" layoutX="859.0" layoutY="543.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="135.0" text="Back" />
+      <Button fx:id="back" layoutX="859.0" layoutY="543.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="45.0" prefWidth="135.0" text="Back" />
 	</children>
 </AnchorPane>
-
