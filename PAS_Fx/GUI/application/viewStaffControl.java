@@ -2,10 +2,10 @@ package application;
 
 import java.net.URL;
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.mysql.jdbc.Connection;
-
 
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
@@ -23,7 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-public class viewStaffControl extends Application {
+public class viewStaffControl implements Initializable {
 
 	@FXML
 	private TableColumn<Staff, String> staffFirstNameColumn;
@@ -47,7 +47,7 @@ public class viewStaffControl extends Application {
 	private Button back;
 
 	@FXML
-	private TableColumn<Staff, String> staffIDColumn;
+	private TableColumn<Staff, Integer> staffIDColumn;
 
 	@FXML
 	private TableColumn<Staff, String> staffRoleColumn;
@@ -55,45 +55,47 @@ public class viewStaffControl extends Application {
 	@FXML
 	private TableColumn<Staff, String> staffTelephoneNumColumn;
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void populateStaffTable() {
+		List<Staff> staffList = GUIMain.getAllStaff();
 
-		
-	}
-
-	
-	public void populateTable() {
-		if (!GUIMain.allStaff.isEmpty()) {
+		if (!staffList.isEmpty()) {
 			staffTableManager.setItems(null);
 			staffIDColumn
+					.setCellValueFactory(new PropertyValueFactory<Staff, Integer>(
+							"staffID"));
+			staffTitleColumn
 					.setCellValueFactory(new PropertyValueFactory<Staff, String>(
-							"staff_id"));
-			staffTitleColumn.setCellValueFactory(new PropertyValueFactory<Staff, String>(
-					"title"));
+							"title"));
 			staffFirstNameColumn
 					.setCellValueFactory(new PropertyValueFactory<Staff, String>(
-							"first_name"));
+							"firstName"));
 			staffLastNameColumn
 					.setCellValueFactory(new PropertyValueFactory<Staff, String>(
-							"last_name"));
-			staffRoleColumn.setCellValueFactory(new PropertyValueFactory<Staff, String>(
-					"staff_role"));
+							"lastName"));
+			staffRoleColumn
+					.setCellValueFactory(new PropertyValueFactory<Staff, String>(
+							"role"));
 			staffTeamColumn
 					.setCellValueFactory(new PropertyValueFactory<Staff, String>(
-							"staff_team"));
+							"team"));
 			staffEmailColumn
 					.setCellValueFactory(new PropertyValueFactory<Staff, String>(
-							"email_address"));
+							"email"));
 			staffTelephoneNumColumn
 					.setCellValueFactory(new PropertyValueFactory<Staff, String>(
 							"telephone"));
 
-			staffTableManager.setItems(GUIMain.allStaff);
+			staffTableManager.setItems(FXCollections
+					.observableArrayList(staffList));
 
 		} else {
 			staffTableManager.setItems(null);
 		}
 	}
-}
 
-	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		populateStaffTable();
+
+	}
+}
