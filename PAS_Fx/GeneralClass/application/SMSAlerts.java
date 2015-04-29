@@ -387,7 +387,7 @@ public class SMSAlerts implements IAlert {
 
 		try {
 			HttpURLConnection conn = (HttpURLConnection) new URL(
-					AlertsENums.SMS_CONNECTION.getAlert()).openConnection();
+					AlertsENums.SMSCONNECTION.getAlert()).openConnection();
 
 			// data to be sent
 			String data = user + hash + number + message + sender;
@@ -424,7 +424,7 @@ public class SMSAlerts implements IAlert {
 		String user = "username=" + AlertsENums.SMSUSERNAME.getAlert();
 		String hash = "&hash=" + AlertsENums.SMSHASHKEY.getAlert();
 		String message = "&message=" + AlertsENums.SMSALERTONCALLTEAM;
-		String sender = "&sender=" + AlertsENums.SMS_SENDER.getAlert();
+		String sender = "&sender=" + AlertsENums.SMSSENDER.getAlert();
 		String number1 = "&numbers=" + getFirstDoctorOnCall();
 		String number2 = "&numbers=" + getSecondDoctorOnCall();
 		String number3 = "&numbers=" + getFirstNurseOnCall();

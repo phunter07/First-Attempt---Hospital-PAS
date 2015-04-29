@@ -14,13 +14,10 @@ public enum AlertsENums {
 			"On Call team fully engaged.  Patients being redirected"), ALERTMANAGERWAITINGTIME(
 			"Two or more patients have been waiting over 30 minutes"), SMSUSERNAME(
 			"hospitalsender@gmail.com"), SMSHASHKEY(
-			"6e85ab8f234b76500635d7078ec12f3dba92a970"), SMSSENDER(
+			"26f3408dfbcc126300a7f5f49e3f5fc38ca15903"), SMSSENDER(
 			"HospitalPAS"), SMSCONNECTION("https://api.txtlocal.com/send/?"), EMAILSUBJECTMESSAGE(
 			"Hospital Alert"), EMAILSENDER("hospitalsender@gmail.com"), EMAILSENDERPASSWORD(
-			"validPassword"), EMAILSENDERSMTP("smtp.gmail.com"), SMS_USERNAME(
-			"hospitalsender@gmail.com"), SMS_HASHKEY(
-			"6e85ab8f234b76500635d7078ec12f3dba92a970"), SMS_SENDER(
-			"HospitalPAS"), SMS_CONNECTION("https://api.txtlocal.com/send/?");
+			"validPassword"), EMAILSENDERSMTP("smtp.gmail.com");
 
 	private String alert;
 
