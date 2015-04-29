@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import java.lang.*?>
@@ -11,6 +12,11 @@
 <AnchorPane prefHeight="488.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="receptionistPage.AlterTriageControl">
   <!-- TODO Add Nodes -->
   <children>
+      <ImageView fitHeight="424.0" fitWidth="687.0" layoutY="88.0" opacity="0.34" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../application/hospitalimg.jpg" />
+         </image>
+      </ImageView>
     <TableView fx:id="patientTable" layoutX="14.0" layoutY="14.0" prefHeight="238.0" prefWidth="656.0">
       <columns>
         <TableColumn fx:id="nhs_number" prefWidth="83.0" text="NHS_number" />
@@ -24,9 +30,15 @@
             <TableColumn fx:id="blood_group" prefWidth="100.0" text="blood_group" />
       </columns>
     </TableView>
-    <Button fx:id="okButton" cancelButton="false" defaultButton="false" layoutX="253.0" layoutY="440.0" mnemonicParsing="false" onAction="#okOnClick" prefHeight="34.0" prefWidth="56.0" text="OK" textAlignment="LEFT" wrapText="false" />
-    <Label layoutX="230.0" layoutY="291.0" text="NHS Number" />
-    <Label layoutX="249.0" layoutY="335.0" text="Triage" />
+    <Button fx:id="okButton" cancelButton="false" defaultButton="false" layoutX="202.0" layoutY="383.0" mnemonicParsing="false" onAction="#okOnClick" prefHeight="34.0" prefWidth="56.0" text="OK" textAlignment="LEFT" wrapText="false" />
+    <Label layoutX="184.0" layoutY="289.0" text="NHS Number">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+    <Label layoutX="249.0" layoutY="335.0" text="Triage">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
     <ChoiceBox fx:id="triageChoiceBox" layoutX="315.0" layoutY="331.0">
       <items>
         <FXCollections fx:factory="observableArrayList">
@@ -36,8 +48,8 @@
         </FXCollections>
       </items>
     </ChoiceBox>
-    <Button fx:id="cancelButton" layoutX="459.0" layoutY="440.0" mnemonicParsing="false" onAction="#cancelOnClick" prefHeight="34.0" prefWidth="56.0" text="Cancel" />
-      <Label fx:id="warning" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="363.0" prefHeight="67.0" prefWidth="664.0" textAlignment="CENTER" textFill="RED" wrapText="true">
+    <Button fx:id="cancelButton" layoutX="362.0" layoutY="383.0" mnemonicParsing="false" onAction="#cancelOnClick" prefHeight="34.0" prefWidth="56.0" text="Back" />
+      <Label fx:id="warning" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="366.0" prefHeight="67.0" prefWidth="664.0" textAlignment="CENTER" textFill="RED" wrapText="true">
          <font>
             <Font size="20.0" />
          </font>
