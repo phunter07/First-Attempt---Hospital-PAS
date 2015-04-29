@@ -48,8 +48,7 @@ public class SortPatientQueue {
 	 * method to allow a patient who has been waiting 25 minutes to be moved to
 	 * top of queue
 	 */
-	public void movePatientToTopOfQueue(LinkedList<Patient> patientQueue,
-			Patient patient) {
+	public void movePatientToTopOfQueue(LinkedList<Patient> patientQueue) {
 
 		// initialising long to get the patient time in the queue
 		long patientTimeInQueue = 0;
@@ -86,8 +85,8 @@ public class SortPatientQueue {
 	 * @throws MessagingException
 	 * @throws AddressException
 	 */
-	public void thirtyMinuteManagerAlert(LinkedList<Patient> patientQueue,
-			Patient patient) throws AddressException, MessagingException {
+	public void thirtyMinuteManagerAlert(LinkedList<Patient> patientQueue)
+			throws AddressException, MessagingException {
 
 		// initialising long to get the patient time in the queue
 		long patientTimeInQueue = 0;
@@ -127,13 +126,12 @@ public class SortPatientQueue {
 	 * SMS to the onCall team should the queue capacity reach 10
 	 */
 
-	public boolean calculateQueueSize(LinkedList<Patient> patientQueue,
-			Patient patient) {
+	public boolean calculateQueueSize(LinkedList<Patient> patientQueue) {
 
 		if (patientQueue.size() >= Constants.PATIENT_LIMIT_IN_QUEUE) {
 			// if the queue is >= 10 then calling method to send non-emergency
 			// patients to the nearest hospital
-			//sendToNearestHospital(patientQueue, patient);
+			// sendToNearestHospital(patientQueue, patient);
 			// if the queue is >= 10 calling method to send SMS to OnCall team
 			smsAlerts.sendSMSToOnCallTeam();
 			return true;
