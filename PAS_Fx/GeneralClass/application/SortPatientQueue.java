@@ -67,7 +67,7 @@ public class SortPatientQueue {
 					.getTimePatientJoinsQueue().getTime();
 			minutes = TimeUnit.MILLISECONDS.toMinutes(currentTime
 					- patientTimeInQueue);
-			if (minutes >= Constants.MOVE_TO_FRONT_MINUTES) {
+			if (minutes >= Constants.MOVE_TO_FRONT_MINUTES*Constants.MULTIPLY_MINUTES_TO_SECONDS) {
 				patient = patientQueue.get(loop);
 				patientQueue.remove(loop);
 				patientQueue.addFirst(patient);
@@ -104,7 +104,7 @@ public class SortPatientQueue {
 					.getTimePatientJoinsQueue().getTime();
 			minutes = TimeUnit.MILLISECONDS.toMinutes(currentTime
 					- patientTimeInQueue);
-			if (minutes >= Constants.UPPERMINUTES_QUEUE_LIMIT) {
+			if (minutes >= Constants.UPPERMINUTES_QUEUE_LIMIT*Constants.MULTIPLY_MINUTES_TO_SECONDS) {
 				counter++;
 				if (counter == 2) {
 					managerEmailAlert
