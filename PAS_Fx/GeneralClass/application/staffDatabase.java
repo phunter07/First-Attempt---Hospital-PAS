@@ -1,5 +1,9 @@
 package application;
 
+/**
+ * Class containing the staff database connection and method to display all staff - to be implemented by Hospital manager
+ */
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,37 +14,40 @@ import java.util.List;
 
 public class staffDatabase {
 
-	
+	/**
+	 * method to return the AllStaffList for the Hspital Manager GUI screen
+	 * @return
+	 */
 	private static List<Staff> getAllStaff() {
 		List<Staff> allStaff = new ArrayList<Staff>();
-		String url = "jdbc:mysql://web2.eeecs.qub.ac.uk/40108307";
+		String url = DatabaseENums.DATABASEURL.getDatabase();
 		Connection con;
 		Statement stmt;
 		// loading driver
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(DatabaseENums.DATABASECLASS.getDatabase());
 		} catch (java.lang.ClassNotFoundException e) {
 			System.err.print("ClassNotFoundException: ");
 			System.err.println(e.getMessage());
 		}
 		// making the connection
 		try {
-			con = DriverManager.getConnection(url, "40108307", "CZB6355");
+			con = DriverManager.getConnection(url, DatabaseENums.DATABASEUSERNAME.getDatabase(), DatabaseENums.DATABASEPASSWORD.getDatabase());
 			// create a statement object
 			stmt = con.createStatement();
 			// supply the statement object with a string to execute
 			Staff staff = new Staff();
-			ResultSet rs = stmt.executeQuery("select * from STAFF");
+			ResultSet rs = stmt.executeQuery(DatabaseENums.DATABASESTAFFSELECTQUERY.getDatabase());
 			while (rs.next()) {
-				staff.setStaffID(Integer.parseInt(rs.getString("STAFF_ID")));
-				staff.setTitle(rs.getString("TITLE"));
-				staff.setFirstName(rs.getString("FIRST_NAME"));
-				staff.setLastName(rs.getString("LAST_NAME"));
-				staff.setPassword(rs.getString("STAFF_PASSWORD"));
-				staff.setRole(rs.getString("STAFF_ROLE"));
-				staff.setTeam(rs.getString("STAFF_TEAM"));
-				staff.setEmail(rs.getString("EMAIL_ADDRESS"));
-				staff.setTelephone(rs.getString("TELEPHONE"));
+				staff.setStaffID(Integer.parseInt(rs.getString(DatabaseENums.DATABASESTAFFID.getDatabase())));
+				staff.setTitle(rs.getString(DatabaseENums.DATABASESTAFFTITLE.getDatabase()));
+				staff.setFirstName(rs.getString(DatabaseENums.DATABASESTAFFFIRSTNAME.getDatabase()));
+				staff.setLastName(rs.getString(DatabaseENums.DATABASESTAFFLASTNAME.getDatabase()));
+				staff.setPassword(rs.getString(DatabaseENums.DATABASESTAFFPASSWORD.getDatabase()));
+				staff.setRole(rs.getString(DatabaseENums.DATABASESTAFFROLE.getDatabase()));
+				staff.setTeam(rs.getString(DatabaseENums.DATABASESTAFFTEAM.getDatabase()));
+				staff.setEmail(rs.getString(DatabaseENums.DATABASESTAFFEMAIL.getDatabase()));
+				staff.setTelephone(rs.getString(DatabaseENums.DATABASESTAFFTELEPHONE.getDatabase()));
 				allStaff.add(staff);
 			}
 			// close statement object
@@ -52,5 +59,5 @@ public class staffDatabase {
 		}
 		return allStaff;
 	}
-	
+
 }
