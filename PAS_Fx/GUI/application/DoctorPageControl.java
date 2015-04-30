@@ -75,14 +75,10 @@ public class DoctorPageControl implements Initializable {
 	    @FXML
 	    private Button logOut;
 
+	    
+	    
 	    @FXML
 	    void onClickLogOut(ActionEvent event) {
-
-	    }
-	    
-	    
-	    @FXML
-	    void OnClickLogOut(ActionEvent event) {
 	    
 	    	Stage newStage = new Stage();
 

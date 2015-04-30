@@ -43,7 +43,7 @@
 			</children>
 		</AnchorPane>
 		<MenuBar layoutX="0.0" layoutY="0.0" prefHeight="31.0" prefWidth="1020.0" />
-		<Button fx:id="logout" layoutX="847.0" layoutY="570.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="131.0" text="Logout" />
+		<Button fx:id="logout" layoutX="847.0" layoutY="570.0" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="38.0" prefWidth="131.0" text="Logout" />
       <Button fx:id="treatmentRooms" layoutX="789.0" layoutY="240.0" mnemonicParsing="false" onAction="#onClickTreatmentsRooms" prefHeight="53.0" prefWidth="189.0" text="Treatment Rooms" />
       <Button fx:id="staff" layoutX="789.0" layoutY="160.0" mnemonicParsing="false" onAction="#onClickStaff" prefHeight="53.0" prefWidth="189.0" text="Staff" />
 	</children>
