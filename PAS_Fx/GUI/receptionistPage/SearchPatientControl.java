@@ -61,16 +61,16 @@ public class SearchPatientControl {
 	public SearchPatientControl() {
 		for (Patient patient : GUIMain.patientQueue) {
 			PatientForSearch patientForSearch = new PatientForSearch(
-					String.valueOf(patient.getNhsNumber()),
+					String.valueOf(patient.getNhsNumber()), patient.getTitle(),
 					patient.getFirstName(), patient.getLastName(),
 					patient.getAddress(),
 					String.valueOf(patient.getNhsNumber()),
-					patient.getBloodGroup(), patient.getTriage());
-			// patient.getNhsNumber(), patient.getFirstName(),
-			// patient.getLastName(),
-			// patient.getAddress(),patient.getContactNumber(),
-			// patient.getBloodGroup()
-
+					patient.getBloodGroup(),String.valueOf(patient.getTriageCategory()),String.valueOf(
+					patient.getWaitingTime()));
+				
+					masterData.add(patientForSearch);
+			
+		
 		}
 	}
 
@@ -85,6 +85,8 @@ public class SearchPatientControl {
 		// 0. Initialize the columns.
 		nhsNumberColumn.setCellValueFactory(cellData -> cellData.getValue()
 				.nhsNumberProperty());
+		titleColumn.setCellValueFactory(cellData -> cellData.getValue()
+				.titleProperty());
 		firstNameColumn.setCellValueFactory(cellData -> cellData.getValue()
 				.firstNameProperty());
 		lastNameColumn.setCellValueFactory(cellData -> cellData.getValue()
@@ -93,10 +95,13 @@ public class SearchPatientControl {
 				.addressProperty());
 		contactNumberColumn.setCellValueFactory(cellData -> cellData.getValue()
 				.contactNumberProperty());
-
 		bloodGroupColumn.setCellValueFactory(cellData -> cellData.getValue()
 				.bloodGroupProperty());
-
+		triageCategoryColumn.setCellValueFactory(cellData -> cellData.getValue()
+				.triageCategoryProperty());
+		waitingTimeColumn.setCellValueFactory(cellData -> cellData.getValue()
+				.waitingTimeProperty());
+		
 		// 1. Wrap the ObservableList in a FilteredList (initially display all
 		// data).
 		FilteredList<PatientForSearch> filteredData = new FilteredList<>(

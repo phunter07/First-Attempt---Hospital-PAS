@@ -138,11 +138,11 @@ public class PatientForSearch {
 		return waitingTime.get();
 	}
 
-	public void setWaitingTime(){
+	public void setWaitingTime(String waitingTime){
 		this.waitingTime.set(waitingTime);
 	}
 	
-	public StringProperty WaitingTimeProperty() {
+	public StringProperty waitingTimeProperty() {
 		return waitingTime;
 	}
 
