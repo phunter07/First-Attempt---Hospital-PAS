@@ -15,6 +15,19 @@ public class InSitu {
 	}
 
 	/**
+	 * constructor with args
+	 */
+
+	public InSitu(Patient patient) {
+		this.patient = patient;
+	}
+
+	/**
+	 * instance var to hold emergency patient
+	 */
+	private Patient patient;
+
+	/**
 	 * method to allow the on call team to treat non-urgent patients in situ
 	 * 
 	 * @param patientQueue
@@ -26,14 +39,44 @@ public class InSitu {
 		// for loop to iterate through the queue and to return a patient with a
 		// triage category of non urgent
 		for (int loop = 0; loop <= patientQueue.size(); loop++) {
-			if (patient.getTriageCategory() == Triage.NON_URGENT.getLevel()) {
-				
-				//remove patient from queue
+			if (patient.getTriageCategory() != Triage.NON_URGENT.getLevel()) {
+				// remove patient from queue
 				patientQueue.remove(patient);
-				//need to write patient leaving time to file 
+				// need to write patient leaving time to file
 			}
 		}
+	}
 
+	/**
+	 * method to check if there is an emergency patient currently inSitu
+	 * 
+	 * @return
+	 */
+	public boolean checkEmergencyPatient() {
+		if (getPatient() != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * method to set the patient object
+	 * 
+	 * @param patient
+	 */
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+
+	}
+
+	/**
+	 * method to return the patient object
+	 * 
+	 * @return
+	 */
+	public Patient getPatient() {
+		return patient;
 	}
 
 }
