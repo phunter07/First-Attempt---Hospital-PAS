@@ -20,7 +20,7 @@ public enum DatabaseENums {
 		return database;
 	}
 
-	public void setAlert(String database) {
+	public void setDatabase(String database) {
 		this.database = database;
 	}
 
