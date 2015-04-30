@@ -8,8 +8,6 @@ public class OnCall {
 
 	private InSitu inSitu;
 
-	private LinkedList<Patient> patientQueue;
-
 	private Patient patient;
 
 	public boolean isOnCall() {
@@ -27,7 +25,7 @@ public class OnCall {
 	 */
 	public void checkInSituForEmergencyPatients() {
 		if ((onCall == true) && (inSitu.checkEmergencyPatient() == false)) {
-			InSitu.controlInSitu(patientQueue, patient);
+			InSitu.controlInSitu(GUIMain.patientQueue, patient);
 		} else {
 			treatEmergency();
 		}
