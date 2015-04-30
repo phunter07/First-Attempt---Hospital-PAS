@@ -134,6 +134,11 @@ public class GUIMain extends Application {
 						sortPatientQueue.movePatientToTopOfQueue(patientQueue);
 						// sortPatientQueue
 						// .calculateQueueSize(GUIMain.patientQueue);
+						for(TreatmentRoom treatmentRoom:treatmentRoomList){
+							if(treatmentRoom.isVacant()==false){
+								treatmentRoom.removePatientFromTreatmentroomAutomatically();
+							}
+						}
 						try {
 							writeToFile.writeQueueToFile(GUIMain.patientQueue);
 						} catch (FileNotFoundException e) {
