@@ -1,8 +1,14 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class DoctorPageControl {
 
@@ -26,7 +32,22 @@ public class DoctorPageControl {
 
 	    @FXML
 	    void OnClickTreatmentRoom1(ActionEvent event) {
+	    	Stage newStage = new Stage();
 
+			Parent root;
+			try {
+				root = FXMLLoader.load(getClass().getResource(
+						"/application/TreatmentRoom1.fxml"));
+				Scene scene = new Scene(root, 687, 488);
+				newStage.setTitle("Treatment Room 1");
+				newStage.setScene(scene);
+				newStage.setResizable(false);
+				newStage.show();
+
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
 	    }
 
 	    @FXML

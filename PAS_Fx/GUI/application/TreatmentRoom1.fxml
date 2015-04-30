@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="622.0" prefWidth="1020.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TreatmentRoom1Control">
    <children>
       <ImageView fitHeight="552.0" fitWidth="1020.0" layoutY="51.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
@@ -15,29 +14,74 @@
             <Image url="@hospitalimg.jpg" />
          </image>
       </ImageView>
-      <TextArea layoutX="85.0" layoutY="86.0" prefHeight="330.0" prefWidth="554.0" />
+      <TextArea fx:id="textBox1" layoutX="68.0" layoutY="139.0" prefHeight="366.0" prefWidth="571.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="806.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@hscportallogo.gif" />
          </image>
       </ImageView>
-      <Label layoutX="174.0" layoutY="109.0" text="Title :">
+      <Label fx:id="title" layoutX="174.0" layoutY="163.0" text="Title :">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="138.0" layoutY="135.0" text="First Name :">
+      <Label fx:id="firstName" layoutX="140.0" layoutY="204.0" text="First Name :">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextArea layoutX="215.0" layoutY="108.0" prefHeight="23.0" prefWidth="395.0" />
-      <Label layoutX="139.0" layoutY="162.0" text="Last Name :">
+      <TextArea fx:id="titleTextArea" layoutX="215.0" layoutY="152.0" prefHeight="38.0" prefWidth="395.0" />
+      <Label fx:id="lastName" layoutX="141.0" layoutY="245.0" text="Last Name :">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextArea layoutX="215.0" layoutY="134.0" prefHeight="23.0" prefWidth="395.0" />
-      <TextArea layoutX="215.0" layoutY="160.0" prefHeight="23.0" prefWidth="395.0" />
+      <TextArea fx:id="firstNameTextArea" layoutX="215.0" layoutY="193.0" prefHeight="38.0" prefWidth="395.0" />
+      <TextArea fx:id="lastNameTextArea" layoutX="215.0" layoutY="234.0" prefHeight="38.0" prefWidth="395.0" />
+      <TextArea fx:id="addressTextArea" layoutX="215.0" layoutY="276.0" prefHeight="38.0" prefWidth="395.0" />
+      <Label fx:id="address" layoutX="154.0" layoutY="287.0" text="Address :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="telephoneNumber" layoutX="94.0" layoutY="333.0" text="Telephone Number :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="telephoneTextArea" layoutX="215.0" layoutY="322.0" prefHeight="38.0" prefWidth="395.0" />
+      <TextArea fx:id="allergiesTextArea" layoutX="215.0" layoutY="367.0" prefHeight="38.0" prefWidth="395.0" />
+      <Label fx:id="allergies" layoutX="152.0" layoutY="378.0" text="Allergies :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="bloodGroup" layoutX="126.0" layoutY="423.0" text="Blood Group :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="bloodGroupTextArea" layoutX="215.0" layoutY="412.0" prefHeight="38.0" prefWidth="395.0" />
+      <TextArea fx:id="triageCategoryTextArea" layoutX="215.0" layoutY="456.0" prefHeight="38.0" prefWidth="395.0" />
+      <Label fx:id="triageCategory" layoutX="111.0" layoutY="467.0" text="Triage Category :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="patientDetails" layoutX="77.0" layoutY="104.0" text="Patient Details">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="treatmentRoom1" layoutX="77.0" layoutY="61.0" text="Treatment Room 1">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="logOut" layoutX="817.0" layoutY="536.0" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="44.0" prefWidth="143.0" text="Logout" />
+      <Button fx:id="dischargePatient" layoutX="750.0" layoutY="444.0" mnemonicParsing="false" onAction="#onClickDischargePatient" prefHeight="44.0" prefWidth="208.0" text="Discharge Patient" />
+      <TextArea fx:id="textBox2" layoutX="663.0" layoutY="141.0" prefHeight="160.0" prefWidth="297.0" />
+      <Button fx:id="furtherAction" layoutX="750.0" layoutY="386.0" mnemonicParsing="false" onAction="#onClickFurtherAction" prefHeight="44.0" prefWidth="208.0" text="Further Action" />
+      <Button fx:id="allocateExtraTime" layoutX="750.0" layoutY="328.0" mnemonicParsing="false" onAction="#onClickAllocateExtraTime" prefHeight="44.0" prefWidth="208.0" text="Allocate Extra Time" />
    </children>
 </AnchorPane>

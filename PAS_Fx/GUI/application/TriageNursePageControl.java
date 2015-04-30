@@ -90,7 +90,7 @@ public class TriageNursePageControl implements Initializable {
 			root = FXMLLoader.load(getClass().getResource(
 					"/application/LoginScreen.fxml"));
 			Scene scene = new Scene(root, 450, 400);
-			newStage.setTitle("Receptionist");
+			newStage.setTitle("Triage Nurse");
 			newStage.setScene(scene);
 			newStage.setResizable(false);
 			newStage.show();
