@@ -85,5 +85,86 @@
       <Button fx:id="recategorisePatient" layoutX="750.0" layoutY="361.0" mnemonicParsing="false" onAction="#onClickRecategorisePatient" prefHeight="44.0" prefWidth="208.0" text="Recategorise Patient" />
       <Label fx:id="timer" layoutX="798.0" layoutY="213.0" text="Label" />
       <Button fx:id="allocateExtraTime" layoutX="750.0" layoutY="310.0" mnemonicParsing="false" onAction="#onClickAllocateExtraTime" prefHeight="44.0" prefWidth="208.0" text="Allocate Extra Time" />
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="622.0" prefWidth="1020.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="552.0" fitWidth="1020.0" layoutY="51.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@hospitalimg.jpg" />
+               </image>
+            </ImageView>
+            <TextArea fx:id="textBox11" layoutX="68.0" layoutY="139.0" prefHeight="366.0" prefWidth="571.0" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="806.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@hscportallogo.gif" />
+               </image>
+            </ImageView>
+            <Label fx:id="title1" layoutX="174.0" layoutY="163.0" text="Title :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="firstName1" layoutX="140.0" layoutY="204.0" text="First Name :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="titleTextArea1" layoutX="215.0" layoutY="152.0" prefHeight="38.0" prefWidth="395.0" />
+            <Label fx:id="lastName1" layoutX="141.0" layoutY="245.0" text="Last Name :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="firstNameTextArea1" layoutX="215.0" layoutY="193.0" prefHeight="38.0" prefWidth="395.0" />
+            <TextArea fx:id="lastNameTextArea1" layoutX="215.0" layoutY="234.0" prefHeight="38.0" prefWidth="395.0" />
+            <TextArea fx:id="addressTextArea1" layoutX="215.0" layoutY="276.0" prefHeight="38.0" prefWidth="395.0" />
+            <Label fx:id="address1" layoutX="154.0" layoutY="287.0" text="Address :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="telephoneNumber1" layoutX="94.0" layoutY="333.0" text="Telephone Number :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="telephoneTextArea1" layoutX="215.0" layoutY="322.0" prefHeight="38.0" prefWidth="395.0" />
+            <TextArea fx:id="allergiesTextArea1" layoutX="215.0" layoutY="367.0" prefHeight="38.0" prefWidth="395.0" />
+            <Label fx:id="allergies1" layoutX="152.0" layoutY="378.0" text="Allergies :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="bloodGroup1" layoutX="126.0" layoutY="423.0" text="Blood Group :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="bloodGroupTextArea1" layoutX="215.0" layoutY="412.0" prefHeight="38.0" prefWidth="395.0" />
+            <TextArea fx:id="triageCategoryTextArea1" layoutX="215.0" layoutY="456.0" prefHeight="38.0" prefWidth="395.0" />
+            <Label fx:id="triageCategory1" layoutX="111.0" layoutY="467.0" text="Triage Category :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="patientDetails1" layoutX="77.0" layoutY="104.0" text="Patient Details">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="treatmentRoom11" layoutX="77.0" layoutY="57.0" text="Treatment Room 1">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="logOut1" layoutX="817.0" layoutY="536.0" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="44.0" prefWidth="143.0" text="Logout" />
+            <Button fx:id="dischargePatient1" layoutX="752.0" layoutY="462.0" mnemonicParsing="false" onAction="#onClickDischargePatient" prefHeight="44.0" prefWidth="208.0" text="Discharge Patient" />
+            <TextArea fx:id="textBox21" layoutX="663.0" layoutY="141.0" prefHeight="160.0" prefWidth="297.0" />
+            <Button fx:id="furtherAction1" layoutX="752.0" layoutY="411.0" mnemonicParsing="false" onAction="#onClickFurtherAction" prefHeight="44.0" prefWidth="208.0" text="Further Action" />
+            <Button fx:id="recategorisePatient1" layoutX="750.0" layoutY="361.0" mnemonicParsing="false" onAction="#onClickRecategorisePatient" prefHeight="44.0" prefWidth="208.0" text="Recategorise Patient" />
+            <Label fx:id="timer1" layoutX="798.0" layoutY="213.0" text="Label" />
+            <Button fx:id="allocateExtraTime1" layoutX="750.0" layoutY="310.0" mnemonicParsing="false" onAction="#onClickAllocateExtraTime" prefHeight="44.0" prefWidth="208.0" text="Allocate Extra Time" />
+            <Button fx:id="back" layoutX="663.0" layoutY="536.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="44.0" prefWidth="143.0" text="Back" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
