@@ -6,6 +6,7 @@ package application;
 
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TreatmentRoom {
@@ -39,22 +40,28 @@ public class TreatmentRoom {
 	 * instance var to declare the patient in the treatment room
 	 */
 	Patient patientInTreatmentRoom;
+	
+	public TreatmentRoom(){
+		setTimeInTreatmentRoom(new Date());
+		
+	}
 
 	public Date getTimeInTreatmentRoom() {
 		return timeInTreatmentRoom;
 	}
 
 	public void setTimeInTreatmentRoom(Date timeInTreatmentRoom) {
+		timeOutOfTreatmentRoom=new Date();
+		timeOutOfTreatmentRoom.setTime(timeInTreatmentRoom.getTime()
+				+ TimeUnit.MINUTES.toMillis(Limits.TIME_IN_TREATMENT_ROOM));
 		this.timeInTreatmentRoom = timeInTreatmentRoom;
 	}
 
 	public Date getTimeOutOfTreatmentRoom() {
-		timeOutOfTreatmentRoom.setTime(timeInTreatmentRoom.getTime()
-				+ TimeUnit.MINUTES.toMillis(Limits.TIME_IN_TREATMENT_ROOM));
 		return timeOutOfTreatmentRoom;
 	}
 
-	public void setTimeOutOfTreatmentRoom(Date timeOutOfTreatmentRoom) {
+	private void setTimeOutOfTreatmentRoom(Date timeOutOfTreatmentRoom) {
 		this.timeOutOfTreatmentRoom = timeOutOfTreatmentRoom;
 		patientTreated = true;
 	}
@@ -120,4 +127,8 @@ public class TreatmentRoom {
 		this.patientInTreatmentRoom = patientInTreatmentRoom;
 	}
 
+	public void dischargePatient(List<Patient> allPatients,Patient patient){
+		allPatients.remove(patient);
+		
+	}
 }

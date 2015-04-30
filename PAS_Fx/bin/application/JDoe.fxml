@@ -15,6 +15,6 @@
       </Text>
       <Button fx:id="MALEBUTT" layoutX="62.0" layoutY="89.0" mnemonicParsing="false" onAction="#MaleOnClick" text="Male" />
       <Button fx:id="FEMALEBUTT" layoutX="189.0" layoutY="89.0" mnemonicParsing="false" onAction="#FemaleOnClick" text="Female" />
-      <Label fx:id="Warning" layoutX="140.0" layoutY="147.0" text="Label" />
+      <Label fx:id="Warning" layoutX="140.0" layoutY="147.0" />
    </children>
 </AnchorPane>
