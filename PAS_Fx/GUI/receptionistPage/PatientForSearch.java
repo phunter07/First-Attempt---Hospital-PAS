@@ -8,25 +8,29 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class PatientForSearch {
+	private final StringProperty title;
 	private final StringProperty firstName;
 	private final StringProperty lastName;
 	private final StringProperty nhsNumber;
 	private final StringProperty address;
 	private final StringProperty bloodGroup;
 	private final StringProperty contactNumber;
-
+	private final StringProperty triageCategory;
+	private final StringProperty waitingTime;
 	
 
 	public PatientForSearch(String nhsNumber, String firstName,
-			String lastName, String address, String contactNumber,
-			String bloodGroup) {
+			String lastName, String title, String address, String contactNumber,
+			String bloodGroup, String triageCategory, String waitingTime) {
 		this.nhsNumber = new SimpleStringProperty(nhsNumber);
+		this.title = new SimpleStringProperty(title);
 		this.firstName = new SimpleStringProperty(firstName);
 		this.lastName = new SimpleStringProperty(lastName);
-		
 		this.address = new SimpleStringProperty(address);
 		this.contactNumber = new SimpleStringProperty(contactNumber);
 		this.bloodGroup = new SimpleStringProperty(bloodGroup);
+		this.triageCategory = new SimpleStringProperty(triageCategory);
+		this.waitingTime = new SimpleStringProperty(waitingTime);
 	}
 
 	
@@ -101,6 +105,45 @@ public class PatientForSearch {
 
 	public StringProperty contactNumberProperty() {
 		return contactNumber;
+	}
+
+
+
+	public String getTitle() {
+		return title.get();
+	}
+	
+	public void setTitle (String title){
+		this.title.set(title);
+	}
+	
+	public StringProperty titleProperty(){
+		return title;
+	}
+
+
+	public String getTriageCategory() {
+		return triageCategory.get();
+	}
+	
+	public void setTriageCategory (String triageCategory) {
+		this.triageCategory.set(triageCategory);
+	}
+	
+	public StringProperty triageCategoryProperty(){
+		return triageCategory;
+	}
+
+	public String getWaitingTime(){
+		return waitingTime.get();
+	}
+
+	public void setWaitingTime(){
+		this.waitingTime.set(waitingTime);
+	}
+	
+	public StringProperty WaitingTimeProperty() {
+		return waitingTime;
 	}
 
 }

@@ -2,8 +2,6 @@
  * @author Paul 40133443
  */
 
-
-
 package receptionistPage;
 
 import application.GUIMain;
@@ -32,7 +30,10 @@ public class SearchPatientControl {
 
 	@FXML
 	private TableColumn<PatientForSearch, String> nhsNumberColumn;
-
+	
+	@FXML
+	private TableColumn<PatientForSearch, String> titleColumn;
+	
 	@FXML
 	private TableColumn<PatientForSearch, String> firstNameColumn;
 	@FXML
@@ -45,6 +46,12 @@ public class SearchPatientControl {
 	@FXML
 	private TableColumn<PatientForSearch, String> bloodGroupColumn;
 
+	@FXML
+	private TableColumn<PatientForSearch, String> triageCategoryColumn;
+
+	@FXML
+	private TableColumn<PatientForSearch, String> waitingTimeColumn;
+
 	private ObservableList<PatientForSearch> masterData = FXCollections
 			.observableArrayList();
 
@@ -52,9 +59,18 @@ public class SearchPatientControl {
 	 * Just add some sample data in the constructor.
 	 */
 	public SearchPatientControl() {
-		for(Patient patient:GUIMain.patientQueue){
-			PatientForSearch patientForSearch=new PatientForSearch(patient.getNhsNumber(), patient.getFirstName(), patient.getLastName(), patient.getAddress(), patient.getContactNumber(), patient.getBloodGroup());
-			
+		for (Patient patient : GUIMain.patientQueue) {
+			PatientForSearch patientForSearch = new PatientForSearch(
+					String.valueOf(patient.getNhsNumber()),
+					patient.getFirstName(), patient.getLastName(),
+					patient.getAddress(),
+					String.valueOf(patient.getNhsNumber()),
+					patient.getBloodGroup(), patient.getTriage());
+			// patient.getNhsNumber(), patient.getFirstName(),
+			// patient.getLastName(),
+			// patient.getAddress(),patient.getContactNumber(),
+			// patient.getBloodGroup()
+
 		}
 	}
 
@@ -105,11 +121,14 @@ public class SearchPatientControl {
 							} else if (Patient.getLastName().toLowerCase()
 									.indexOf(lowerCaseFilter) != -1) {
 								return true; // Filter matches last name.
-							} else if (Patient.getNhsNumber().toLowerCase().indexOf(lowerCaseFilter) != -1){
+							} else if (Patient.getNhsNumber().toLowerCase()
+									.indexOf(lowerCaseFilter) != -1) {
 								return true;
-							}else if (Patient.getAddress().toLowerCase().indexOf(lowerCaseFilter) != -1){
+							} else if (Patient.getAddress().toLowerCase()
+									.indexOf(lowerCaseFilter) != -1) {
 								return true;
-							} else if (Patient.getBloodGroup().toLowerCase().indexOf(lowerCaseFilter) != -1){
+							} else if (Patient.getBloodGroup().toLowerCase()
+									.indexOf(lowerCaseFilter) != -1) {
 								return true;
 							}
 							return false; // Does not match.
