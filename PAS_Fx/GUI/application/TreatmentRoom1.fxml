@@ -98,50 +98,50 @@
                   <Image url="@hscportallogo.gif" />
                </image>
             </ImageView>
-            <Label fx:id="title1" layoutX="174.0" layoutY="163.0" text="Title :">
+            <Label fx:id="title1" layoutX="174.0" layoutY="196.0" text="Title :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="firstName1" layoutX="140.0" layoutY="204.0" text="First Name :">
+            <Label fx:id="firstName1" layoutX="140.0" layoutY="237.0" text="First Name :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextArea fx:id="titleTextArea1" layoutX="215.0" layoutY="152.0" prefHeight="38.0" prefWidth="395.0" />
-            <Label fx:id="lastName1" layoutX="141.0" layoutY="245.0" text="Last Name :">
+            <TextArea fx:id="titleTextArea1" layoutX="215.0" layoutY="190.0" prefHeight="29.0" prefWidth="395.0" />
+            <Label fx:id="lastName1" layoutX="141.0" layoutY="274.0" text="Last Name :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextArea fx:id="firstNameTextArea1" layoutX="215.0" layoutY="193.0" prefHeight="38.0" prefWidth="395.0" />
-            <TextArea fx:id="lastNameTextArea1" layoutX="215.0" layoutY="234.0" prefHeight="38.0" prefWidth="395.0" />
-            <TextArea fx:id="addressTextArea1" layoutX="215.0" layoutY="276.0" prefHeight="38.0" prefWidth="395.0" />
-            <Label fx:id="address1" layoutX="154.0" layoutY="287.0" text="Address :">
+            <TextArea fx:id="firstNameTextArea1" layoutX="215.0" layoutY="231.0" prefHeight="29.0" prefWidth="395.0" />
+            <TextArea fx:id="lastNameTextArea1" layoutX="215.0" layoutY="268.0" prefHeight="29.0" prefWidth="395.0" />
+            <TextArea fx:id="addressTextArea1" layoutX="215.0" layoutY="308.0" prefHeight="29.0" prefWidth="395.0" />
+            <Label fx:id="address1" layoutX="154.0" layoutY="314.0" text="Address :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="telephoneNumber1" layoutX="94.0" layoutY="333.0" text="Telephone Number :">
+            <Label fx:id="telephoneNumber1" layoutX="94.0" layoutY="353.0" text="Telephone Number :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextArea fx:id="telephoneTextArea1" layoutX="215.0" layoutY="322.0" prefHeight="38.0" prefWidth="395.0" />
-            <TextArea fx:id="allergiesTextArea1" layoutX="215.0" layoutY="367.0" prefHeight="38.0" prefWidth="395.0" />
-            <Label fx:id="allergies1" layoutX="152.0" layoutY="378.0" text="Allergies :">
+            <TextArea fx:id="telephoneTextArea1" layoutX="215.0" layoutY="347.0" prefHeight="29.0" prefWidth="395.0" />
+            <TextArea fx:id="allergiesTextArea1" layoutX="215.0" layoutY="387.0" prefHeight="29.0" prefWidth="395.0" />
+            <Label fx:id="allergies1" layoutX="152.0" layoutY="393.0" text="Allergies :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="bloodGroup1" layoutX="126.0" layoutY="423.0" text="Blood Group :">
+            <Label fx:id="bloodGroup1" layoutX="127.0" layoutY="434.0" text="Blood Group :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextArea fx:id="bloodGroupTextArea1" layoutX="215.0" layoutY="412.0" prefHeight="38.0" prefWidth="395.0" />
-            <TextArea fx:id="triageCategoryTextArea1" layoutX="215.0" layoutY="456.0" prefHeight="38.0" prefWidth="395.0" />
-            <Label fx:id="triageCategory1" layoutX="111.0" layoutY="467.0" text="Triage Category :">
+            <TextArea fx:id="bloodGroupTextArea1" layoutX="215.0" layoutY="428.0" prefHeight="29.0" prefWidth="395.0" />
+            <TextArea fx:id="triageCategoryTextArea1" layoutX="215.0" layoutY="465.0" prefHeight="29.0" prefWidth="395.0" />
+            <Label fx:id="triageCategory1" layoutX="111.0" layoutY="471.0" text="Triage Category :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -164,6 +164,12 @@
             <Label fx:id="timer1" layoutX="798.0" layoutY="213.0" text="Label" />
             <Button fx:id="allocateExtraTime1" layoutX="750.0" layoutY="310.0" mnemonicParsing="false" onAction="#onClickAllocateExtraTime" prefHeight="44.0" prefWidth="208.0" text="Allocate Extra Time" />
             <Button fx:id="back" layoutX="663.0" layoutY="536.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="44.0" prefWidth="143.0" text="Back" />
+            <TextArea fx:id="nhsNumberTextArea" layoutX="215.0" layoutY="154.0" prefHeight="29.0" prefWidth="395.0" />
+            <Label fx:id="nhsNumber" layoutX="127.0" layoutY="160.0" text="NHS number :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
