@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="198.0" prefWidth="315.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.JDoeController">
+   <children>
+      <Text layoutX="128.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JDoe:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Button fx:id="MALEBUTT" layoutX="62.0" layoutY="89.0" mnemonicParsing="false" onAction="#MaleOnClick" text="Male" />
+      <Button fx:id="FEMALEBUTT" layoutX="189.0" layoutY="89.0" mnemonicParsing="false" onAction="#FemaleOnClick" text="Female" />
+      <Label fx:id="Warning" layoutX="140.0" layoutY="147.0" />
+   </children>
+</AnchorPane>
