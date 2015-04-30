@@ -6,19 +6,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane minHeight="566.0" minWidth="358.0" prefHeight="566.0" prefWidth="358.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane minHeight="566.0" minWidth="358.0" prefHeight="566.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DoctorPageControl">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="144.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@hscportallogo.gif" />
          </image>
       </ImageView>
-      <Button layoutX="73.0" layoutY="129.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 1" />
-      <Button layoutX="73.0" layoutY="194.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 2" />
-      <Button layoutX="73.0" layoutY="262.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 3" />
-      <Button layoutX="73.0" layoutY="329.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 4" />
-      <Button layoutX="73.0" layoutY="396.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 5" />
-      <Button layoutX="196.0" layoutY="506.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="137.0" text="Logout" />
+      <Button fx:id="treatmentRoom1" layoutX="73.0" layoutY="129.0" mnemonicParsing="false" onAction="#OnClickTreatmentRoom1" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 1" />
+      <Button fx:id="treatmentRoom2" layoutX="73.0" layoutY="194.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom2" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 2" />
+      <Button fx:id="treatmentRoom3" layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom3" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 3" />
+      <Button fx:id="treatmentRoom4" layoutX="73.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom4" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 4" />
+      <Button fx:id="treatmentRoom5" layoutX="73.0" layoutY="396.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom5" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 5" />
+      <Button fx:id="logOut" layoutX="196.0" layoutY="506.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom5" prefHeight="38.0" prefWidth="137.0" text="Logout" />
    </children>
 </AnchorPane>
