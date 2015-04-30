@@ -5,11 +5,12 @@ package application;
  */
 
 import java.io.IOException;
+
 import java.net.URL;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.ResourceBundle;
-
+import java.util.Random;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import application.Patient;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -442,4 +444,22 @@ public class ReceptionistPageControl implements Initializable {
 			patientTable.setItems(null);
 		}
 	}
+	
+    @FXML
+    void onClickJDoe(ActionEvent event) {
+
+    	Patient patient = new Patient();
+		patient.setFirstName("J");
+		patient.setLastName("Doe");
+		
+		Random randomNHSNumber = new Random();
+		for(int loop = 0; loop <= Limits.PATIENT_LIMIT_IN_PAS; loop++){
+			patient.setNhsNumber(randomNHSNumber.nextInt(8000) + 1000);
+		}
+
+		new SortPatientQueue().allocatePatientToTreatmentRoom(GUIMain.patientQueue, patient, GUIMain.treatmentRoomList);
+		
+    	
+    } 
+
 }
