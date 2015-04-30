@@ -97,7 +97,7 @@ public class GUIMain extends Application {
 							}
 						}
 						delay=true;
-						Thread.sleep(10000);
+						Thread.sleep(10000*600);
 					}
 				} catch (InterruptedException e) {
 					e.printStackTrace();
