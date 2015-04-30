@@ -9,7 +9,7 @@ package application;
  * 
  */
 
-public class Constants {
+public class Limits {
 
 	/**
 	 * Constant to set the Refresh time of the Thread (in miliseconds)

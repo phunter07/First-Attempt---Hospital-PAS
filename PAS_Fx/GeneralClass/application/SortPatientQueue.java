@@ -48,7 +48,7 @@ public class SortPatientQueue {
 	 */
 	public void calculateStatus(LinkedList<Patient> patientQueue) {
 
-		if (patientQueue.size() <= Constants.PATIENT_LIMIT_IN_QUEUE) {
+		if (patientQueue.size() <= Limits.PATIENT_LIMIT_IN_QUEUE) {
 
 			// find the longest waiting time of the patients in the queue
 			long longestWaitingTime = 0;
@@ -64,7 +64,7 @@ public class SortPatientQueue {
 				status = 2;
 			} else if (longestWaitingTime >= 20) {
 				status = 3;
-			} else if (GUIMain.patientQueue.size() == Constants.PATIENT_LIMIT_IN_QUEUE) {
+			} else if (GUIMain.patientQueue.size() == Limits.PATIENT_LIMIT_IN_QUEUE) {
 				status = 4;
 			}
 		}
@@ -114,8 +114,8 @@ public class SortPatientQueue {
 					.getTimePatientJoinsQueue().getTime();
 			minutes = TimeUnit.MILLISECONDS.toMinutes(currentTime
 					- patientTimeInQueue);
-			if (minutes >= Constants.UPPERMINUTES_QUEUE_LIMIT
-					* Constants.MULTIPLY_MINUTES_TO_SECONDS) {
+			if (minutes >= Limits.UPPERMINUTES_QUEUE_LIMIT
+					* Limits.MULTIPLY_MINUTES_TO_SECONDS) {
 				counter++;
 				if (counter == 2) {
 					managerEmailAlert
@@ -136,7 +136,7 @@ public class SortPatientQueue {
 
 	public boolean calculateQueueSize(LinkedList<Patient> patientQueue) {
 
-		if (patientQueue.size() >= Constants.PATIENT_LIMIT_IN_QUEUE) {
+		if (patientQueue.size() >= Limits.PATIENT_LIMIT_IN_QUEUE) {
 			// if the queue is >= 10 then calling method to send non-emergency
 			// patients to the nearest hospital
 			// sendToNearestHospital(patientQueue, patient);

@@ -130,7 +130,7 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe,
 
 		boolean inQueue = false;
 
-		if (patientQueue.size() < Constants.PATIENT_LIMIT_IN_QUEUE) {
+		if (patientQueue.size() < Limits.PATIENT_LIMIT_IN_QUEUE) {
 			// adds patient to queue
 			patientQueue.add(patient);
 			// sorts the patient queue by triage category

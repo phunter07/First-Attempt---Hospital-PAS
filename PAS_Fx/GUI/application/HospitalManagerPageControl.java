@@ -83,7 +83,7 @@ public class HospitalManagerPageControl implements Initializable {
 			public void run() {
 				while (true) {
 					try {
-						Thread.sleep(Constants.REFRESHTIME);
+						Thread.sleep(Limits.REFRESHTIME);
 						Platform.runLater(new Runnable() {
 
 							@Override

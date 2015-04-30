@@ -116,7 +116,7 @@ public class Receptionist extends Staff implements IReceptionist {
 	public void registerPatientToAandE(List<Patient> patientList,
 			Patient newPatient) throws HospitalPASException {
 
-		if (patientList.size() < Constants.PATIENT_LIMIT_IN_PAS) {
+		if (patientList.size() < Limits.PATIENT_LIMIT_IN_PAS) {
 
 			// creating the patient object with the details obtained from the
 			// queryPAS method
