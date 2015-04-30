@@ -44,8 +44,8 @@ public class GUIMain extends Application {
 	public static int status;
 
 	public static Patient nextPatient;
-	
-	public static OnCall onCall=new OnCall();
+
+	public static OnCall onCall = new OnCall();
 
 	public static void main(String[] args) {
 
@@ -66,12 +66,49 @@ public class GUIMain extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			threadStart();
-
+			alertThread();
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+	}
+
+	private void alertThread() {
+		System.out.println("alertThread");
+		Thread alertThread = new Thread() {
+
+			@Override
+			public void run() {
+
+				boolean delay = false;
+
+				try {
+					while (true) {
+						while (!delay) {
+							Thread.sleep(1000);
+							
+//								sortPatientQueue
+//										.thirtyMinuteManagerAlert(patientQueue);
+							
+							if(sortPatientQueue
+									.calculateQueueSize(GUIMain.patientQueue)){
+								delay=false;
+							}
+						}
+						delay=true;
+						Thread.sleep(10000);
+					}
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+			}
+
+		};
+
+		alertThread.setDaemon(true);
+		alertThread.start();
 	}
 
 	/**
@@ -93,14 +130,14 @@ public class GUIMain extends Application {
 						sortPatientQueue.allocatePatientToTreatmentRoom(
 								patientQueue, patientQueue.peek(),
 								treatmentRoomList);
-//						sortPatientQueue.thirtyMinuteManagerAlert(patientQueue);
+						// sortPatientQueue.thirtyMinuteManagerAlert(patientQueue);
 						sortPatientQueue.movePatientToTopOfQueue(patientQueue);
-//						sortPatientQueue
-//								.calculateQueueSize(GUIMain.patientQueue);
+						// sortPatientQueue
+						// .calculateQueueSize(GUIMain.patientQueue);
 						try {
 							writeToFile.writeQueueToFile(GUIMain.patientQueue);
 						} catch (FileNotFoundException e) {
-							
+
 							e.printStackTrace();
 						}
 						// refresh();
@@ -110,7 +147,7 @@ public class GUIMain extends Application {
 					}
 				} catch (InterruptedException e) {
 					e.printStackTrace();
-				} 
+				}
 
 			}
 
@@ -136,7 +173,7 @@ public class GUIMain extends Application {
 	 * method to initialise variables
 	 */
 	public void initialise() {
-		
+
 		patientQueue = new LinkedList<Patient>();
 		allPatientList = new LinkedList<Patient>();
 		treatmentRoomList = new ArrayList<TreatmentRoom>();

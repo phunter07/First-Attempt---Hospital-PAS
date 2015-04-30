@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 public class TreatmentRoom1Control implements Initializable {
 
-	private TreatmentRoom treatmentRoom = new TreatmentRoom();
+	public static TreatmentRoom treatmentRoom ;
 
 	private Patient patient;
 	@FXML

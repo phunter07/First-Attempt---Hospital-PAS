@@ -109,6 +109,7 @@ public class DoctorPageControl implements Initializable {
 
 			Parent root;
 			try {
+				TreatmentRoom1Control.treatmentRoom=GUIMain.treatmentRoomList.get(0);
 				root = FXMLLoader.load(getClass().getResource(
 						"/application/TreatmentRoom1.fxml"));
 				Scene scene = new Scene(root, 1020, 622);
@@ -132,6 +133,7 @@ public class DoctorPageControl implements Initializable {
 
 				Parent root;
 				try {
+					TreatmentRoom1Control.treatmentRoom=GUIMain.treatmentRoomList.get(1);
 					root = FXMLLoader.load(getClass().getResource(
 							"/application/TreatmentRoom2.fxml"));
 					Scene scene = new Scene(root, 1020, 622);
@@ -155,6 +157,7 @@ public class DoctorPageControl implements Initializable {
 
 				Parent root;
 				try {
+					TreatmentRoom1Control.treatmentRoom=GUIMain.treatmentRoomList.get(2);
 					root = FXMLLoader.load(getClass().getResource(
 							"/application/TreatmentRoom3.fxml"));
 					Scene scene = new Scene(root, 1020, 622);
@@ -178,6 +181,7 @@ public class DoctorPageControl implements Initializable {
 
 				Parent root;
 				try {
+					TreatmentRoom1Control.treatmentRoom=GUIMain.treatmentRoomList.get(3);
 					root = FXMLLoader.load(getClass().getResource(
 							"/application/TreatmentRoom4.fxml"));
 					Scene scene = new Scene(root, 1020, 622);
@@ -201,6 +205,7 @@ public class DoctorPageControl implements Initializable {
 
 				Parent root;
 				try {
+					TreatmentRoom1Control.treatmentRoom=GUIMain.treatmentRoomList.get(4);
 					root = FXMLLoader.load(getClass().getResource(
 							"/application/TreatmentRoom5.fxml"));
 					Scene scene = new Scene(root, 1020, 622);
