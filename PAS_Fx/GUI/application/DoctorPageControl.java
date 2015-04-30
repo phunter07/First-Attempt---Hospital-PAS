@@ -31,6 +31,12 @@ public class DoctorPageControl {
 	    private Button logOut;
 
 	    @FXML
+	    void onClickLogOut(ActionEvent event) {
+
+	    }
+	    
+	    /*
+	    @FXML
 	    void OnClickLogOut(ActionEvent event) {
 	    
 	    	Stage newStage = new Stage();
@@ -54,7 +60,7 @@ public class DoctorPageControl {
 			stage.close();
 		}
 		
-	    
+	    */
 	    
 	    @FXML
 	    void OnClickTreatmentRoom1(ActionEvent event) {
@@ -64,7 +70,7 @@ public class DoctorPageControl {
 			try {
 				root = FXMLLoader.load(getClass().getResource(
 						"/application/TreatmentRoom1.fxml"));
-				Scene scene = new Scene(root, 687, 488);
+				Scene scene = new Scene(root, 1020, 622);
 				newStage.setTitle("Treatment Room 1");
 				newStage.setScene(scene);
 				newStage.setResizable(false);
@@ -87,7 +93,7 @@ public class DoctorPageControl {
 				try {
 					root = FXMLLoader.load(getClass().getResource(
 							"/application/TreatmentRoom2.fxml"));
-					Scene scene = new Scene(root, 687, 488);
+					Scene scene = new Scene(root, 1020, 622);
 					newStage.setTitle("Treatment Room 2");
 					newStage.setScene(scene);
 					newStage.setResizable(false);
@@ -110,7 +116,7 @@ public class DoctorPageControl {
 				try {
 					root = FXMLLoader.load(getClass().getResource(
 							"/application/TreatmentRoom3.fxml"));
-					Scene scene = new Scene(root, 687, 488);
+					Scene scene = new Scene(root, 1020, 622);
 					newStage.setTitle("Treatment Room 3");
 					newStage.setScene(scene);
 					newStage.setResizable(false);
@@ -133,7 +139,7 @@ public class DoctorPageControl {
 				try {
 					root = FXMLLoader.load(getClass().getResource(
 							"/application/TreatmentRoom4.fxml"));
-					Scene scene = new Scene(root, 687, 488);
+					Scene scene = new Scene(root, 1020, 622);
 					newStage.setTitle("Treatment Room 4");
 					newStage.setScene(scene);
 					newStage.setResizable(false);
@@ -156,7 +162,7 @@ public class DoctorPageControl {
 				try {
 					root = FXMLLoader.load(getClass().getResource(
 							"/application/TreatmentRoom5.fxml"));
-					Scene scene = new Scene(root, 687, 488);
+					Scene scene = new Scene(root, 1020, 622);
 					newStage.setTitle("Treatment Room 5");
 					newStage.setScene(scene);
 					newStage.setResizable(false);
