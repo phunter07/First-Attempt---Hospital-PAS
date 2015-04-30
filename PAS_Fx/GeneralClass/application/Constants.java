@@ -1,9 +1,10 @@
 package application;
 
 /**
- * Class containing the constants to be used within the system It was decided
+ * Class containing the constants to be used within the system. It was decided
  * that these should not be ENums as a group because they are not a fixed set of
- * constants
+ * constants as the Requirements specification states that the A and E should be
+ * able to be expanded
  * 
  * 
  */
@@ -21,7 +22,6 @@ public class Constants {
 	 */
 	public final static int PATIENT_LIMIT_IN_PAS = 100;
 
-	
 	/**
 	 * Constant to control the upper limit of the patient queue
 	 */
@@ -39,8 +39,6 @@ public class Constants {
 	 */
 	public static final int MOVE_TO_FRONT_MINUTES = 2;
 
-	
-
 	/**
 	 * Constant to set the upper limit of the waiting time in the queue in
 	 * minutes
@@ -48,21 +46,15 @@ public class Constants {
 	public static final int UPPERMINUTES_QUEUE_LIMIT = 10;
 
 	/**
-	 * Constant to set the subject of the email to be sent to the hospital
-	 * manager
-	 */
-	
-
-	/**
 	 * Constant for the Number of Treatment rooms within the Hospital
 	 */
 	public final static int NUMBERS_OF_ROOM = 1;
-	
+
 	/**
 	 * Constant to set the time in the treatment room
 	 */
 	public final static int TIME_IN_TREATMENT_ROOM = 10;
-	
+
 	/**
 	 * Constant to set the extended time to be allocated
 	 */

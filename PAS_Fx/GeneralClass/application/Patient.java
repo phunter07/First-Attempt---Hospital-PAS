@@ -1,11 +1,16 @@
 package application;
 
-import java.util.Date;
+/**
+ * Class containing the details of the Patient class to create the object to be used throughout the program 
+ */
 
+/**
+ * importing the date class from java.util to set the times the patient enters and leaves a and e
+ */
+import java.util.Date;
 
 public class Patient extends Person {
 
-	
 	/**
 	 * declaration of variable NHS number
 	 */
@@ -20,32 +25,21 @@ public class Patient extends Person {
 	 * declaration of variable blood group
 	 */
 	private String bloodGroup;
-	
+
 	/**
 	 * declaration of variable contact number
 	 */
 	private String contactNum;
-	
+
 	/**
 	 * declaration of variable triageCategory
 	 */
 	private int triage;
-
-
-	public int getTriage() {
-		return triage;
-	}
-
-	public void setTriage(int triage) {
-		this.triage = triage;
-	}
-
+	
 	/**
 	 * declaration of allergies
 	 */
 	private String allergies;
-	
-
 
 	/**
 	 * declaration date arriveTime to take in the current date and time of when
@@ -64,7 +58,7 @@ public class Patient extends Person {
 	 * patient in the queue
 	 */
 	private long waitingTime;
-	
+
 	/**
 	 * declaration of if the patient is pulledOutOfRoom
 	 */
@@ -73,11 +67,13 @@ public class Patient extends Person {
 	/**
 	 * default constructor
 	 */
-	public Patient() {
+	public Patient(){
+		
 	}
-
+	
 	/**
 	 * constructor with arguments
+	 * 
 	 * @param title
 	 * @param firstName
 	 * @param lastName
@@ -89,7 +85,8 @@ public class Patient extends Person {
 	 * @param leaveTime
 	 */
 	public Patient(String title, String firstName, String lastName,
-			char gender, int nhsNumber, String bloodGroup, String contactNum, Date timePatientJoinsQueue, Date leaveTime) {
+			char gender, int nhsNumber, String bloodGroup, String contactNum,
+			Date timePatientJoinsQueue, Date leaveTime) {
 		super(title, firstName, lastName, gender);
 		this.nhsNumber = nhsNumber;
 		this.bloodGroup = bloodGroup;
@@ -98,9 +95,28 @@ public class Patient extends Person {
 		this.leaveTime = leaveTime;
 	}
 
+	
+	/**
+	 * method to get the Triage Category of the patient
+	 * @return
+	 */
+	public int getTriage() {
+		return triage;
+	}
+
+	/**
+	 * method to set the triage category of the patient
+	 * @param triage
+	 */
+	public void setTriage(int triage) {
+		this.triage = triage;
+	}
+
+	
 	/**
 	 * method to get the NHSNumber of the patient
-	 * @return 
+	 * 
+	 * @return
 	 */
 	public int getNhsNumber() {
 		return nhsNumber;
@@ -109,7 +125,8 @@ public class Patient extends Person {
 	/**
 	 * 
 	 * method to set the NHSNumber of the patient
-	 * @param 
+	 * 
+	 * @param
 	 */
 	public void setNhsNumber(int nhsNumer) {
 		this.nhsNumber = nhsNumer;
@@ -117,7 +134,8 @@ public class Patient extends Person {
 
 	/**
 	 * method to get the patients blood group
-	 * @return 
+	 * 
+	 * @return
 	 */
 	public String getBloodGroup() {
 		return bloodGroup;
@@ -125,6 +143,7 @@ public class Patient extends Person {
 
 	/**
 	 * method to set the patients blood group
+	 * 
 	 * @param string
 	 */
 	public void setBloodGroup(String string) {
@@ -134,7 +153,8 @@ public class Patient extends Person {
 
 	/**
 	 * method to get the patients contact number
-	 * @return 
+	 * 
+	 * @return
 	 */
 	public String getContactNum() {
 		return contactNum;
@@ -142,6 +162,7 @@ public class Patient extends Person {
 
 	/**
 	 * method to set the patients contact number
+	 * 
 	 * @param contactNum
 	 */
 	public void setContactNum(String contactNum) {
@@ -150,6 +171,7 @@ public class Patient extends Person {
 
 	/**
 	 * method to get the patients allergies
+	 * 
 	 * @return
 	 */
 	public String getAllergies() {
@@ -158,16 +180,16 @@ public class Patient extends Person {
 
 	/**
 	 * method to set the allergies
+	 * 
 	 * @param allergies
 	 */
 	public void setAllergies(String allergies) {
 		this.allergies = allergies;
 	}
 
-	
-
 	/**
 	 * method to get the patients address
+	 * 
 	 * @return
 	 */
 	public String getAddress() {
@@ -176,6 +198,7 @@ public class Patient extends Person {
 
 	/**
 	 * method to set the patients address
+	 * 
 	 * @param address
 	 */
 	public void setAddress(String address) {
@@ -184,6 +207,7 @@ public class Patient extends Person {
 
 	/**
 	 * method to get the arrival time of the patient into the queue
+	 * 
 	 * @return
 	 */
 	public Date getTimePatientJoinsQueue() {
@@ -192,6 +216,7 @@ public class Patient extends Person {
 
 	/**
 	 * method to set the arrival time of the patient into the queue
+	 * 
 	 * @param arriveTime
 	 */
 	public void setTimePatientJoinsQueue(Date timePatientJoinsQueue) {
@@ -200,6 +225,7 @@ public class Patient extends Person {
 
 	/**
 	 * method to get the time the patient leaves the queue
+	 * 
 	 * @return
 	 */
 	public Date getLeaveTime() {
@@ -208,14 +234,17 @@ public class Patient extends Person {
 
 	/**
 	 * method to set the time the patient leaves the queue
+	 * 
 	 * @param leaveTime
 	 */
 	public void setLeaveTime(Date leaveTime) {
+
 		this.leaveTime = leaveTime;
 	}
 
 	/**
 	 * method to get the waiting time of patient
+	 * 
 	 * @return double waitingTime
 	 */
 
@@ -223,58 +252,69 @@ public class Patient extends Person {
 	 * @return the waitingTime
 	 */
 	public Long getWaitingTime() {
-		if(this.getTimePatientJoinsQueue()!=null){
-			this.waitingTime=new Date().getTime()-this.getTimePatientJoinsQueue().getTime();
-			}else{
-				this.waitingTime=0;
-			}
+		if (this.getTimePatientJoinsQueue() != null) {
+			this.waitingTime = new Date().getTime()
+					- this.getTimePatientJoinsQueue().getTime();
+		} else {
+			this.waitingTime = 0;
+		}
 		return this.waitingTime;
 	}
 
 	/**
 	 * method to get the triage category of the patient as a string
+	 * 
 	 * @return
 	 */
-		public int getTriageCategory() {
+	public int getTriageCategory() {
 
-			return triage;
-		}
+		return triage;
+	}
 
 	/**
-	 * method to set the triage category of the patient as a string`	
+	 * method to set the triage category of the patient as a string`
+	 * 
 	 * @param triageAsString
 	 */
 	public void setTriageCategory(Triage triageCategory) {
-	
-			
-			switch (triageCategory) {
-			case EMERGENCY:
-				triage = Triage.EMERGENCY.getLevel();
-				break;
-			case URGENT:
-				triage = Triage.URGENT.getLevel();
-				break;
-			case SEMI_URGENT:
-				triage = Triage.SEMI_URGENT.getLevel();
-				break;
-			case NON_URGENT:
-				triage = Triage.NON_URGENT.getLevel();
-				break;
-			default:
-				triage = 0;
+
+		switch (triageCategory) {
+		case EMERGENCY:
+			triage = Triage.EMERGENCY.getLevel();
+			break;
+		case URGENT:
+			triage = Triage.URGENT.getLevel();
+			break;
+		case SEMI_URGENT:
+			triage = Triage.SEMI_URGENT.getLevel();
+			break;
+		case NON_URGENT:
+			triage = Triage.NON_URGENT.getLevel();
+			break;
+		default:
+			triage = 0;
 		}
 	}
 
+	/**
+	 * method to return the boolean if the patient is pulled out of the Treatment room
+	 * @return
+	 */
 	public boolean isPulledOutOfRoom() {
 		return pulledOutOfRoom;
 	}
 
+	/**
+	 * method to set the boolean if the patient is puled out of the room
+	 * @param pulledOutOfRoom
+	 */
 	public void setPulledOutOfRoom(boolean pulledOutOfRoom) {
 		this.pulledOutOfRoom = pulledOutOfRoom;
 	}
-	
+
 	/**
 	 * method to override the toString() method to display the Patient details
+	 * used within the GUI
 	 */
 	@Override
 	public String toString() {
@@ -283,10 +323,7 @@ public class Patient extends Person {
 				+ ", triage=" + triage + ", allergies=" + allergies
 				+ ", timePatientJoinsQueue=" + timePatientJoinsQueue
 				+ ", leaveTime=" + leaveTime + ", waitingTime=" + waitingTime
-				+ ", pulledOutOfRoom=" + pulledOutOfRoom + "]"+"\n";
+				+ ", pulledOutOfRoom=" + pulledOutOfRoom + "]" + "\n";
 	}
-
-
-	
 
 }
