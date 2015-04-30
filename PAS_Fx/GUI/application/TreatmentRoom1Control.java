@@ -195,6 +195,7 @@ public class TreatmentRoom1Control implements Initializable {
 
 							@Override
 							public void run() {
+								patient=treatmentRoom.patientInTreatmentRoom;
 								refreshPatientInformation();
 
 							}
@@ -212,6 +213,7 @@ public class TreatmentRoom1Control implements Initializable {
 	}
 
 	private void refreshPatientInformation() {
+
 		if (patient != null) {
 			nhsNumberTextArea.setText(String.valueOf(patient.getNhsNumber()));
 			titleTextArea1.setText(patient.getTitle());
@@ -230,9 +232,18 @@ public class TreatmentRoom1Control implements Initializable {
 			}
 			String time = setTime(treatmentRoom.getTimeOutOfTreatmentRoom()
 					.getTime() - new Date().getTime());
-			System.out.println(treatmentRoom.getTimeOutOfTreatmentRoom()
-					.getTime());
 			timer1.setText(time);
+		}else{
+			nhsNumberTextArea.setText("");
+			titleTextArea1.setText("");
+			firstNameTextArea1.setText("");
+			lastNameTextArea1.setText("");
+			addressTextArea1.setText("");
+			telephoneTextArea1.setText("");
+			allergiesTextArea1.setText("");
+			bloodGroupTextArea1.setText("");
+			triageCategoryTextArea1.setText("");
+			timer1.setText("00:00");
 		}
 	}
 

@@ -184,7 +184,7 @@ public class SortPatientQueue {
 		boolean isRoomAvailable = false;
 
 		// needs to be -1 as the array list of rooms begins with an index of 0
-		int treatmentRoom = 0;
+		int treatmentRoom =-1;
 
 		// initialising the int to get the category of the patient currently in
 		// the treatment room
@@ -198,7 +198,7 @@ public class SortPatientQueue {
 			room.setVacant(false);
 			return true;
 		}
-
+		
 		// for loop to iterate through the treatment rooms and check if a
 		// non-emergency patient can be removed to allow an emergency patient to
 		// be put in - starts at 0 because the array list of treatment rooms
@@ -211,16 +211,18 @@ public class SortPatientQueue {
 			// patient in the treatment room
 			// if greater than the current patient's triage category then set
 			// the reference of the treatmentRoom to the loop
-			if (!(treatmentRooms.get(loop).getPatientTriageCategory(patient) == Triage.EMERGENCY
+			if (!(treatmentRooms.get(loop).getPatientTriageCategory() == Triage.EMERGENCY
 					.getLevel())) {
+				
 				// if statement to find the highest category in the treatment
 				// room list and set the highest category of patient into the
 				// patient room
 				if (treatmentRooms.get(loop).getPatientInTreatmentRoom()
 						.getTriageCategory() > currentPatientTriageCategory) {
+					
 					treatmentRoom = loop;
 					currentPatientTriageCategory = treatmentRooms.get(loop)
-							.getPatientTriageCategory(patient);
+							.getPatientTriageCategory();
 
 					currentTime = treatmentRooms.get(loop)
 							.getPatientInTreatmentRoom()
@@ -234,7 +236,7 @@ public class SortPatientQueue {
 								.compareTo(currentTime) > 0)) {
 					treatmentRoom = loop;
 					currentPatientTriageCategory = treatmentRooms.get(loop)
-							.getPatientTriageCategory(patient);
+							.getPatientTriageCategory();
 					currentTime = treatmentRooms.get(loop)
 							.getPatientInTreatmentRoom()
 							.getTimePatientJoinsQueue();
@@ -243,7 +245,8 @@ public class SortPatientQueue {
 
 		}
 
-		if (treatmentRoom != 0) {
+		if (treatmentRoom != -1) {
+			
 			patientQueue.addFirst(treatmentRooms.get(treatmentRoom)
 					.getPatientInTreatmentRoom());
 			patientBeingTreated(patient, treatmentRoom, treatmentRooms);
@@ -273,6 +276,7 @@ public class SortPatientQueue {
 					treatmentRooms.get(loop).setPatientInTreatmentRoom(patient);
 					// setting the treatment room to occupied
 					treatmentRooms.get(loop).setVacant(false);
+					treatmentRooms.get(loop).setTimeInTreatmentRoom(new Date());
 					return true;
 				}
 			}

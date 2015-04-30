@@ -51,10 +51,14 @@ public class TreatmentRoom {
 	}
 
 	public void setTimeInTreatmentRoom(Date timeInTreatmentRoom) {
+		if(timeInTreatmentRoom!=null){
 		timeOutOfTreatmentRoom=new Date();
 		timeOutOfTreatmentRoom.setTime(timeInTreatmentRoom.getTime()
 				+ TimeUnit.MINUTES.toMillis(Limits.TIME_IN_TREATMENT_ROOM));
 		this.timeInTreatmentRoom = timeInTreatmentRoom;
+		}else{
+			timeOutOfTreatmentRoom=null;
+		}
 	}
 
 	public Date getTimeOutOfTreatmentRoom() {
@@ -106,9 +110,9 @@ public class TreatmentRoom {
 	 * @param patient
 	 * @return
 	 */
-	public int getPatientTriageCategory(Patient patient) {
+	public int getPatientTriageCategory() {
 
-		return patient.getTriageCategory();
+		return this.getPatientInTreatmentRoom().getTriageCategory();
 	}
 
 	/**
@@ -128,7 +132,10 @@ public class TreatmentRoom {
 	}
 
 	public void dischargePatient(List<Patient> allPatients,Patient patient){
-		allPatients.remove(patient);
+		this.patientInTreatmentRoom=null;
+		this.setVacant(true);
+		this.setTimeInTreatmentRoom(null);
+		patient.setLeaveTime(new Date());
 		
 	}
 }
