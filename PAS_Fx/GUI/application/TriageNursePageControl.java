@@ -195,7 +195,7 @@ public class TriageNursePageControl implements Initializable {
 							});
 						}
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 				}
