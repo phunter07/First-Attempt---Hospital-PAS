@@ -8,8 +8,15 @@ package application;
  * importing the date class from java.util to set the times the patient enters and leaves a and e
  */
 import java.util.Date;
+import java.util.Random;
 
 public class Patient extends Person {
+
+	/**
+	 * integer to allow the Triage nurse to allocate an unconscious patient an
+	 * emergency NHSNumber
+	 */
+	private int emergencyNHSNumber;
 
 	/**
 	 * declaration of variable NHS number
@@ -35,7 +42,7 @@ public class Patient extends Person {
 	 * declaration of variable triageCategory
 	 */
 	private int triage;
-	
+
 	/**
 	 * declaration of allergies
 	 */
@@ -67,10 +74,10 @@ public class Patient extends Person {
 	/**
 	 * default constructor
 	 */
-	public Patient(){
-		
+	public Patient() {
+
 	}
-	
+
 	/**
 	 * constructor with arguments
 	 * 
@@ -95,16 +102,15 @@ public class Patient extends Person {
 		this.leaveTime = leaveTime;
 	}
 
-	
 	/**
 	 * method to get the Triage Category of the patient
+	 * 
 	 * @return
 	 */
 	public int getTriage() {
 		return triage;
 	}
 
-	
 	/**
 	 * method to get the NHSNumber of the patient
 	 * 
@@ -289,7 +295,9 @@ public class Patient extends Person {
 	}
 
 	/**
-	 * method to return the boolean if the patient is pulled out of the Treatment room
+	 * method to return the boolean if the patient is pulled out of the
+	 * Treatment room
+	 * 
 	 * @return
 	 */
 	public boolean isPulledOutOfRoom() {
@@ -298,10 +306,35 @@ public class Patient extends Person {
 
 	/**
 	 * method to set the boolean if the patient is puled out of the room
+	 * 
 	 * @param pulledOutOfRoom
 	 */
 	public void setPulledOutOfRoom(boolean pulledOutOfRoom) {
 		this.pulledOutOfRoom = pulledOutOfRoom;
+	}
+
+	/**
+	 * method to get the emergency NHS Number for the unconscious patient
+	 * 
+	 * @return
+	 */
+	public int getEmergencyNHSNumber() {
+		return emergencyNHSNumber;
+	}
+
+	/**
+	 * method to set the emergency NHS number for the unconscious patient
+	 * 
+	 * @param emergencyNHSNumber
+	 */
+	public void setEmergencyNHSNumber(int emergencyNHSNumber) {
+
+		Random randomNHSNumber = new Random();
+
+		for (int loop = 0; loop <= Constants.PATIENT_LIMIT_IN_PAS; loop++) {
+			emergencyNHSNumber = (randomNHSNumber.nextInt(8000) + 1000);
+		}
+		this.emergencyNHSNumber = emergencyNHSNumber;
 	}
 
 	/**
@@ -316,17 +349,6 @@ public class Patient extends Person {
 				+ ", timePatientJoinsQueue=" + timePatientJoinsQueue
 				+ ", leaveTime=" + leaveTime + ", waitingTime=" + waitingTime
 				+ ", pulledOutOfRoom=" + pulledOutOfRoom + "]" + "\n";
-	}
-	
-	public int JDoeNHS(){
-		
-		for (count = )
-		int emergencyNHSNumber = 3000;
-		
-		
-		
-		return nhsNumber;
-		
 	}
 
 }

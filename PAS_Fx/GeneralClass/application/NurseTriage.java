@@ -1,29 +1,24 @@
 package application;
 
-import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 /**
- * class containing the details of the TiageNurse
+ * class containing the details of the TiageNurse and method to allow her to
+ * allocate a triage category to a patient in order for them to be added to the
+ * queue
  *
  */
 
 public class NurseTriage extends Staff implements INurseTriage, IJDoe,
 		ICategorise {
 
-	public int emergencyNHSNumber;
-	
 	/**
 	 * default constructor
 	 */
 	public NurseTriage() {
 
 	}
-
-	
-		
 
 	/**
 	 * constructor with arguments to obtain the details of the Triage Nurse
@@ -146,21 +141,20 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe,
 		return inQueue;
 	}
 
+
+	/**
+	 * method to allow the Triage Nurse to allocate emergency details to the
+	 * unconscious patient
+	 * 
+	 * @param patient
+	 */
 	@Override
-	public void allocateDetailsJDoeNUM(Patient patient) {
-		
-		
-		
-		
-	}
-	
-	public void allocateJDoeName(Patient patient){
-		
-		
+	public void allocateJDoeDetails(Patient patient) {
+
 		if (patient.getGender() == 'F' || patient.getGender() == 'f') {
 			patient.setFirstName("Jane");
 			patient.setLastName("Doe");
-			patient.setNhsNumber();
+			patient.getEmergencyNHSNumber();
 			patient.setTriageCategory(Triage.EMERGENCY);
 
 		} else if (patient.getGender() == 'M' || patient.getGender() == 'm') {

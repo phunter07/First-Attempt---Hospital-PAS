@@ -9,14 +9,11 @@ package application;
 public interface IJDoe {
 
 	/**
-	 * method to allocate a NHS Number to an unconscious patient - incrementing
-	 * values
+	 * method to allocate emergency details to an unconscious patient -
+	 * incrementing values
 	 * 
 	 * @return
 	 */
-	public void allocateDetailsJDoeNUM(Patient patient);
+	public void allocateJDoeDetails(Patient patient);
 
-
-	
-	
 }
