@@ -1,22 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="622.0" prefWidth="1020.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TriageNursePageControl">
+<AnchorPane prefHeight="622.0" prefWidth="1020.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TreatmentRoom1Control">
    <children>
       <ImageView fitHeight="552.0" fitWidth="1020.0" layoutY="51.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@hospitalimg.jpg" />
          </image>
       </ImageView>
+      <TextArea layoutX="85.0" layoutY="86.0" prefHeight="330.0" prefWidth="554.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="806.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@hscportallogo.gif" />
          </image>
       </ImageView>
+      <Label layoutX="174.0" layoutY="109.0" text="Title :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="138.0" layoutY="135.0" text="First Name :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="215.0" layoutY="108.0" prefHeight="23.0" prefWidth="395.0" />
+      <Label layoutX="139.0" layoutY="162.0" text="Last Name :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="215.0" layoutY="134.0" prefHeight="23.0" prefWidth="395.0" />
+      <TextArea layoutX="215.0" layoutY="160.0" prefHeight="23.0" prefWidth="395.0" />
    </children>
 </AnchorPane>
