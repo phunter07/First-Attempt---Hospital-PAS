@@ -48,7 +48,7 @@ public class Limits {
 	/**
 	 * Constant for the Number of Treatment rooms within the Hospital
 	 */
-	public final static int NUMBERS_OF_ROOM = 1;
+	public final static int NUMBERS_OF_ROOM = 5;
 
 	/**
 	 * Constant to set the time in the treatment room

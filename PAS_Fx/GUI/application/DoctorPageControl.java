@@ -136,7 +136,7 @@ public class DoctorPageControl implements Initializable {
 				try {
 					TreatmentRoom1Control.treatmentRoom=GUIMain.treatmentRoomList.get(1);
 					root = FXMLLoader.load(getClass().getResource(
-							"/application/TreatmentRoom2.fxml"));
+							"/application/TreatmentRoom1.fxml"));
 					Scene scene = new Scene(root, 1020, 622);
 					newStage.setTitle("Treatment Room 2");
 					newStage.setScene(scene);
@@ -160,7 +160,7 @@ public class DoctorPageControl implements Initializable {
 				try {
 					TreatmentRoom1Control.treatmentRoom=GUIMain.treatmentRoomList.get(2);
 					root = FXMLLoader.load(getClass().getResource(
-							"/application/TreatmentRoom3.fxml"));
+							"/application/TreatmentRoom1.fxml"));
 					Scene scene = new Scene(root, 1020, 622);
 					newStage.setTitle("Treatment Room 3");
 					newStage.setScene(scene);
@@ -184,7 +184,7 @@ public class DoctorPageControl implements Initializable {
 				try {
 					TreatmentRoom1Control.treatmentRoom=GUIMain.treatmentRoomList.get(3);
 					root = FXMLLoader.load(getClass().getResource(
-							"/application/TreatmentRoom4.fxml"));
+							"/application/TreatmentRoom1.fxml"));
 					Scene scene = new Scene(root, 1020, 622);
 					newStage.setTitle("Treatment Room 4");
 					newStage.setScene(scene);
@@ -208,7 +208,7 @@ public class DoctorPageControl implements Initializable {
 				try {
 					TreatmentRoom1Control.treatmentRoom=GUIMain.treatmentRoomList.get(4);
 					root = FXMLLoader.load(getClass().getResource(
-							"/application/TreatmentRoom5.fxml"));
+							"/application/TreatmentRoom1.fxml"));
 					Scene scene = new Scene(root, 1020, 622);
 					newStage.setTitle("Treatment Room 5");
 					newStage.setScene(scene);

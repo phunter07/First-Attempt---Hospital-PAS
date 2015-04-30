@@ -161,7 +161,7 @@ public class TreatmentRoom1Control implements Initializable {
 		try {
 			root = FXMLLoader.load(getClass().getResource(
 					"/application/DoctorPage.fxml"));
-			Scene scene = new Scene(root, 450, 400);
+			Scene scene = new Scene(root, 1000, 600);
 			newStage.setTitle("Hospital Manager");
 			newStage.setScene(scene);
 			newStage.setResizable(false);
