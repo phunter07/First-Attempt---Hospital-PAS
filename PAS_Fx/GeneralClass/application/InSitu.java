@@ -39,9 +39,12 @@ public class InSitu {
 		// for loop to iterate through the queue and to return a patient with a
 		// triage category of non urgent
 		for (int loop = 0; loop <= patientQueue.size(); loop++) {
-			if (patient.getTriageCategory() != Triage.NON_URGENT.getLevel()) {
+			if (patient.getTriageCategory() != Triage.EMERGENCY.getLevel()) {
 				// remove patient from queue
 				patientQueue.remove(patient);
+				//put patient in situ
+				//treat patient in situ
+				//discharge patient
 				// need to write patient leaving time to file
 			}
 		}
