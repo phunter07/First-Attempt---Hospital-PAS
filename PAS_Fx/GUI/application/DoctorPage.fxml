@@ -8,7 +8,12 @@
 
 <AnchorPane minHeight="622.0" minWidth="1020.0" prefHeight="566.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DoctorPageControl">
 	<children>
-		<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="144.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="522.0" fitWidth="1020.0" layoutY="51.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hospitalimg.jpg" />
+         </image>
+      </ImageView>
+		<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="806.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
 			<image>
 				<Image url="@hscportallogo.gif" />
 			</image>
