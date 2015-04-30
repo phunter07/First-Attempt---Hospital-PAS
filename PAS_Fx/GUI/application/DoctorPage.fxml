@@ -6,18 +6,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="566.0" minWidth="358.0" prefHeight="566.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DoctorPageControl">
-   <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="144.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@hscportallogo.gif" />
-         </image>
-      </ImageView>
-      <Button fx:id="treatmentRoom1" layoutX="73.0" layoutY="129.0" mnemonicParsing="false" onAction="#OnClickTreatmentRoom1" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 1" />
-      <Button fx:id="treatmentRoom2" layoutX="73.0" layoutY="194.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom2" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 2" />
-      <Button fx:id="treatmentRoom3" layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom3" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 3" />
-      <Button fx:id="treatmentRoom4" layoutX="73.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom4" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 4" />
-      <Button fx:id="treatmentRoom5" layoutX="73.0" layoutY="396.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom5" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 5" />
-      <Button fx:id="logOut" layoutX="196.0" layoutY="506.0" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="38.0" prefWidth="137.0" text="Logout" />
-   </children>
+<AnchorPane minHeight="622.0" minWidth="1020.0" prefHeight="566.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DoctorPageControl">
+	<children>
+		<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="144.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@hscportallogo.gif" />
+			</image>
+		</ImageView>
+		<Button fx:id="treatmentRoom1" layoutX="740.0" layoutY="150.0" mnemonicParsing="false" onAction="#OnClickTreatmentRoom1" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 1" />
+		<Button fx:id="treatmentRoom2" layoutX="740.0" layoutY="215.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom2" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 2" />
+		<Button fx:id="treatmentRoom3" layoutX="740.0" layoutY="283.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom3" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 3" />
+		<Button fx:id="treatmentRoom4" layoutX="740.0" layoutY="350.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom4" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 4" />
+		<Button fx:id="treatmentRoom5" layoutX="740.0" layoutY="417.0" mnemonicParsing="false" onAction="#onClickTreatmentRoom5" prefHeight="56.0" prefWidth="212.0" text="Treatment Room 5" />
+		<Button fx:id="logOut" layoutX="815.0" layoutY="529.0" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="38.0" prefWidth="137.0" text="Logout" />
+		<TableView fx:id="tableView" layoutX="62.0" layoutY="154.0" prefHeight="392.0" prefWidth="565.0">
+			<columns>
+				<TableColumn fx:id="nhs_number" prefWidth="109.0" text="NHS_number" />
+				<TableColumn fx:id="first_name" prefWidth="107.0" text="first_name" />
+				<TableColumn fx:id="last_name" prefWidth="116.0" text="last_name" />
+				<TableColumn fx:id="triage" prefWidth="65.0" text="triage" />
+				<TableColumn fx:id="waitingTime" prefWidth="167.0" text="waitingTime" />
+				<TableColumn fx:id="address" prefWidth="309.0" text="address" />
+				<TableColumn fx:id="telephone" minWidth="5.0" prefWidth="100.0" text="telephone" />
+				<TableColumn fx:id="allergies" prefWidth="100.0" text="allergies" />
+				<TableColumn fx:id="blood_group" prefWidth="100.0" text="blood_group" />
+				<TableColumn fx:id="title" maxWidth="5000.0" minWidth="10.0" prefWidth="77.0" text="title" />
+			</columns>
+		</TableView>
+	</children>
 </AnchorPane>
