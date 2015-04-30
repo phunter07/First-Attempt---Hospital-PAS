@@ -178,7 +178,27 @@ import javafx.stage.Stage;
 		    
 		    @FXML
 		    void onClickLogOut(ActionEvent event) {
+		    	Stage newStage = new Stage();
 
+				Parent root;
+				try {
+					root = FXMLLoader.load(getClass().getResource(
+							"/application/LoginScreen.fxml"));
+					Scene scene = new Scene(root, 450, 400);
+					newStage.setTitle("Hospital Manager");
+					newStage.setScene(scene);
+					newStage.setResizable(false);
+					newStage.show();
+
+				} catch (IOException e) {
+
+					e.printStackTrace();
+				}
+				Stage stage = (Stage) logOut.getScene().getWindow();
+
+				stage.close();
+		    	
+		    	
 		    }
 
 		    @FXML
@@ -209,9 +229,9 @@ import javafx.stage.Stage;
 				Parent root;
 				try {
 					root = FXMLLoader.load(getClass().getResource(
-							"/application.DoctorPage.fxml"));
-					Scene scene = new Scene(root, 900, 522);
-					newStage.setTitle("Patient Search");
+							"/application/DoctorPage.fxml"));
+					Scene scene = new Scene(root, 450, 400);
+					newStage.setTitle("Hospital Manager");
 					newStage.setScene(scene);
 					newStage.setResizable(false);
 					newStage.show();
@@ -220,6 +240,9 @@ import javafx.stage.Stage;
 
 					e.printStackTrace();
 				}
+				Stage stage = (Stage) back.getScene().getWindow();
+
+				stage.close();
 		    }
 
 }
