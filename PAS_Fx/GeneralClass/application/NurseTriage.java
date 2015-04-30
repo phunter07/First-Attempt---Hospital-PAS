@@ -10,14 +10,20 @@ import java.util.Queue;
  *
  */
 
-public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategorise {
+public class NurseTriage extends Staff implements INurseTriage, IJDoe,
+		ICategorise {
 
+	public int emergencyNHSNumber;
+	
 	/**
 	 * default constructor
 	 */
 	public NurseTriage() {
 
 	}
+
+	
+		
 
 	/**
 	 * constructor with arguments to obtain the details of the Triage Nurse
@@ -55,7 +61,8 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 				}
 			}
 		} catch (NumberFormatException e) {
-			throw new HospitalPASException(ExceptionsEnums.NHSNUMBEREXCEPTION.getException());
+			throw new HospitalPASException(
+					ExceptionsEnums.NHSNUMBEREXCEPTION.getException());
 		}
 		return null;
 	}
@@ -64,8 +71,9 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 	 * method to allow the Triage Nurse to assign a category to a patient
 	 */
 	@Override
-	public boolean categorisePatient(LinkedList<Patient> allPatients,LinkedList<Patient> patientQueue,
-			Patient patient, Triage triage) throws HospitalPASException {
+	public boolean categorisePatient(LinkedList<Patient> allPatients,
+			LinkedList<Patient> patientQueue, Patient patient, Triage triage)
+			throws HospitalPASException {
 
 		// creating an integer wrapper to all to check if the getTraigeCategory
 		// is a null value
@@ -82,10 +90,10 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 			} else {
 				allPatients.remove(patient);
 				new SMSAlerts().sendSMSToOnCallTeam();
-				
+
 				throw new HospitalPASException(
 						ExceptionsEnums.QUEUELIMITEXCEEDED.getException());
-				
+
 			}
 		} else {
 			throw new HospitalPASException(
@@ -98,15 +106,17 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 	 * triageCategory
 	 */
 	@Override
-	public boolean recategorisePatient(LinkedList<Patient> patientQueue, Patient patient,Triage triage) throws HospitalPASException {
+	public boolean recategorisePatient(LinkedList<Patient> patientQueue,
+			Patient patient, Triage triage) throws HospitalPASException {
 
 		if (patient != null) {
 			patient.setTriageCategory(triage);
 			// sorts the patient queue by triage category
-						patientQueue.sort(new SortPatientComparator());
+			patientQueue.sort(new SortPatientComparator());
 			return true;
 		} else {
-			throw new HospitalPASException(ExceptionsEnums.CANTRECOGNISEPATIENT.getException());
+			throw new HospitalPASException(
+					ExceptionsEnums.CANTRECOGNISEPATIENT.getException());
 		}
 
 	}
@@ -137,16 +147,27 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 	}
 
 	@Override
-	public void allocateDetailsJDoe(Patient patient) {
-
-		if (patient.getFirstName().isEmpty() && patient.getLastName().isEmpty()) {
-			Integer emergencyNhsNumber = new Integer(0000);
-			emergencyNhsNumber = emergencyNhsNumber++;
-
-			patient.setFirstName("J");
+	public void allocateDetailsJDoeNUM(Patient patient) {
+		
+		
+		
+		
+	}
+	
+	public void allocateJDoeName(Patient patient){
+		
+		
+		if (patient.getGender() == 'F' || patient.getGender() == 'f') {
+			patient.setFirstName("Jane");
 			patient.setLastName("Doe");
-			patient.setNhsNumber(emergencyNhsNumber);
+			patient.setNhsNumber();
+			patient.setTriageCategory(Triage.EMERGENCY);
 
+		} else if (patient.getGender() == 'M' || patient.getGender() == 'm') {
+			patient.setFirstName("John");
+			patient.setLastName("Doe");
+			patient.getEmergencyNHSNumber();
+			patient.setTriageCategory(Triage.EMERGENCY);
 		}
 	}
 
@@ -154,7 +175,7 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 	 * method to allow a TriageNurse to extract the patient needed to be triage
 	 * from all patient in PAS system
 	 * 
-	 * @author 
+	 * @author
 	 * @param emergencyPatient
 	 * @param treatmentRooms
 	 * @param patientQueue
@@ -168,12 +189,12 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 			}
 		}
 	}
-	
+
 	/**
 	 * method to allow a TriageNurse to extract the patient needed to be altered
 	 * from all patient in PAS system
 	 * 
-	 * @author 
+	 * @author
 	 * @param emergencyPatient
 	 * @param treatmentRooms
 	 * @param patientQueue
@@ -187,11 +208,5 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe, ICategori
 			}
 		}
 	}
-
-
-
-
-
-	
 
 }

@@ -14,7 +14,7 @@ public interface IJDoe {
 	 * 
 	 * @return
 	 */
-	public void allocateDetailsJDoe(Patient patient);
+	public void allocateDetailsJDoeNUM(Patient patient);
 
 
 	

@@ -104,14 +104,6 @@ public class Patient extends Person {
 		return triage;
 	}
 
-	/**
-	 * method to set the triage category of the patient
-	 * @param triage
-	 */
-	public void setTriage(int triage) {
-		this.triage = triage;
-	}
-
 	
 	/**
 	 * method to get the NHSNumber of the patient
@@ -324,6 +316,17 @@ public class Patient extends Person {
 				+ ", timePatientJoinsQueue=" + timePatientJoinsQueue
 				+ ", leaveTime=" + leaveTime + ", waitingTime=" + waitingTime
 				+ ", pulledOutOfRoom=" + pulledOutOfRoom + "]" + "\n";
+	}
+	
+	public int JDoeNHS(){
+		
+		for (count = )
+		int emergencyNHSNumber = 3000;
+		
+		
+		
+		return nhsNumber;
+		
 	}
 
 }

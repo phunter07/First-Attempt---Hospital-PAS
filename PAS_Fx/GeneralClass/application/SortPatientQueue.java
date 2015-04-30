@@ -120,7 +120,7 @@ public class SortPatientQueue {
 				if (counter == 2) {
 					managerEmailAlert
 							.generateAndSendEmailPatientsWaitingThirtyMinutes();
-					smsAlerts.sendSSMSManagerTwoPatientsWaitingThirtyMinutes();
+					
 
 				}
 
@@ -141,7 +141,7 @@ public class SortPatientQueue {
 			// patients to the nearest hospital
 			// sendToNearestHospital(patientQueue, patient);
 			// if the queue is >= 10 calling method to send SMS to OnCall team
-			smsAlerts.sendSMSToOnCallTeam();
+			
 			return true;
 		}
 		return false;
@@ -163,7 +163,7 @@ public class SortPatientQueue {
 		// method
 
 			managerEmailAlert.sendSSMSManagerOnCallFullyEngaged();
-			smsAlerts.sendSSMSManagerOnCallFullyEngaged();
+			
 
 	}
 
@@ -314,7 +314,7 @@ public class SortPatientQueue {
 		// alert on call team
 		if (!pushEmergencyPatientIntoTreatmentRoom(patientQueue, patient,
 				treatmentRooms)) {
-			smsAlerts.sendSMSToOnCallTeam();
+			
 			
 			if (onCall.isOnCallEngaged1()==true&&onCall.isOnCallEngaged2()==true) {
 				allPatients.remove(patient);
