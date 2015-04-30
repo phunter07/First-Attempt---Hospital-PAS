@@ -33,7 +33,28 @@ public class DoctorPageControl {
 	    @FXML
 	    void OnClickLogOut(ActionEvent event) {
 	    
-	    }
+	    	Stage newStage = new Stage();
+
+			Parent root;
+			try {
+				root = FXMLLoader.load(getClass().getResource(
+						"/application/LoginScreen.fxml"));
+				Scene scene = new Scene(root, 450, 400);
+				newStage.setTitle("Doctor");
+				newStage.setScene(scene);
+				newStage.setResizable(false);
+				newStage.show();
+
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+			Stage stage = (Stage) logOut.getScene().getWindow();
+
+			stage.close();
+		}
+		
+	    
 	    
 	    @FXML
 	    void OnClickTreatmentRoom1(ActionEvent event) {
@@ -53,6 +74,9 @@ public class DoctorPageControl {
 
 				e.printStackTrace();
 			}
+			Stage stage = (Stage) treatmentRoom1.getScene().getWindow();
+
+			stage.close();
 	    }
 
 	    @FXML
@@ -73,6 +97,9 @@ public class DoctorPageControl {
 
 					e.printStackTrace();
 				}
+				Stage stage = (Stage) treatmentRoom2.getScene().getWindow();
+
+				stage.close();
 	    }
 
 	    @FXML
@@ -93,6 +120,9 @@ public class DoctorPageControl {
 
 					e.printStackTrace();
 				}
+				Stage stage = (Stage) treatmentRoom3.getScene().getWindow();
+
+				stage.close();
 	    }
 
 	    @FXML
@@ -113,6 +143,9 @@ public class DoctorPageControl {
 
 					e.printStackTrace();
 				}
+				Stage stage = (Stage) treatmentRoom4.getScene().getWindow();
+
+				stage.close();
 	    }
 
 	    @FXML
@@ -133,6 +166,9 @@ public class DoctorPageControl {
 
 					e.printStackTrace();
 				}
+				Stage stage = (Stage) treatmentRoom5.getScene().getWindow();
+
+				stage.close();
 	    }
 
 	 
