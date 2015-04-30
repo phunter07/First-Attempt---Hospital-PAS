@@ -122,7 +122,7 @@ public class SortPatientQueue {
 				if (counter == 2) {
 					managerEmailAlert
 							.generateAndSendEmailPatientsWaitingThirtyMinutes();
-					
+					smsAlerts.sendSSMSManagerTwoPatientsWaitingThirtyMinutes();
 
 				}
 
@@ -321,23 +321,26 @@ public class SortPatientQueue {
 		// alert on call team
 		if (!pushEmergencyPatientIntoTreatmentRoom(patientQueue, patient,
 				treatmentRooms)) {
-			
+
 			if (OnCallEngaged) {
 				throw new HospitalPASException(
-						"OnCallTeam is engaged,the emergency patient is redirected to another hospital");
-			}else{
-				OnCallEngaged=true;
+						ExceptionsEnums.ONCALLENGAGEDEXCEPTION.getException());
+			} else {
+				OnCallEngaged = true;
 				smsAlerts.sendSMSToOnCallTeam();
 				throw new HospitalPASException(
-						"the emergency patient is sent to on call team");
+						ExceptionsEnums.EMERGENCYSENTTOONCALL.getException());
 			}
-			// maybe
-			// InSitu.controlInSitu(patientQueue, patient);
-			
+
 		}
 		return true;
 	}
 
+	/**
+	 * method to find and empty treatment room 
+	 * @param rooms
+	 * @return
+	 */
 	public TreatmentRoom findEmptyTreatmentRoom(List<TreatmentRoom> rooms) {
 		for (int loop = 0; loop < rooms.size(); loop++) {
 			if (rooms.get(loop).isVacant() == true) {
