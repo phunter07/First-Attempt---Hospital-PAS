@@ -118,7 +118,7 @@ public class TreatmentRoom {
 	 * @param patient
 	 * @return
 	 */
-	public Patient getPatientInTreatmentRoom(Patient patient) {
+	public Patient getPatientInTreatmentRoom() {
 
 		return patientInTreatmentRoom;
 	}

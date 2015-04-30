@@ -178,7 +178,7 @@ public class TreatmentRoom1Control implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		patient = treatmentRoom.patientInTreatmentRoom;
+		patient = treatmentRoom.getPatientInTreatmentRoom();
 		refreshThread();
 
 	}

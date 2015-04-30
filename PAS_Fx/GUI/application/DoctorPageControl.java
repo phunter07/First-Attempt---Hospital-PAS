@@ -109,6 +109,7 @@ public class DoctorPageControl implements Initializable {
 
 			Parent root;
 			try {
+				System.out.println(GUIMain.treatmentRoomList.get(0).getPatientInTreatmentRoom());
 				TreatmentRoom1Control.treatmentRoom=GUIMain.treatmentRoomList.get(0);
 				root = FXMLLoader.load(getClass().getResource(
 						"/application/TreatmentRoom1.fxml"));

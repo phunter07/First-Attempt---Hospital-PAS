@@ -216,27 +216,27 @@ public class SortPatientQueue {
 				// if statement to find the highest category in the treatment
 				// room list and set the highest category of patient into the
 				// patient room
-				if (treatmentRooms.get(loop).getPatientInTreatmentRoom(patient)
+				if (treatmentRooms.get(loop).getPatientInTreatmentRoom()
 						.getTriageCategory() > currentPatientTriageCategory) {
 					treatmentRoom = loop;
 					currentPatientTriageCategory = treatmentRooms.get(loop)
 							.getPatientTriageCategory(patient);
 
 					currentTime = treatmentRooms.get(loop)
-							.getPatientInTreatmentRoom(patient)
+							.getPatientInTreatmentRoom()
 							.getTimePatientJoinsQueue();
 
 				} else if ((treatmentRooms.get(loop)
-						.getPatientInTreatmentRoom(patient).getTriageCategory() == currentPatientTriageCategory)
+						.getPatientInTreatmentRoom().getTriageCategory() == currentPatientTriageCategory)
 						&& (treatmentRooms.get(loop)
-								.getPatientInTreatmentRoom(patient)
+								.getPatientInTreatmentRoom()
 								.getTimePatientJoinsQueue()
 								.compareTo(currentTime) > 0)) {
 					treatmentRoom = loop;
 					currentPatientTriageCategory = treatmentRooms.get(loop)
 							.getPatientTriageCategory(patient);
 					currentTime = treatmentRooms.get(loop)
-							.getPatientInTreatmentRoom(patient)
+							.getPatientInTreatmentRoom()
 							.getTimePatientJoinsQueue();
 				}
 			}
@@ -245,7 +245,7 @@ public class SortPatientQueue {
 
 		if (treatmentRoom != 0) {
 			patientQueue.addFirst(treatmentRooms.get(treatmentRoom)
-					.getPatientInTreatmentRoom(patient));
+					.getPatientInTreatmentRoom());
 			patientBeingTreated(patient, treatmentRoom, treatmentRooms);
 			isRoomAvailable = true;
 		}
@@ -270,6 +270,7 @@ public class SortPatientQueue {
 
 					// removes the first patient from the queue
 					patientQueue.poll();
+					treatmentRooms.get(loop).setPatientInTreatmentRoom(patient);
 					// setting the treatment room to occupied
 					treatmentRooms.get(loop).setVacant(false);
 					return true;
