@@ -28,10 +28,8 @@ public class SortPatientQueue {
 	 */
 	private SMSAlerts smsAlerts = new SMSAlerts();
 
-	/**
-	 * boolean to state if the on call team are engaged in situ
-	 */
-	public boolean OnCallEngaged = false;
+	
+	public InSitu insitu=new InSitu();
 
 	/**
 	 * default constructor for SortPatientComparator Class
@@ -163,14 +161,9 @@ public class SortPatientQueue {
 		// if they patient is not an emergency patient they are redirected to
 		// the nearest hospital - to be implemented in the calculate queue size
 		// method
-		if ((patientQueue.size() >= Constants.PATIENT_LIMIT_IN_QUEUE)
-				&& (patient.getTriageCategory() != Triage.EMERGENCY.getLevel())
-				&& (OnCallEngaged == true)) {
-			// not sure where this should be shown - should it be a pop up on
-			// Receptionist/triage Nurse Screen
+
 			managerEmailAlert.sendSSMSManagerOnCallFullyEngaged();
 			smsAlerts.sendSSMSManagerOnCallFullyEngaged();
-		}
 
 	}
 
@@ -313,21 +306,27 @@ public class SortPatientQueue {
 	 * @return
 	 * @throws HospitalPASException
 	 */
-	public boolean redirectEmergencyPatient(LinkedList<Patient> patientQueue,
-			Patient patient, List<TreatmentRoom> treatmentRooms)
+	public boolean redirectEmergencyPatient(LinkedList<Patient> allPatients,LinkedList<Patient> patientQueue,
+			Patient patient, List<TreatmentRoom> treatmentRooms,OnCall onCall)
 			throws HospitalPASException {
 
 		// if you are unable to put emergency patient into a treatment room then
 		// alert on call team
 		if (!pushEmergencyPatientIntoTreatmentRoom(patientQueue, patient,
 				treatmentRooms)) {
-
-			if (OnCallEngaged) {
+			
+			if (onCall.isOnCallEngaged1()==true&&onCall.isOnCallEngaged2()==true) {
+				allPatients.remove(patient);
 				throw new HospitalPASException(
 						ExceptionsEnums.ONCALLENGAGEDEXCEPTION.getException());
-			} else {
-				OnCallEngaged = true;
+			} else if(onCall.isOnCallEngaged1()==false){
 				smsAlerts.sendSMSToOnCallTeam();
+				onCall.setOnCallEngaged1(true);
+
+				throw new HospitalPASException(
+						ExceptionsEnums.EMERGENCYSENTTOONCALL.getException());
+			}else if(onCall.isOnCallEngaged2()==false){
+				onCall.setOnCallEngaged2(true);
 				throw new HospitalPASException(
 						ExceptionsEnums.EMERGENCYSENTTOONCALL.getException());
 			}

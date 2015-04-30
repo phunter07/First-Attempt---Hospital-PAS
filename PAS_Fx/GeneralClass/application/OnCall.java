@@ -4,19 +4,14 @@ import java.util.LinkedList;
 
 public class OnCall {
 
-	private boolean onCall;
+	private boolean onCallEngaged1=false;
+	
+	private boolean onCallEngaged2=false;
 
 	private InSitu inSitu;
 
 	private Patient patient;
 
-	public boolean isOnCall() {
-		return onCall;
-	}
-
-	public void setOnCall(boolean onCall) {
-		this.onCall = onCall;
-	}
 
 	/**
 	 * method to check if there are emergency patients waiting to be treated
@@ -24,7 +19,7 @@ public class OnCall {
 	 * onCall team begin treating patients from the Queue
 	 */
 	public void checkInSituForEmergencyPatients() {
-		if ((onCall == true) && (inSitu.checkEmergencyPatient() == false)) {
+		if ((onCallEngaged1 == true) && (inSitu.checkEmergencyPatient() == false)&&(onCallEngaged2 == true)) {
 			InSitu.controlInSitu(GUIMain.patientQueue, patient);
 		} else {
 			treatEmergency();
@@ -34,5 +29,21 @@ public class OnCall {
 	public void treatEmergency(){
 		inSitu.getPatient();
 		inSitu.setPatient(null);
+	}
+
+	public boolean isOnCallEngaged1() {
+		return onCallEngaged1;
+	}
+
+	public void setOnCallEngaged1(boolean onCallEngaged1) {
+		this.onCallEngaged1 = onCallEngaged1;
+	}
+
+	public boolean isOnCallEngaged2() {
+		return onCallEngaged2;
+	}
+
+	public void setOnCallEngaged2(boolean onCallEngaged2) {
+		this.onCallEngaged2 = onCallEngaged2;
 	}
 }

@@ -50,7 +50,7 @@
     </ChoiceBox>
     <Button fx:id="cancelButton" layoutX="362.0" layoutY="383.0" mnemonicParsing="false" onAction="#cancelOnClick" prefHeight="34.0" prefWidth="56.0" text="Back" />
       <ChoiceBox fx:id="nhsNumber" layoutX="315.0" layoutY="287.0" prefWidth="150.0" />
-      <Label fx:id="warning" alignment="CENTER" layoutX="6.0" layoutY="424.0" prefHeight="63.0" prefWidth="671.0" textAlignment="CENTER" textFill="#f80101">
+      <Label fx:id="warning" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="424.0" prefHeight="63.0" prefWidth="671.0" textAlignment="CENTER" textFill="#f80101">
          <font>
             <Font size="28.0" />
          </font>

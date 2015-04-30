@@ -44,6 +44,8 @@ public class GUIMain extends Application {
 	public static int status;
 
 	public static Patient nextPatient;
+	
+	public static OnCall onCall=new OnCall();
 
 	public static void main(String[] args) {
 

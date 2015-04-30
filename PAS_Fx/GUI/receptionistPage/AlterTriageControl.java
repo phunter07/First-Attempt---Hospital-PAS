@@ -121,13 +121,10 @@ public class AlterTriageControl implements Initializable {
 						warning.setText(patient.getFirstName()+" has been recategorised");
 					} else {
 						patient.setTriageCategory(Triage.EMERGENCY);
-						if (GUIMain.sortPatientQueue.redirectEmergencyPatient(
+						if (GUIMain.sortPatientQueue.redirectEmergencyPatient(GUIMain.allPatientList,
 								GUIMain.patientQueue, patient,
-								GUIMain.treatmentRoomList)) {
+								GUIMain.treatmentRoomList,GUIMain.onCall)) {
 							warning.setText("Emergency patient is moving to the treatment room");
-							System.out.println("Sending messages");
-							smsAlert.sendSMSToOnCallTeam();
-							System.out.println("Alert Message Sent");
 						}
 					}
 
