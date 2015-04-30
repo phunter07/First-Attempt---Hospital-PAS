@@ -13,7 +13,7 @@ public enum ExceptionsEnums {
 			"Unable to triage this patient"), PATIENTALREADYTRIAGED(
 			"Sorry this patient has already been triaged"), CANTRECOGNISEPATIENT(
 			"Unable to recognise this patient. Try again"), PATIENTALREADYREGISTERED(
-			"SOrry this patient has already been registered to the system"), PATIENTNOTINDATABASE(
+			"Sorry this patient has already been registered to the system"), PATIENTNOTINDATABASE(
 			"Sorry this patient is not in the database.  Try again"), QUEUELIMITEXCEEDED(
 			"Unable to add this patient to queue, queue limit has been reached.  Redirect to nearest hospital");
 
