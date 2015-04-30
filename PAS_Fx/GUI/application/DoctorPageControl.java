@@ -35,7 +35,7 @@ public class DoctorPageControl {
 
 	    }
 	    
-	    /*
+	    
 	    @FXML
 	    void OnClickLogOut(ActionEvent event) {
 	    
@@ -60,7 +60,7 @@ public class DoctorPageControl {
 			stage.close();
 		}
 		
-	    */
+	    
 	    
 	    @FXML
 	    void OnClickTreatmentRoom1(ActionEvent event) {
