@@ -12,7 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class staffDatabase {
+public class DBController {
 
 	/**
 	 * method to return the AllStaffList for the Hspital Manager GUI screen
