@@ -482,7 +482,7 @@ public class SMSAlerts implements IAlert {
 	@Override
 	public void generateAndSendEmailOnCallFullyEngaged()
 			throws AddressException, MessagingException {
-		// TODO Auto-generated method stub
+		
 
 	}
 
@@ -492,7 +492,7 @@ public class SMSAlerts implements IAlert {
 	@Override
 	public void generateAndSendEmailPatientsWaitingThirtyMinutes()
 			throws AddressException, MessagingException {
-		// TODO Auto-generated method stub
+		
 
 	}
 
