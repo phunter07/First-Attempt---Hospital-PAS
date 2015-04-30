@@ -67,7 +67,6 @@ public class SearchPatientControl {
 					String.valueOf(patient.getNhsNumber()),
 					patient.getBloodGroup(),String.valueOf(patient.getTriageCategory()),String.valueOf(
 					patient.getWaitingTime()));
-				
 					masterData.add(patientForSearch);
 			
 		
