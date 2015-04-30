@@ -314,13 +314,14 @@ public class SortPatientQueue {
 		// alert on call team
 		if (!pushEmergencyPatientIntoTreatmentRoom(patientQueue, patient,
 				treatmentRooms)) {
+			smsAlerts.sendSMSToOnCallTeam();
 			
 			if (onCall.isOnCallEngaged1()==true&&onCall.isOnCallEngaged2()==true) {
 				allPatients.remove(patient);
 				throw new HospitalPASException(
 						ExceptionsEnums.ONCALLENGAGEDEXCEPTION.getException());
 			} else if(onCall.isOnCallEngaged1()==false){
-				smsAlerts.sendSMSToOnCallTeam();
+				
 				onCall.setOnCallEngaged1(true);
 
 				throw new HospitalPASException(

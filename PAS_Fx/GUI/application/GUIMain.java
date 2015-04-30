@@ -93,10 +93,10 @@ public class GUIMain extends Application {
 						sortPatientQueue.allocatePatientToTreatmentRoom(
 								patientQueue, patientQueue.peek(),
 								treatmentRoomList);
-						sortPatientQueue.thirtyMinuteManagerAlert(patientQueue);
+//						sortPatientQueue.thirtyMinuteManagerAlert(patientQueue);
 						sortPatientQueue.movePatientToTopOfQueue(patientQueue);
-						sortPatientQueue
-								.calculateQueueSize(GUIMain.patientQueue);
+//						sortPatientQueue
+//								.calculateQueueSize(GUIMain.patientQueue);
 						try {
 							writeToFile.writeQueueToFile(GUIMain.patientQueue);
 						} catch (FileNotFoundException e) {
@@ -110,13 +110,8 @@ public class GUIMain extends Application {
 					}
 				} catch (InterruptedException e) {
 					e.printStackTrace();
-				} catch (AddressException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (MessagingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				} 
+
 			}
 
 		};
@@ -141,6 +136,7 @@ public class GUIMain extends Application {
 	 * method to initialise variables
 	 */
 	public void initialise() {
+		new SMSAlerts().sendSMSToOnCallTeam();
 		patientQueue = new LinkedList<Patient>();
 		allPatientList = new LinkedList<Patient>();
 		treatmentRoomList = new ArrayList<TreatmentRoom>();
