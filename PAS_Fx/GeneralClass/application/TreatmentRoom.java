@@ -50,7 +50,7 @@ public class TreatmentRoom {
 
 	public Date getTimeOutOfTreatmentRoom() {
 		timeOutOfTreatmentRoom.setTime(timeInTreatmentRoom.getTime()
-				+ TimeUnit.MINUTES.toMillis(Constants.TIME_IN_TREATMENT_ROOM));
+				+ TimeUnit.MINUTES.toMillis(Limits.TIME_IN_TREATMENT_ROOM));
 		return timeOutOfTreatmentRoom;
 	}
 
@@ -81,7 +81,7 @@ public class TreatmentRoom {
 	public void allocateExtraTime() {
 
 		timeOutOfTreatmentRoom.setTime(timeOutOfTreatmentRoom.getTime()
-				+ TimeUnit.MINUTES.toMillis(Constants.EXTENDED_TIME));
+				+ TimeUnit.MINUTES.toMillis(Limits.EXTENDED_TIME));
 
 	}
 

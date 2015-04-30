@@ -142,7 +142,7 @@ public class GUIMain extends Application {
 		treatmentRoomList = new ArrayList<TreatmentRoom>();
 		status = 1;
 		nextPatient = new Patient();
-		for (int loop = 0; loop < Constants.NUMBERS_OF_ROOM; loop++) {
+		for (int loop = 0; loop < Limits.NUMBERS_OF_ROOM; loop++) {
 			treatmentRoomList.add(new TreatmentRoom());
 		}
 		sortPatientQueue = new SortPatientQueue();

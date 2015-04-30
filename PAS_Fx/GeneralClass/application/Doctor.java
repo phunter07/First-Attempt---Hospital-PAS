@@ -86,7 +86,7 @@ public class Doctor extends Staff implements ILogin, ICategorise {
 			Patient patient) {
 		boolean inQueue = false;
 
-		if (patientQueue.size() < Constants.PATIENT_LIMIT_IN_QUEUE) {
+		if (patientQueue.size() < Limits.PATIENT_LIMIT_IN_QUEUE) {
 			// adds patient to queue
 			patientQueue.add(patient);
 			// sorts the patient queue by triage category

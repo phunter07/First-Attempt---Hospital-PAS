@@ -331,7 +331,7 @@ public class Patient extends Person {
 
 		Random randomNHSNumber = new Random();
 
-		for (int loop = 0; loop <= Constants.PATIENT_LIMIT_IN_PAS; loop++) {
+		for (int loop = 0; loop <= Limits.PATIENT_LIMIT_IN_PAS; loop++) {
 			emergencyNHSNumber = (randomNHSNumber.nextInt(8000) + 1000);
 		}
 		this.emergencyNHSNumber = emergencyNHSNumber;

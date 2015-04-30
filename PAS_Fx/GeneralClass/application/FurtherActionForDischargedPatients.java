@@ -9,10 +9,10 @@ package application;
 
 public enum FurtherActionForDischargedPatients {
 
-	DECEASED("Patient has passed away"), PSYCHIATRIST(
-			"This patient has been referred to the psych ward"), WARDS(
+	DECEASED("Patient has passed away"), REFERRED(
+			"This patient has been referred"), WARDS(
 			"Patient recovering in wards"), THEATRE(
-			"Patient transferred to theatre");
+			"Patient transferred to theatre"), DISCHARGED("Patient treated");
 
 	
 	private String furtherAction;

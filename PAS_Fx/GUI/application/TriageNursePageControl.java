@@ -187,7 +187,7 @@ public class TriageNursePageControl implements Initializable {
 				while (true) {
 					try {
 						while (true) {
-							Thread.sleep(Constants.REFRESHTIME);
+							Thread.sleep(Limits.REFRESHTIME);
 							Platform.runLater(new Runnable() {
 
 								@Override
