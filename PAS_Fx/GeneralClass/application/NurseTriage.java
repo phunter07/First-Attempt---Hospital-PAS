@@ -84,7 +84,7 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe,
 				return true;
 			} else {
 				allPatients.remove(patient);
-				new SMSAlerts().sendSMSToOnCallTeam();
+				
 
 				throw new HospitalPASException(
 						ExceptionsEnums.QUEUELIMITEXCEEDED.getException());
@@ -149,19 +149,24 @@ public class NurseTriage extends Staff implements INurseTriage, IJDoe,
 	 * @param patient
 	 */
 	@Override
-	public void allocateJDoeDetails(Patient patient) {
+	public void allocateJDoeDetails(LinkedList <Patient> patientQueue, Patient patient, int GenderSwap) {
 
-		if (patient.getGender() == 'F' || patient.getGender() == 'f') {
+		
+		if (GenderSwap == 1) {
 			patient.setFirstName("Jane");
 			patient.setLastName("Doe");
+			patient.setGender('F');
 			patient.getEmergencyNHSNumber();
 			patient.setTriageCategory(Triage.EMERGENCY);
+			
 
-		} else if (patient.getGender() == 'M' || patient.getGender() == 'm') {
+		} else if (GenderSwap == 2) {
 			patient.setFirstName("John");
 			patient.setLastName("Doe");
+			patient.setGender('M');
 			patient.getEmergencyNHSNumber();
 			patient.setTriageCategory(Triage.EMERGENCY);
+			
 		}
 	}
 

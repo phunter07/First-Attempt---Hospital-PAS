@@ -81,6 +81,9 @@ public class TriageNursePageControl implements Initializable {
 	private TableColumn<Patient, String> first_name;
 
 	@FXML
+	private Button jDoe;
+
+	@FXML
 	void logoutOnClick(ActionEvent event) {
 
 		Stage newStage = new Stage();
@@ -190,12 +193,12 @@ public class TriageNursePageControl implements Initializable {
 								@Override
 								public void run() {
 									refresh();
-									
+
 								}
 							});
 						}
 					} catch (InterruptedException e) {
-						
+
 						e.printStackTrace();
 					}
 				}
@@ -317,5 +320,26 @@ public class TriageNursePageControl implements Initializable {
 		} else {
 			tableView.setItems(null);
 		}
+	}
+
+	public void JDoeOnClick(ActionEvent event) {
+
+		Stage newStage = new Stage();
+
+		Parent root;
+		try {
+			root = FXMLLoader.load(getClass().getResource(
+					"/application/JDoe.fxml"));
+			Scene scene = new Scene(root, 300, 200);
+			newStage.setTitle("JDoe");
+			newStage.setScene(scene);
+			newStage.setResizable(false);
+			newStage.show();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	
 	}
 }
