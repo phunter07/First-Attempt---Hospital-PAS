@@ -1,4 +1,4 @@
-package application;
+package alerts;
 
 /**
  * @author Hannah McDade, Clare O'Toole, Catherine Geddis
@@ -16,6 +16,8 @@ import java.sql.Statement;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
+
+import application.DatabaseENums;
 
 public class SMSAlerts implements IAlert {
 

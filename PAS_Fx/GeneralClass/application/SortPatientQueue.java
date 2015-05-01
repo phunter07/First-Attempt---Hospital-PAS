@@ -10,6 +10,9 @@ import java.util.concurrent.TimeUnit;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
+import alerts.ManagerEmailAlert;
+import alerts.SMSAlerts;
+
 /**
  * The comparator class is used to take in the details of the queue and compare
  * waiting times for all patients in the A and E queue. If a patient has been
@@ -18,15 +21,7 @@ import javax.mail.internet.AddressException;
  */
 public class SortPatientQueue {
 
-	/**
-	 * creating an instance of Manager Email alerts
-	 */
-	private ManagerEmailAlert managerEmailAlert = new ManagerEmailAlert();
-
-	/**
-	 * creating an instance of the SMSAlerts Class to be called
-	 */
-	private SMSAlerts smsAlerts = new SMSAlerts();
+	
 
 	public InSitu insitu = new InSitu();
 
@@ -95,8 +90,10 @@ public class SortPatientQueue {
 	 * @throws MessagingException
 	 * @throws AddressException
 	 */
-	public void thirtyMinuteManagerAlert(LinkedList<Patient> patientQueue)
+	public boolean thirtyMinuteManagerAlert(LinkedList<Patient> patientQueue)
 			throws AddressException, MessagingException {
+		
+		boolean twoPatientsWaiting = false;
 
 		// initialising long to get the patient time in the queue
 		long patientTimeInQueue = 0;
@@ -119,14 +116,15 @@ public class SortPatientQueue {
 			if (minutes >= Limits.UPPERMINUTES_QUEUE_LIMIT
 					* Limits.MULTIPLY_MINUTES_TO_SECONDS) {
 				counter++;
-				if (counter == 2) {
-					managerEmailAlert
-							.generateAndSendEmailPatientsWaitingThirtyMinutes();
+				if (counter >= 2) {
+					twoPatientsWaiting = true;
 
+				} else {
+					twoPatientsWaiting = false;
 				}
 
 			}
-		}
+		} return twoPatientsWaiting;
 
 	}
 
@@ -148,24 +146,6 @@ public class SortPatientQueue {
 		return false;
 	}
 
-	/**
-	 * method to redirect a non emergency patient to the nearest hospital if the
-	 * queue reached maximum capacity
-	 * 
-	 * @param patient
-	 */
-	public void sendToNearestHospital(LinkedList<Patient> patientQueue,
-			Patient patient) {
-
-		// if statement to check if the Triage Category as an integer value is
-		// equal to the Emergency level
-		// if they patient is not an emergency patient they are redirected to
-		// the nearest hospital - to be implemented in the calculate queue size
-		// method
-
-		managerEmailAlert.sendSSMSManagerOnCallFullyEngaged();
-
-	}
 
 	/**
 	 * method to allocate an emergency patient to a room and remove the non

@@ -6,13 +6,13 @@ package receptionistPage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import alerts.SMSAlerts;
 import application.GUIMain;
 import application.HospitalPASException;
 import application.ICategorise;
 import application.INurseTriage;
 import application.NurseTriage;
 import application.Patient;
-import application.SMSAlerts;
 import application.SortPatientQueue;
 import application.Triage;
 import javafx.collections.FXCollections;

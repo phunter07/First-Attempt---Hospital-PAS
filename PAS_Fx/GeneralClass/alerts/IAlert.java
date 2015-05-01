@@ -1,4 +1,4 @@
-package application;
+package alerts;
 
 /**
  * Interface containing the methods for the Alerts

@@ -15,6 +15,7 @@ import java.util.Stack;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
+import alerts.SMSAlerts;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

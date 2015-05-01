@@ -1,4 +1,4 @@
-package application;
+package alerts;
 
 /**
  * Enums for the Alerts messages to be sent to the relevant members of staff
