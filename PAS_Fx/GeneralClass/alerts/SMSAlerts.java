@@ -17,6 +17,7 @@ import java.sql.Statement;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
+import eNums.AlertsENums;
 import eNums.DatabaseENums;
 
 public class SMSAlerts implements IAlert {

@@ -13,6 +13,8 @@ import java.util.Properties;
 
 
 
+
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -21,6 +23,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import eNums.AlertsENums;
 import eNums.DatabaseENums;
 
 /**
