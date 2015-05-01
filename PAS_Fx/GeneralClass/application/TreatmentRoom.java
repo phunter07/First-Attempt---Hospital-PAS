@@ -140,7 +140,7 @@ public class TreatmentRoom {
 	}
 	
 	public boolean removePatientFromTreatmentroomAutomatically(){
-		System.out.println("ewfew");
+
 		if((this.timeOutOfTreatmentRoom.getTime()-new Date().getTime())/1000<2){
 			this.patientInTreatmentRoom.setLeaveTime(new Date());
 			this.setPatientInTreatmentRoom(null);
