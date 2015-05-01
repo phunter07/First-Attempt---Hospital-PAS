@@ -28,13 +28,13 @@
 				</Label>
 				<TableView fx:id="tableView" layoutX="14.0" layoutY="58.0" prefHeight="406.0" prefWidth="946.0">
 					<columns>
-						<TableColumn fx:id="nhs_number" prefWidth="150.0" text="NHS_number" />
-						<TableColumn fx:id="title" maxWidth="5000.0" minWidth="10.0" prefWidth="100.0" text="title" />
-						<TableColumn fx:id="first_name" prefWidth="150.0" text="first_name" />
-						<TableColumn fx:id="last_name" prefWidth="150.0" text="last_name" />
-						<TableColumn fx:id="triage" prefWidth="100.0" text="triage" />
-                  <TableColumn fx:id="waitingTime" prefWidth="100.0" text="waitingTime" />
-						<TableColumn fx:id="address" prefWidth="200.0" text="address" />
+						<TableColumn fx:id="nhs_number" prefWidth="150.0" text="NHS Number" />
+						<TableColumn fx:id="title" maxWidth="5000.0" minWidth="10.0" prefWidth="100.0" text="Title" />
+						<TableColumn fx:id="first_name" prefWidth="150.0" text="First Name" />
+						<TableColumn fx:id="last_name" prefWidth="150.0" text="Last Name" />
+						<TableColumn fx:id="triage" prefWidth="100.0" text="Triage" />
+                  <TableColumn fx:id="waitingTime" prefWidth="100.0" text="Waiting Time" />
+						<TableColumn fx:id="address" prefWidth="200.0" text="Address" />
 						<TableColumn fx:id="telephone" minWidth="5.0" prefWidth="100.0" text="telephone" />
 						<TableColumn fx:id="allergies" prefWidth="100.0" text="allergies" />
 						<TableColumn fx:id="blood_group" prefWidth="100.0" text="blood_group" />
@@ -48,14 +48,12 @@
 					<items>
 						<MenuItem fx:id="newPatient" mnemonicParsing="false" onAction="#newPatientOnClick" text="New Patient" />
 						<MenuItem mnemonicParsing="false" text="Remove Patient" />
-						<MenuItem mnemonicParsing="false" text="Patient Records" />
-						<MenuItem fx:id="patientSearch" mnemonicParsing="false" onAction="#patienSearchOnClick" text="Patient Search" />
+						<MenuItem fx:id="patientSearch" mnemonicParsing="false" onAction="#patienSearchOnClick" text="Search Queue" />
 					</items>
 				</Menu>
 				<Menu mnemonicParsing="false" text="Treatments">
 					<items>
 						<MenuItem mnemonicParsing="false" text="Show all treatments" />
-						<MenuItem mnemonicParsing="false" text="Show empty treatments" />
 					</items>
 				</Menu>
 				<Menu mnemonicParsing="false" text="Triage">
@@ -71,7 +69,7 @@
 				</Menu>
 			</menus>
 		</MenuBar>
-		<Button fx:id="logout" layoutX="872.0" layoutY="562.0" mnemonicParsing="false" onAction="#logoutOnClick" prefHeight="31.0" prefWidth="105.0" text="Logout" />
-      <Button fx:id="jDoe" layoutX="56.0" layoutY="562.0" mnemonicParsing="false" onAction="#JDoeOnClick" text="JDoe" />
+		<Button fx:id="logout" layoutX="872.0" layoutY="543.0" mnemonicParsing="false" onAction="#logoutOnClick" prefHeight="38.0" prefWidth="113.0" text="Logout" />
+      <Button fx:id="jDoe" layoutX="37.0" layoutY="543.0" mnemonicParsing="false" onAction="#JDoeOnClick" prefHeight="38.0" prefWidth="113.0" text="JDoe" />
 	</children>
 </AnchorPane>
