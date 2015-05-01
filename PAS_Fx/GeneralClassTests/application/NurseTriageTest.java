@@ -2,6 +2,8 @@ package application;
 
 import static org.junit.Assert.*;
 
+import java.util.LinkedList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -57,12 +59,34 @@ public class NurseTriageTest {
 
 	@Test
 	public void testCategorisePatient() {
-		fail("Not yet implemented");
+		NurseTriage nurseTriage = new NurseTriage();
+		Patient patient = new Patient();
+		Triage triage = Triage.SEMI_URGENT;
+		LinkedList<Patient> patientQueue  = new LinkedList<Patient>();
+		LinkedList<Patient> allPatients = new LinkedList<>();
+		
+		try {
+			nurseTriage.categorisePatient(allPatients, patientQueue, patient, triage);
+		} catch (HospitalPASException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testRecategorisePatient() {
-		fail("Not yet implemented");
+		NurseTriage nurseTriage = new NurseTriage();
+		Patient patient = new Patient();
+		Triage triage = Triage.EMERGENCY;
+		LinkedList<Patient> patientQueue  = new LinkedList<Patient>();
+		LinkedList<Patient> allPatients = new LinkedList<>();
+		
+		try {
+			nurseTriage.categorisePatient(allPatients, patientQueue, patient, triage);
+		} catch (HospitalPASException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	@Test
