@@ -63,7 +63,7 @@ public class NurseTriageTest {
 		Patient patient = new Patient();
 		Triage triage = Triage.SEMI_URGENT;
 		LinkedList<Patient> patientQueue  = new LinkedList<Patient>();
-		LinkedList<Patient> allPatients = new LinkedList<>();
+		LinkedList<Patient> allPatients = new LinkedList<Patient>();
 		
 		try {
 			nurseTriage.categorisePatient(allPatients, patientQueue, patient, triage);
