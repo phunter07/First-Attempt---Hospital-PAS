@@ -1,5 +1,6 @@
 package application;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
@@ -20,6 +21,8 @@ import javafx.stage.Stage;
 public class TreatmentRoom1Control implements Initializable {
 
 	public static TreatmentRoom treatmentRoom ;
+	
+	private WriteToFile writeToFile= new WriteToFile();
 
 	private Patient patient;
 	@FXML
@@ -134,8 +137,13 @@ public class TreatmentRoom1Control implements Initializable {
 	}
 
 	@FXML
-	void onClickDischargePatient(ActionEvent event) {
+	void onClickDischargePatient(ActionEvent event) throws FileNotFoundException {
 		treatmentRoom.dischargePatient(GUIMain.allPatientList, patient);
+		try {
+			writeToFile.patientLeaveTimeToFile(patient.toString());
+		} catch (FileNotFoundException e) {
+			writeToFile.ExceptionsToFile(e);
+		}
 	}
 
 	@FXML

@@ -40,21 +40,21 @@ public class WriteToFile {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * method to write queue to file and time-stamp the leave time each time it is
-	 * written to file
+	 * method to write patient object to file once patient has been discharged
+	 * so that the time they leave A&E is recorded.
 	 * 
 	 * @param patientQueue
 	 * @throws FileNotFoundException
 	 */
 	public void patientLeaveTimeToFile(Object obj) throws FileNotFoundException {
-		// try catch incase file not found or cannot be created
+		// try catch in case file not found or cannot be created
 		try {
 			// new FileOutputStream and ObjectOutputStream to create/update file
 			// and write queue to file
 			FileOutputStream fileOutputStream = new FileOutputStream(
-					"PatientTiming.txt", false);
+					"PatientDischarge.txt", false);
 			ObjectOutputStream oos = new ObjectOutputStream(fileOutputStream);
 			// writing new date to file
 			oos.writeObject(new Date().toString());
@@ -68,10 +68,10 @@ public class WriteToFile {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * method to write queue to file and time-stamp the leave time each time it is
-	 * written to file
+	 * method to write exceptions to file and time-stamp the leave time each
+	 * time it is written to file
 	 * 
 	 * @param patientQueue
 	 * @throws FileNotFoundException
