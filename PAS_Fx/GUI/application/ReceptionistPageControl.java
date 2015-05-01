@@ -5,12 +5,13 @@ package application;
  */
 
 import java.io.IOException;
-
 import java.net.URL;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.Random;
+
+import eNums.Triage;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

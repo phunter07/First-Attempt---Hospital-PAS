@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import eNums.Triage;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -1,8 +1,7 @@
-package application;
+package eNums;
 
 /**
  * the enum represents 4 types of triage
- * @author Jiang Zhe Heng
  *
  */
 public enum Triage {

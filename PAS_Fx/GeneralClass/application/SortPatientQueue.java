@@ -10,6 +10,9 @@ import java.util.concurrent.TimeUnit;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
+import eNums.ExceptionsEnums;
+import eNums.StatusEnums;
+import eNums.Triage;
 import alerts.ManagerEmailAlert;
 import alerts.SMSAlerts;
 
@@ -56,13 +59,13 @@ public class SortPatientQueue {
 
 			}
 			if (averageWaitingTime >= 0 && averageWaitingTime < 10) {
-				status = 1;
+				status = StatusEnums.STATUSONE.getLevel();
 			} else if (averageWaitingTime >= 10 && averageWaitingTime < 20) {
-				status = 2;
+				status = StatusEnums.STATUSTWO.getLevel();
 			} else if (averageWaitingTime >= 20) {
-				status = 3;
+				status = StatusEnums.STATUSTHREE.getLevel();
 			} else if (GUIMain.patientQueue.size() == Limits.PATIENT_LIMIT_IN_QUEUE) {
-				status = 4;
+				status = StatusEnums.STATUSFOUR.getLevel();
 			}
 		}
 	}
