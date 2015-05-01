@@ -1,4 +1,4 @@
-package eNums;
+package application;
 
 /**
  * Enums to hold the messages to be displayed when HospitalPASExceptions are

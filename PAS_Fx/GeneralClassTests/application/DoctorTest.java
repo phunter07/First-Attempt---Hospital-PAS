@@ -8,8 +8,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import eNums.Triage;
-
 public class DoctorTest {
 
 	// test data

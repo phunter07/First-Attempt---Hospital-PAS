@@ -7,8 +7,6 @@ import java.util.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
 
-import eNums.Triage;
-
 public class NurseTriageTest {
 	// test data
 	String validTitle, invalidTitle, validFirstName, InvalidFirstName,

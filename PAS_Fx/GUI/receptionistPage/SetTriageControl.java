@@ -6,14 +6,14 @@ package receptionistPage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import eNums.ExceptionsEnums;
-import eNums.Triage;
 import alerts.ManagerSMSAlerts;
+import application.ExceptionsEnums;
 import application.GUIMain;
 import application.HospitalPASException;
 import application.NurseTriage;
 import application.Patient;
 import application.SortPatientQueue;
+import application.Triage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

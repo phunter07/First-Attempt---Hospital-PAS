@@ -7,9 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import eNums.DatabaseENums;
-import eNums.ExceptionsEnums;
-
 public class Receptionist extends Staff implements IReceptionist {
 
 	/**

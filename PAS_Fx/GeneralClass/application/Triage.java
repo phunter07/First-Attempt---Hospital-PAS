@@ -1,4 +1,4 @@
-package eNums;
+package application;
 
 /**
  * the enum represents 4 types of triage

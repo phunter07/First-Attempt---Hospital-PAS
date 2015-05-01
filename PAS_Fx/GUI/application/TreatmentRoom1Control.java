@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import eNums.Triage;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

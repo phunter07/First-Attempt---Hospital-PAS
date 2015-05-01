@@ -5,8 +5,6 @@ package application;
  */
 import java.util.LinkedList;
 
-import eNums.Triage;
-
 public class InSitu {
 
 	/**

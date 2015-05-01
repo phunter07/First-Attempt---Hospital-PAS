@@ -3,9 +3,6 @@ package application;
 import java.util.LinkedList;
 import java.util.List;
 
-import eNums.ExceptionsEnums;
-import eNums.Triage;
-
 /**
  * class containing the details of the TiageNurse and method to allow her to
  * allocate a triage category to a patient in order for them to be added to the
