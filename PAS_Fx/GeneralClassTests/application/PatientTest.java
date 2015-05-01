@@ -87,39 +87,74 @@ public class PatientTest {
 		fail("Not yet implemented");
 	}
 
+	/**
+	 * test of get/set NHS number
+	 */
 	@Test
 	public void testSetNhsNumber() {
-		fail("Not yet implemented");
+		Patient patient = new Patient();
+		patient.setNhsNumber(validNHSNumber);
+		assertEquals(validNHSNumber, patient.getNhsNumber());
+
 	}
 
+	/**
+	 * test of get/set blood group
+	 */
 	@Test
-	public void testSetBloodGroup() {
-		fail("Not yet implemented");
+	public void testSetGetBloodGroup() {
+		Patient patient = new Patient();
+		patient.setBloodGroup(validBloodGroup);
+		assertEquals(validBloodGroup, patient.getBloodGroup());
 	}
 
+	/**
+	 * test of get/set ContactNum
+	 */
 	@Test
-	public void testSetContactNum() {
-		fail("Not yet implemented");
+	public void testSetGetContactNum() {
+		Patient patient = new Patient();
+		patient.setContactNum(validContactNum);
+		assertEquals(validContactNum, patient.getContactNum());
 	}
 
+	/**
+	 * test of get/set Allergies
+	 */
 	@Test
 	public void testSetAllergies() {
-		fail("Not yet implemented");
+		Patient patient = new Patient();
+		patient.setAllergies(validAllergies);
+		assertEquals(validAllergies, patient.getAllergies());
 	}
 
+	/**
+	 * test of get/set Address
+	 */
 	@Test
 	public void testSetAddress() {
-		fail("Not yet implemented");
+		Patient patient = new Patient();
+		patient.setAddress(validAddress);
+		assertEquals(validAddress, patient.getAddress());
 	}
 
+	/**
+	 * test of get/set TimePatientJoinsQueue
+	 */
 	@Test
 	public void testSetTimePatientJoinsQueue() {
-		fail("Not yet implemented");
+		Patient patient = new Patient();
+		patient.setTimePatientJoinsQueue(TimePatientJoinsQueue);
+		assertEquals(TimePatientJoinsQueue, patient.getTimePatientJoinsQueue());
 	}
-
+	/**
+	 * test of get/set LeaveTime
+	 */
 	@Test
 	public void testSetLeaveTime() {
-		fail("Not yet implemented");
+		Patient patient = new Patient();
+		patient.setLeaveTime(LeaveTime);
+		assertEquals(LeaveTime, patient.getLeaveTime());
 	}
 
 	@Test
@@ -128,7 +163,8 @@ public class PatientTest {
 	}
 
 	/**
-	 * test if boolean pulledOutOfRoom is set to true when isPulledOutOfRoom is called
+	 * test if boolean pulledOutOfRoom is set to true when isPulledOutOfRoom is
+	 * called
 	 */
 	@Test
 	public void testIsPulledOutOfRoom() {
