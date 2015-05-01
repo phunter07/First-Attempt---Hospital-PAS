@@ -47,14 +47,12 @@
 					<items>
 						<MenuItem fx:id="newPatient" mnemonicParsing="false" onAction="#newPatientOnClick" text="New Patient" />
 						<MenuItem mnemonicParsing="false" text="Remove Patient" />
-						<MenuItem mnemonicParsing="false" text="Patient Records" />
 						<MenuItem fx:id="patientSearch" mnemonicParsing="false" onAction="#patienSearchOnClick" text="Patient Search" />
 					</items>
 				</Menu>
 				<Menu mnemonicParsing="false" text="Treatments">
 					<items>
 						<MenuItem mnemonicParsing="false" text="Show all treatments" />
-						<MenuItem mnemonicParsing="false" text="Show empty treatments" />
 					</items>
 				</Menu>
 				<Menu mnemonicParsing="false" text="Triage">
