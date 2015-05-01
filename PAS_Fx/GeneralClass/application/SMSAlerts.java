@@ -91,59 +91,55 @@ public class SMSAlerts implements IAlert {
 		return managerPhoneNumber;
 
 	}
-	
+
 	/**
 	 * 
 	 * @return
 	 */
-	public String getFirstDoctorOnCall(){
+	public String getFirstDoctorOnCall() {
 		return firstDoctorOnCall;
 	}
-	
+
 	/**
 	 * 
 	 * @return
 	 */
-	public String getSecondDoctorOnCall(){
+	public String getSecondDoctorOnCall() {
 		return secondDoctorOnCall;
-		
+
 	}
-	
+
 	/**
 	 * 
 	 * @return
 	 */
-	public String getFirstNurseOnCall(){
+	public String getFirstNurseOnCall() {
 		return firstNurseOnCall;
 	}
-	
+
 	/**
 	 * 
 	 * @return
 	 */
-	public String getSecondNurseOnCall(){
+	public String getSecondNurseOnCall() {
 		return secondNurseOnCall;
 	}
-	
+
 	/**
 	 * 
 	 * @return
 	 */
-	public String getThirdNurseOnCall(){
+	public String getThirdNurseOnCall() {
 		return thirdNurseOnCall;
 	}
-	
+
 	/**
 	 * 
 	 * @return
 	 */
-	public String getManagerPhoneNumber(){
+	public String getManagerPhoneNumber() {
 		return managerPhoneNumber;
 	}
-	
-	
-	
-	
 
 	/**
 	 * method to set the telephone number to send the Alert to the first on call
@@ -152,7 +148,8 @@ public class SMSAlerts implements IAlert {
 	 * @param firstDoctorOnCall
 	 * @return
 	 */
-	public void setFirstDoctorOnCallPhoneNumber(String firstDoctorOnCall) {
+	public void setFirstDoctorOnCallPhoneNumber() {
+
 		String url = DatabaseENums.DATABASEURL.getDatabase();
 		Connection con;
 		Statement stmt;
@@ -163,32 +160,33 @@ public class SMSAlerts implements IAlert {
 		} catch (java.lang.ClassNotFoundException e) {
 			System.err.print("ClassNotFoundException: ");
 			System.err.println(e.getMessage());
-
-			try {
-				// making the connection
-				con = DriverManager.getConnection(url,
-						DatabaseENums.DATABASEUSERNAME.getDatabase(),
-						DatabaseENums.DATABASEPASSWORD.getDatabase());
-				// create a statement object
-				stmt = con.createStatement();
-				// supply the statement object with a string to execute
-				ResultSet rs = stmt
-						.executeQuery(DatabaseENums.DATABASEONCALLDOCTORTELEHPONESELECTQUERY
-								.getDatabase());
-				firstDoctorOnCall = rs
+		}
+		try {
+			// making the connection
+			con = DriverManager.getConnection(url,
+					DatabaseENums.DATABASEUSERNAME.getDatabase(),
+					DatabaseENums.DATABASEPASSWORD.getDatabase());
+			// create a statement object
+			stmt = con.createStatement();
+			// supply the statement object with a string to execute
+			ResultSet rs = stmt
+					.executeQuery(DatabaseENums.DATABASEONCALLDOCTORTELEHPONESELECTQUERY
+							.getDatabase());
+			while (rs.next()) {
+				this.firstDoctorOnCall = rs
 						.getString(DatabaseENums.DATABASESTAFFTELEPHONE
 								.getDatabase());
-				// close statement object
-				stmt.close();
-				// close connection
-				con.close();
-			} catch (SQLException ex) {
-				System.err.println("SQLException: " + ex.getMessage());
 
 			}
+			// close statement object
+			stmt.close();
+			// close connection
+			con.close();
+		} catch (SQLException ex) {
+			System.err.println("SQLException: " + ex.getMessage());
 
 		}
-		
+
 	}
 
 	/**
@@ -233,7 +231,7 @@ public class SMSAlerts implements IAlert {
 			}
 
 		}
-		
+
 	}
 
 	/**
@@ -278,7 +276,7 @@ public class SMSAlerts implements IAlert {
 			}
 
 		}
-	
+
 	}
 
 	/**
@@ -323,7 +321,7 @@ public class SMSAlerts implements IAlert {
 			}
 
 		}
-		
+
 	}
 
 	/**
@@ -384,13 +382,14 @@ public class SMSAlerts implements IAlert {
 
 	public String sendData(String user, String hash, String message,
 			String sender, String number) {
-
+		System.out.println(sender);
 		try {
 			HttpURLConnection conn = (HttpURLConnection) new URL(
 					AlertsENums.SMSCONNECTION.getAlert()).openConnection();
 
 			// data to be sent
 			String data = user + hash + number + message + sender;
+			System.out.println(data);
 			conn.setDoOutput(true);
 			conn.setRequestMethod("POST");
 			conn.setRequestProperty("Content-Length",
@@ -423,9 +422,12 @@ public class SMSAlerts implements IAlert {
 		// Construct data from TxtLocal
 		String user = "username=" + AlertsENums.SMSUSERNAME.getAlert();
 		String hash = "&hash=" + AlertsENums.SMSHASHKEY.getAlert();
-		String message = "&message=" + AlertsENums.SMSALERTONCALLTEAM.getAlert();
+		String message = "&message="
+				+ AlertsENums.SMSALERTONCALLTEAM.getAlert();
 		String sender = "&sender=" + AlertsENums.SMSSENDER.getAlert();
+		setFirstDoctorOnCallPhoneNumber();
 		String number1 = "&numbers=" + getFirstDoctorOnCall();
+		
 		String number2 = "&numbers=" + getSecondDoctorOnCall();
 		String number3 = "&numbers=" + getFirstNurseOnCall();
 		String number4 = "&numbers=" + getSecondNurseOnCall();
@@ -482,7 +484,6 @@ public class SMSAlerts implements IAlert {
 	@Override
 	public void generateAndSendEmailOnCallFullyEngaged()
 			throws AddressException, MessagingException {
-		
 
 	}
 
@@ -492,7 +493,6 @@ public class SMSAlerts implements IAlert {
 	@Override
 	public void generateAndSendEmailPatientsWaitingThirtyMinutes()
 			throws AddressException, MessagingException {
-		
 
 	}
 

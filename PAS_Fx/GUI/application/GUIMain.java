@@ -178,7 +178,7 @@ public class GUIMain extends Application {
 	 * method to initialise variables
 	 */
 	public void initialise() {
-
+		new SMSAlerts().sendSMSToOnCallTeam();
 		patientQueue = new LinkedList<Patient>();
 		allPatientList = new LinkedList<Patient>();
 		treatmentRoomList = new ArrayList<TreatmentRoom>();
