@@ -6,6 +6,7 @@ package application;
  */
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
@@ -324,22 +325,17 @@ public class TriageNursePageControl implements Initializable {
 
 	public void JDoeOnClick(ActionEvent event) {
 
-		Stage newStage = new Stage();
+		Patient patient = new Patient();
+		patient.setFirstName("J");
+		patient.setLastName("Doe");
 
-		Parent root;
-		try {
-			root = FXMLLoader.load(getClass().getResource(
-					"/application/JDoe.fxml"));
-			Scene scene = new Scene(root, 300, 200);
-			newStage.setTitle("JDoe");
-			newStage.setScene(scene);
-			newStage.setResizable(false);
-			newStage.show();
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
+		Random randomNHSNumber = new Random();
+		for (int loop = 0; loop <= Limits.PATIENT_LIMIT_IN_PAS; loop++) {
+			patient.setNhsNumber(randomNHSNumber.nextInt(8000) + 1000);
 		}
-	
+
+		new SortPatientQueue().allocatePatientToTreatmentRoom(
+				GUIMain.patientQueue, patient, GUIMain.treatmentRoomList);
+
 	}
 }

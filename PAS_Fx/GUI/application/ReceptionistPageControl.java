@@ -445,21 +445,8 @@ public class ReceptionistPageControl implements Initializable {
 		}
 	}
 	
-    @FXML
-    void onClickJDoe(ActionEvent event) {
 
-    	Patient patient = new Patient();
-		patient.setFirstName("J");
-		patient.setLastName("Doe");
-		
-		Random randomNHSNumber = new Random();
-		for(int loop = 0; loop <= Limits.PATIENT_LIMIT_IN_PAS; loop++){
-			patient.setNhsNumber(randomNHSNumber.nextInt(8000) + 1000);
-		}
 
-		new SortPatientQueue().allocatePatientToTreatmentRoom(GUIMain.patientQueue, patient, GUIMain.treatmentRoomList);
-		
-    	
-    } 
+ 
 
 }

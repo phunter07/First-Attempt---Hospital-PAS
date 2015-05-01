@@ -305,7 +305,7 @@ public class Patient extends Person {
 	}
 
 	/**
-	 * method to set the boolean if the patient is puled out of the room
+	 * method to set the boolean if the patient is pulled out of the room
 	 * 
 	 * @param pulledOutOfRoom
 	 */
