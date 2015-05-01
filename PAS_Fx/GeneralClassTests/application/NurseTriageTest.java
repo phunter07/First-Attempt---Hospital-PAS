@@ -91,7 +91,13 @@ public class NurseTriageTest {
 
 	@Test
 	public void testPutPatientIntoQueue() {
-		fail("Not yet implemented");
+		boolean inQueue = true;
+		Patient patient = new Patient();
+		LinkedList<Patient> patientQueue  = new LinkedList<Patient>();
+		
+		NurseTriage nurseTriage = new NurseTriage();
+		nurseTriage.putPatientIntoQueue(patientQueue, patient);
+		assertTrue(inQueue);
 	}
 
 	@Test
