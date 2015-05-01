@@ -1,9 +1,9 @@
 package eNums;
 
 /**
- * Enums for the Alerts messages to be sent to the relevant members of staff
+ * Enums containing all the details for the Alerts messages to be sent to the
+ * relevant members of staff
  * 
- * @author Hannah
  *
  */
 
@@ -13,9 +13,9 @@ public enum AlertsENums {
 			"On Call Team Needed in A and E. Queue capacity has reached the maximum"), ALERTMANAGERONCALLFULLYENGAGED(
 			"On Call team fully engaged.  Patients being redirected"), ALERTMANAGERWAITINGTIME(
 			"Two or more patients have been waiting over 30 minutes"), SMSUSERNAME(
-			"hmcdade767@gmail.com"), SMSHASHKEY(
-			"64007dc125b1e33d8204dd6c6aaf10ce83c12fb7"), SMSSENDER(
-			"HospitalPAS"), SMSCONNECTION("https://api.txtlocal.com/send/?"), EMAILSUBJECTMESSAGE(
+			"hospitalsender@outlook.com"), SMSHASHKEY(
+			"41b6105030728d7adeb182a5c5700c8343b9d307"), SMSSENDER(
+			"hospitalPAS"), SMSCONNECTION("https://api.txtlocal.com/send/?"), EMAILSUBJECTMESSAGE(
 			"Hospital Alert"), EMAILSENDER("hospitalsender@gmail.com"), EMAILSENDERPASSWORD(
 			"validPassword"), EMAILSENDERSMTP("smtp.gmail.com");
 

@@ -14,7 +14,7 @@ import eNums.ExceptionsEnums;
 import eNums.StatusEnums;
 import eNums.Triage;
 import alerts.ManagerEmailAlert;
-import alerts.SMSAlerts;
+import alerts.ManagerSMSAlerts;
 
 /**
  * The comparator class is used to take in the details of the queue and compare

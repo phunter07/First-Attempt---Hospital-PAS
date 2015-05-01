@@ -15,7 +15,7 @@ import java.util.Stack;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
-import alerts.SMSAlerts;
+import alerts.ManagerSMSAlerts;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -179,7 +179,7 @@ public class GUIMain extends Application {
 	 * method to initialise variables
 	 */
 	public void initialise() {
-		new SMSAlerts().sendSMSToOnCallTeam();
+		new ManagerSMSAlerts().sendSMSToOnCallTeam();
 		patientQueue = new LinkedList<Patient>();
 		allPatientList = new LinkedList<Patient>();
 		treatmentRoomList = new ArrayList<TreatmentRoom>();

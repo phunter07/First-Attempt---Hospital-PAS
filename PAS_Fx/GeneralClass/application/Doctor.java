@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 import eNums.ExceptionsEnums;
 import eNums.Triage;
-import alerts.SMSAlerts;
+import alerts.ManagerSMSAlerts;
 
 /**
  * Class to contain the details of the Doctor

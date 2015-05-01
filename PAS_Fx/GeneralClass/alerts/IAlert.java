@@ -1,27 +1,13 @@
 package alerts;
 
-/**
- * Interface containing the methods for the Alerts
- */
-
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
 /**
+ * 
  * Interface to manage the Alerts 
- * @author Hannah, Catherine, Clare
- *
- */
-/**
- * Interface containing the methods for the Alerts
- */
-
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
-
-/**
- * Interface to manage the Alerts 
- * @author Hannah, Catherine, Clare
  *
  */
 public interface IAlert {

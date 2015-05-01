@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eNums.Triage;
-import alerts.SMSAlerts;
+import alerts.ManagerSMSAlerts;
 import application.GUIMain;
 import application.HospitalPASException;
 import application.ICategorise;
@@ -33,7 +33,7 @@ import javafx.util.Callback;
 
 public class AlterTriageControl implements Initializable {
 
-	private SMSAlerts smsAlert=new SMSAlerts();
+	private ManagerSMSAlerts smsAlert=new ManagerSMSAlerts();
 	/**
 	 * declaration of nurseTriage
 	 */
