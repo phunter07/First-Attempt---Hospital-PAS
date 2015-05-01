@@ -43,7 +43,7 @@ public class PatientTest {
 		invalidContactNum = null;
 		validWaitingTime = 10;
 		invalidWaitingTime = -1;
-		pulledOutOfRoom = true;
+		pulledOutOfRoom = false;
 		validGender = 'F';
 		invalidGender = 'Y';
 		validTitle = "ValidTitle";
@@ -67,7 +67,6 @@ public class PatientTest {
 
 	@Test
 	public void testPatientStringStringStringCharIntStringStringDateDate() {
-		fail("Not yet implemented");
 		Patient patient = new Patient(validTitle, validFirstName,
 				validLastName, validGender, validNHSNumber, validBloodGroup,
 				validContactNum, TimePatientJoinsQueue, LeaveTime);
@@ -128,9 +127,14 @@ public class PatientTest {
 		fail("Not yet implemented");
 	}
 
+	/**
+	 * test if boolean pulledOutOfRoom is set to true when isPulledOutOfRoom is called
+	 */
 	@Test
 	public void testIsPulledOutOfRoom() {
-		fail("Not yet implemented");
+		Patient patient = new Patient();
+		patient.isPulledOutOfRoom();
+		assertTrue(pulledOutOfRoom);
 	}
 
 	@Test
