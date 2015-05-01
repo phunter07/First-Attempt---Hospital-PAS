@@ -78,7 +78,5 @@ public class HospitalManager extends Staff implements IHospitalManager {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 	
 }

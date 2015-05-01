@@ -15,7 +15,6 @@ public class TreatmentRoomTest {
 	boolean vacant, patientTreated;
 	Date timeInTreatmentRoom, timeOutOfTreatmentRoom;
 	Patient patientInTreatmentRoom;
-	
 
 	@Test
 	public void testTreatmentRoomDefaultConstructor() {
@@ -31,21 +30,9 @@ public class TreatmentRoomTest {
 		Date actual = treatmentroom.getTimeInTreatmentRoom();
 		assertEquals(expected, actual);
 	}
-
-	@Test
-	public void testIsVacant() {
-		TreatmentRoom treatmentroom = new TreatmentRoom();
-		vacant = true;
-		treatmentroom.setVacant(true);
-		treatmentroom.isVacant();
-		assertTrue(vacant);
-	}
-
-	@Test
-	public void testSetVacant() {
-		fail("Not yet implemented");
-	}
-
+/**
+ * test of get and set for treatment room number
+ */
 	@Test
 	public void testRoomNumber() {
 		TreatmentRoom treatmentroom = new TreatmentRoom();
@@ -60,24 +47,17 @@ public class TreatmentRoomTest {
 		fail("Not yet implemented");
 	}
 
+	/**
+	 * test getter and setter for patient in treatment room
+	 */
 	@Test
-	public void testFindEmptyTreatmentRoom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetPatientTriageCategory() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetPatientInTreatmentRoom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetPatientInTreatmentRoom() {
-		fail("Not yet implemented");
+	public void testGetSetPatientInTreatmentRoom() {
+		TreatmentRoom treatmentroom = new TreatmentRoom();
+		Patient patient = new Patient();
+		Patient expected = patient;
+		treatmentroom.setPatientInTreatmentRoom(patient);
+		Patient actual = treatmentroom.getPatientInTreatmentRoom();
+		assertEquals(expected, actual);
 	}
 
 	@Test

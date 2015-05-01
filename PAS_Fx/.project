@@ -20,4 +20,11 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>.settings/powermock-easymock-1.6.2-full.jar</name>
+			<type>1</type>
+			<location>C:/Users/mr51/Downloads/powermock-easymock-junit-1.6.2/powermock-easymock-junit-1.6.2/powermock-easymock-1.6.2-full.jar</location>
+		</link>
+	</linkedResources>
 </projectDescription>

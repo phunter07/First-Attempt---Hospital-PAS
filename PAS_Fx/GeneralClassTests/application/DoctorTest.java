@@ -2,6 +2,9 @@ package application;
 
 import static org.junit.Assert.*;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -64,7 +67,14 @@ public class DoctorTest {
 
 	@Test
 	public void testPutPatientIntoQueue() {
-		fail("Not yet implemented");
+		boolean inQueue = false;
+		Patient patient = new Patient();
+		LinkedList<Patient> patientQueue  = new LinkedList<Patient>();
+		
+		Doctor doctor = new Doctor();
+		doctor.putPatientIntoQueue(patientQueue, patient);
+		assertTrue(inQueue);
+		
 	}
 
 }

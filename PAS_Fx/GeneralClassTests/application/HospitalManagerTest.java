@@ -83,9 +83,4 @@ public class HospitalManagerTest {
 		assertEquals(expected, actual);
 	}
 
-	@Test
-	public void testViewAllStaff() {
-		fail("Not yet implemented");
-	}
-
 }

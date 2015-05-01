@@ -136,8 +136,7 @@ public class TreatmentRoom {
 		this.setVacant(true);
 		this.setTimeInTreatmentRoom(null);
 		patient.setLeaveTime(new Date());
-		
-	}
+		}
 	
 	public boolean removePatientFromTreatmentroomAutomatically(){
 
