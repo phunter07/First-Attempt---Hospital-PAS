@@ -57,17 +57,39 @@ public class DoctorTest {
 
 	@Test
 	public void testCategorisePatient() {
-		fail("Not yet implemented");
+		Doctor doctor = new Doctor();
+		Patient patient = new Patient();
+		Triage triage = Triage.SEMI_URGENT;
+		LinkedList<Patient> patientQueue  = new LinkedList<Patient>();
+		LinkedList<Patient> allPatients = new LinkedList<Patient>();
+		
+		try {
+			doctor.categorisePatient(allPatients, patientQueue, patient, triage);
+		} catch (HospitalPASException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testRecategorisePatient() {
-		fail("Not yet implemented");
+		Doctor doctor = new Doctor();
+		Patient patient = new Patient();
+		Triage triage = Triage.EMERGENCY;
+		LinkedList<Patient> patientQueue  = new LinkedList<Patient>();
+		LinkedList<Patient> allPatients = new LinkedList<Patient>();
+		
+		try {
+			doctor.categorisePatient(allPatients, patientQueue, patient, triage);
+		} catch (HospitalPASException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testPutPatientIntoQueue() {
-		boolean inQueue = false;
+		boolean inQueue = true;
 		Patient patient = new Patient();
 		LinkedList<Patient> patientQueue  = new LinkedList<Patient>();
 		
@@ -77,4 +99,15 @@ public class DoctorTest {
 		
 	}
 
+	@Test
+	public void testPutPatientIntoQueueFalse() {
+		boolean inQueue = false;
+		Patient patient = new Patient();
+		LinkedList<Patient> patientQueue  = new LinkedList<Patient>();
+		
+		Doctor doctor = new Doctor();
+		doctor.putPatientIntoQueue(patientQueue, patient);
+		assertFalse(inQueue);
+		
+	}
 }

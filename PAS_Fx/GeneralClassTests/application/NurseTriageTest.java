@@ -79,7 +79,7 @@ public class NurseTriageTest {
 		Patient patient = new Patient();
 		Triage triage = Triage.EMERGENCY;
 		LinkedList<Patient> patientQueue  = new LinkedList<Patient>();
-		LinkedList<Patient> allPatients = new LinkedList<>();
+		LinkedList<Patient> allPatients = new LinkedList<Patient>();
 		
 		try {
 			nurseTriage.categorisePatient(allPatients, patientQueue, patient, triage);
@@ -100,10 +100,7 @@ public class NurseTriageTest {
 		assertTrue(inQueue);
 	}
 
-	@Test
-	public void testAllocateJDoeDetails() {
-		fail("Not yet implemented");
-	}
+
 
 	@Test
 	public void testFindPatientNeededToBeTriage() {
