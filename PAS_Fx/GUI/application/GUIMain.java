@@ -235,8 +235,7 @@ public class GUIMain extends Application {
 
 		return allStaff;
 	}
-
-}
-
-// end of GUIMain Class
+	
+	
+} // end of GUIMain Class
 

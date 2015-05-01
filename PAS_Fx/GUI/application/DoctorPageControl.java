@@ -15,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -75,9 +77,18 @@ public class DoctorPageControl implements Initializable {
 	    
 	    @FXML
 	    private Button logOut;
+	    
+	    @FXML
+	    private Menu patientMenuBar;
+	    
+	    @FXML
+	    private MenuItem searchQueueMenuItem;
+	    
 
-	    
-	    
+	    @FXML
+	    private MenuItem recategorisePatientMenuItem;
+
+	    	    
 	    @FXML
 	    void onClickLogOut(ActionEvent event) {
 	    
@@ -361,5 +372,46 @@ public class DoctorPageControl implements Initializable {
 			}
 		}
 	
-	
+
+	    @FXML
+	    void onClickRecatefgorisePatient(ActionEvent event) {
+	    	Stage newStage = new Stage();
+
+			Parent root;
+			try {
+				root = FXMLLoader.load(getClass().getResource(
+						"/application/alterTriage.fxml"));
+				Scene scene = new Scene(root, 450, 400);
+				newStage.setTitle("Hospital PAS");
+				newStage.setScene(scene);
+				newStage.setResizable(false);
+				newStage.show();
+
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		
+	    }
+
+	    @FXML
+	    void onClickSearchQueue(ActionEvent event) {
+	    	Stage newStage = new Stage();
+
+			Parent root;
+			try {
+				root = FXMLLoader.load(getClass().getResource(
+						"/application/searchPatient.fxml"));
+				Scene scene = new Scene(root, 450, 400);
+				newStage.setTitle("Hospital PAS");
+				newStage.setScene(scene);
+				newStage.setResizable(false);
+				newStage.show();
+
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+	    }
+	    
 }
