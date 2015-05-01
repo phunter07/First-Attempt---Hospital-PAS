@@ -13,8 +13,8 @@ import java.sql.Statement;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
-import application.AlertsENums;
-import application.DatabaseENums;
+import eNums.AlertsENums;
+import eNums.DatabaseENums;
 
 /**
  * class to send the Alert to the OnCall Team when the queue size reaches the

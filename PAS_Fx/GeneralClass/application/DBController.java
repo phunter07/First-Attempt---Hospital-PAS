@@ -12,10 +12,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import eNums.DatabaseENums;
+
 public class DBController {
 
 	/**
-	 * method to return the AllStaffList for the Hospital Manager GUI screen
+	 * method to return the AllStaffList for the Hspital Manager GUI screen
 	 * @return
 	 */
 	private static List<Staff> getAllStaff() {

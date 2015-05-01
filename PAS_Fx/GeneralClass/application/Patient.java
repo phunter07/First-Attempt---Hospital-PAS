@@ -10,6 +10,8 @@ package application;
 import java.util.Date;
 import java.util.Random;
 
+import eNums.Triage;
+
 public class Patient extends Person {
 
 	/**

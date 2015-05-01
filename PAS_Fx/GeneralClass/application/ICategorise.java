@@ -3,6 +3,8 @@ package application;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import eNums.Triage;
+
 /**
  * interface containing the methods to allow both the Doctor and the TriageNurse
  * to categorise/recategorise a patient's condition

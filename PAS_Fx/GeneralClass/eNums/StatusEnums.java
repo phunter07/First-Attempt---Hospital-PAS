@@ -1,4 +1,4 @@
-package application;
+package eNums;
 
 public enum StatusEnums {
 

@@ -1,4 +1,4 @@
-package application;
+package eNums;
 
 /**
  * Enums containing all the details for the Alerts messages to be sent to the

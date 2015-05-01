@@ -17,8 +17,8 @@ import java.sql.Statement;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
-import application.AlertsENums;
-import application.DatabaseENums;
+import eNums.AlertsENums;
+import eNums.DatabaseENums;
 
 public class ManagerSMSAlerts implements IAlert {
 
