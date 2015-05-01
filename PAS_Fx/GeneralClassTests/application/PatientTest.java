@@ -11,15 +11,17 @@ public class PatientTest {
 
 	// test data
 	int validEmergencyNHSNumber, invalidEmergencyNHSNumber, validNhsNumber,
-			invalidNhsNumber, validTriage, invalidTriage;
+			invalidNhsNumber, validTriage, invalidTriage, validNHSNumber,
+			invalidNHSNumber;
 	String validAllergies, invalidAllergies, validAddress, invalidAddress,
-			validBloodGroup, invalidBloodGroup, validContactNum,
-			invalidContactNum;
+			validBloodGroup, invalidBloodGroup, validContactNum, validTitle,
+			invalidTitle, validLastName, invalidLastName, validFirstName,
+			invalidFirstName, invalidContactNum;
 	long validWaitingTime, invalidWaitingTime;
 	boolean pulledOutOfRoom;
 	Date TimePatientJoinsQueue, LeaveTime;
-	
-	
+	char validGender, invalidGender;
+
 	@Before
 	public void setUp() throws Exception {
 		TimePatientJoinsQueue = new Date();
@@ -42,6 +44,15 @@ public class PatientTest {
 		validWaitingTime = 10;
 		invalidWaitingTime = -1;
 		pulledOutOfRoom = true;
+		validGender = 'F';
+		invalidGender = 'Y';
+		validTitle = "ValidTitle";
+		invalidTitle = null;
+		validFirstName = "ValidFirstName";
+		invalidFirstName = null;
+		validLastName = "ValidLastName";
+		validNHSNumber = 100;
+		invalidNHSNumber = -1;
 
 	}
 
@@ -57,6 +68,19 @@ public class PatientTest {
 	@Test
 	public void testPatientStringStringStringCharIntStringStringDateDate() {
 		fail("Not yet implemented");
+		Patient patient = new Patient(validTitle, validFirstName,
+				validLastName, validGender, validNHSNumber, validBloodGroup,
+				validContactNum, TimePatientJoinsQueue, LeaveTime);
+		assertNotNull(patient);
+		assertEquals(validGender, patient.getGender());
+		assertEquals(validTitle, patient.getTitle());
+		assertEquals(validFirstName, patient.getFirstName());
+		assertEquals(validLastName, patient.getLastName());
+		assertEquals(validNHSNumber, patient.getNhsNumber());
+		assertEquals(validBloodGroup, patient.getBloodGroup());
+		assertEquals(validContactNum, patient.getContactNum());
+		assertEquals(TimePatientJoinsQueue, patient.getTimePatientJoinsQueue());
+		assertEquals(LeaveTime, patient.getLeaveTime());
 	}
 
 	@Test
