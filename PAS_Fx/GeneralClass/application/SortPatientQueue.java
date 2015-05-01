@@ -28,8 +28,7 @@ public class SortPatientQueue {
 	 */
 	private SMSAlerts smsAlerts = new SMSAlerts();
 
-	
-	public InSitu insitu=new InSitu();
+	public InSitu insitu = new InSitu();
 
 	/**
 	 * default constructor for SortPatientComparator Class
@@ -50,19 +49,22 @@ public class SortPatientQueue {
 
 		if (patientQueue.size() <= Limits.PATIENT_LIMIT_IN_QUEUE) {
 
-			// find the longest waiting time of the patients in the queue
-			long longestWaitingTime = 0;
+			long totalWaitingTime = 0;
+			long averageWaitingTime = 0;
 
 			for (Patient patient : GUIMain.patientQueue) {
-				if (patient.getWaitingTime() > longestWaitingTime) {
-					longestWaitingTime = patient.getWaitingTime() / 1000 / 60;
+				for (int count = 0; count <= GUIMain.patientQueue.size(); count++) {
+					totalWaitingTime += patient.getWaitingTime();
 				}
+				averageWaitingTime = totalWaitingTime / patientQueue.size()
+						/ 1000 / 60;
+
 			}
-			if (longestWaitingTime >= 0 && longestWaitingTime < 10) {
+			if (averageWaitingTime >= 0 && averageWaitingTime < 10) {
 				status = 1;
-			} else if (longestWaitingTime >= 10 && longestWaitingTime < 20) {
+			} else if (averageWaitingTime >= 10 && averageWaitingTime < 20) {
 				status = 2;
-			} else if (longestWaitingTime >= 20) {
+			} else if (averageWaitingTime >= 20) {
 				status = 3;
 			} else if (GUIMain.patientQueue.size() == Limits.PATIENT_LIMIT_IN_QUEUE) {
 				status = 4;
@@ -120,7 +122,6 @@ public class SortPatientQueue {
 				if (counter == 2) {
 					managerEmailAlert
 							.generateAndSendEmailPatientsWaitingThirtyMinutes();
-					
 
 				}
 
@@ -141,7 +142,7 @@ public class SortPatientQueue {
 			// patients to the nearest hospital
 			// sendToNearestHospital(patientQueue, patient);
 			// if the queue is >= 10 calling method to send SMS to OnCall team
-			
+
 			return true;
 		}
 		return false;
@@ -162,8 +163,7 @@ public class SortPatientQueue {
 		// the nearest hospital - to be implemented in the calculate queue size
 		// method
 
-			managerEmailAlert.sendSSMSManagerOnCallFullyEngaged();
-			
+		managerEmailAlert.sendSSMSManagerOnCallFullyEngaged();
 
 	}
 
@@ -184,7 +184,7 @@ public class SortPatientQueue {
 		boolean isRoomAvailable = false;
 
 		// needs to be -1 as the array list of rooms begins with an index of 0
-		int treatmentRoom =-1;
+		int treatmentRoom = -1;
 
 		// initialising the int to get the category of the patient currently in
 		// the treatment room
@@ -198,7 +198,7 @@ public class SortPatientQueue {
 			room.setVacant(false);
 			return true;
 		}
-		
+
 		// for loop to iterate through the treatment rooms and check if a
 		// non-emergency patient can be removed to allow an emergency patient to
 		// be put in - starts at 0 because the array list of treatment rooms
@@ -213,13 +213,13 @@ public class SortPatientQueue {
 			// the reference of the treatmentRoom to the loop
 			if (!(treatmentRooms.get(loop).getPatientTriageCategory() == Triage.EMERGENCY
 					.getLevel())) {
-				
+
 				// if statement to find the highest category in the treatment
 				// room list and set the highest category of patient into the
 				// patient room
 				if (treatmentRooms.get(loop).getPatientInTreatmentRoom()
 						.getTriageCategory() > currentPatientTriageCategory) {
-					
+
 					treatmentRoom = loop;
 					currentPatientTriageCategory = treatmentRooms.get(loop)
 							.getPatientTriageCategory();
@@ -246,7 +246,7 @@ public class SortPatientQueue {
 		}
 
 		if (treatmentRoom != -1) {
-			
+
 			patientQueue.addFirst(treatmentRooms.get(treatmentRoom)
 					.getPatientInTreatmentRoom());
 			patientBeingTreated(patient, treatmentRoom, treatmentRooms);
@@ -311,27 +311,28 @@ public class SortPatientQueue {
 	 * @return
 	 * @throws HospitalPASException
 	 */
-	public boolean redirectEmergencyPatient(LinkedList<Patient> allPatients,LinkedList<Patient> patientQueue,
-			Patient patient, List<TreatmentRoom> treatmentRooms,OnCall onCall)
+	public boolean redirectEmergencyPatient(LinkedList<Patient> allPatients,
+			LinkedList<Patient> patientQueue, Patient patient,
+			List<TreatmentRoom> treatmentRooms, OnCall onCall)
 			throws HospitalPASException {
 
 		// if you are unable to put emergency patient into a treatment room then
 		// alert on call team
 		if (!pushEmergencyPatientIntoTreatmentRoom(patientQueue, patient,
 				treatmentRooms)) {
-			
-			
-			if (onCall.isOnCallEngaged1()==true&&onCall.isOnCallEngaged2()==true) {
+
+			if (onCall.isOnCallEngaged1() == true
+					&& onCall.isOnCallEngaged2() == true) {
 				allPatients.remove(patient);
 				throw new HospitalPASException(
 						ExceptionsEnums.ONCALLENGAGEDEXCEPTION.getException());
-			} else if(onCall.isOnCallEngaged1()==false){
-				
+			} else if (onCall.isOnCallEngaged1() == false) {
+
 				onCall.setOnCallEngaged1(true);
 
 				throw new HospitalPASException(
 						ExceptionsEnums.EMERGENCYSENTTOONCALL.getException());
-			}else if(onCall.isOnCallEngaged2()==false){
+			} else if (onCall.isOnCallEngaged2() == false) {
 				onCall.setOnCallEngaged2(true);
 				throw new HospitalPASException(
 						ExceptionsEnums.EMERGENCYSENTTOONCALL.getException());
@@ -342,7 +343,8 @@ public class SortPatientQueue {
 	}
 
 	/**
-	 * method to find and empty treatment room 
+	 * method to find and empty treatment room
+	 * 
 	 * @param rooms
 	 * @return
 	 */
