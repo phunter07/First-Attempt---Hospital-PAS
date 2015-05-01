@@ -10,9 +10,8 @@ import org.junit.Test;
 public class PatientTest {
 
 	// test data
-	int validEmergencyNHSNumber, invalidEmergencyNHSNumber, validNhsNumber,
-			invalidNhsNumber, validTriage, invalidTriage, validNHSNumber,
-			invalidNHSNumber;
+	int validNhsNumber, invalidNhsNumber, validTriage, invalidTriage,
+			validNHSNumber, invalidNHSNumber;
 	String validAllergies, invalidAllergies, validAddress, invalidAddress,
 			validBloodGroup, invalidBloodGroup, validContactNum, validTitle,
 			invalidTitle, validLastName, invalidLastName, validFirstName,
@@ -27,8 +26,6 @@ public class PatientTest {
 		TimePatientJoinsQueue = new Date();
 		LeaveTime = new Date();
 
-		validEmergencyNHSNumber = 999;
-		invalidEmergencyNHSNumber = -1;
 		validNhsNumber = 1000;
 		invalidNhsNumber = -1;
 		validTriage = 1;
@@ -80,11 +77,6 @@ public class PatientTest {
 		assertEquals(validContactNum, patient.getContactNum());
 		assertEquals(TimePatientJoinsQueue, patient.getTimePatientJoinsQueue());
 		assertEquals(LeaveTime, patient.getLeaveTime());
-	}
-
-	@Test
-	public void testGetTriage() {
-		fail("Not yet implemented");
 	}
 
 	/**
@@ -147,6 +139,7 @@ public class PatientTest {
 		patient.setTimePatientJoinsQueue(TimePatientJoinsQueue);
 		assertEquals(TimePatientJoinsQueue, patient.getTimePatientJoinsQueue());
 	}
+
 	/**
 	 * test of get/set LeaveTime
 	 */
@@ -157,35 +150,14 @@ public class PatientTest {
 		assertEquals(LeaveTime, patient.getLeaveTime());
 	}
 
-	@Test
-	public void testSetTriageCategory() {
-		fail("Not yet implemented");
-	}
-
 	/**
-	 * test if boolean pulledOutOfRoom is set to true when isPulledOutOfRoom is
-	 * called
+	 * test IsPulledOutOfRoom out of room and setPulledOutOfRoom
 	 */
 	@Test
 	public void testIsPulledOutOfRoom() {
 		Patient patient = new Patient();
-		patient.isPulledOutOfRoom();
-		assertTrue(pulledOutOfRoom);
-	}
-
-	@Test
-	public void testSetPulledOutOfRoom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetEmergencyNHSNumber() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
+		patient.setPulledOutOfRoom(true);
+		assertTrue(patient.isPulledOutOfRoom());
 	}
 
 }
